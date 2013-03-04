@@ -1,0 +1,32 @@
+---
+layout: post
+title: "about vm"
+date: 2013-03-04 17:21
+comments: true
+categories: rails
+---
+## VM设定时遇到的网络问题 ##
+
+----------
+
+
+
+1. 虚拟机不能上网  桥接方式
+
+          桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+
+2.  window下的putty不能连接到虚拟机上，网址也不能访问
+      
+          网址不能访问是linux下的防火墙没有关闭
+          
+          service iptables stop 注意要用root权限关闭，不然不起作用
+          
+          putty连不上的原因，是因为没有安装openssh
+          
+          yum -y install openssh-client openssh-server
+
+          安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+          service sshd start
+
+     

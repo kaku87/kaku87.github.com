@@ -1,0 +1,55 @@
+---
+layout: post
+title: "centos下搭rails开发环境时的一些记录"
+date: 2013-03-04 16:42
+comments: true
+categories: rails
+---
+安装mysql
+
+	yum -y install mysql
+
+配置文件-设置编码为utf8
+
+    vim /etc/my.cnf
+
+	[mysql]
+	default-character-set = utf8
+
+启动mysql服务
+
+	/etc/rc.d/init.d/msyqld start
+
+设置mysql随机启动
+
+	chkconfig mysqld on 
+	chkconfig --liset mysqld
+
+创建数据库
+
+	msyqladmin -u root create depot_development
+
+修改root用户的密码
+
+	update user set password = password('root') where user = 'root'
+
+	/etc/init.d/mysqld restart
+
+	mysql -uroot -p
+
+创建rails项目
+
+	rails new depot --database=mysql
+
+出现错误
+
+	mysql.h is missing.
+解决办法:
+	yum -y install mysql-devel
+
+mysql 查看表结构
+
+	desc 表名
+
+
+
