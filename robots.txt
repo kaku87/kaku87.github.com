@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://kaku87.github.com/sitemap.xml 
