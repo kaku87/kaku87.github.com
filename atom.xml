@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2013-03-04T17:17:16+09:00</updated>
+  <updated>2013-03-04T17:26:00+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[about vm]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
+    <updated>2013-03-04T17:21:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
+    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
+
+<hr />
+
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
+
+<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
+
+<pre><code>  网址不能访问是linux下的防火墙没有关闭
+
+  service iptables stop 注意要用root权限关闭，不然不起作用
+
+  putty连不上的原因，是因为没有安装openssh
+
+  yum -y install openssh-client openssh-server
+
+  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+  service sshd start
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>

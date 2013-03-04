@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: rails - kaku's Blog</title>
+  <title>about vm - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="Category: rails">
+  <meta name="description" content="VM设定时遇到的网络问题 虚拟机不能上网 桥接方式 桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上 window下的putty不能连接到虚拟机上，网址也不能访问 网址不能访问是linux下的防火墙没有关闭 service iptables stop &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/categories/rails/">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2013/03/04/about-vm/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,49 +63,108 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Rails</h1>
+    
+      <h1 class="entry-title">About Vm</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T17:21:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h2>VM设定时遇到的网络问题</h2>
 
-  
-  <h2>2013</h2>
+<hr />
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/about-vm/">about vm</a></h1>
-<time datetime="2013-03-04T17:21:00+09:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
+<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
 
+<pre><code>  网址不能访问是linux下的防火墙没有关闭
 
-</article>
+  service iptables stop 注意要用root权限关闭，不然不起作用
 
+  putty连不上的原因，是因为没有安装openssh
 
+  yum -y install openssh-client openssh-server
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a></h1>
-<time datetime="2013-03-04T16:42:00+09:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
-
-
-</article>
+  service sshd start
+</code></pre></li>
+</ol>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T17:21:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2013/03/04/about-vm/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2013/03/04/about-vm/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/04/new-post/" title="Previous Post: centos下搭rails开发环境时的一些记录">&laquo; centos下搭rails开发环境时的一些记录</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
