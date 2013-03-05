@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[kaku's Blog]]></title>
-  <link href="http://kaku87.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: linux | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
   <updated>2013-03-05T13:47:16+09:00</updated>
   <id>http://kaku87.github.com/</id>
@@ -130,7 +130,7 @@ P   粘贴粘贴板的内容到当前行的上面
 "a  将内容放入/存入a寄存器，可以支持多粘贴板
 </code></pre>
 
-<p>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为&#8221;+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<p>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为"+p,注意此处的+不表示操作符，二十一个寄存器。</p>
 
 <h1>移动光标</h1>
 
@@ -294,104 +294,6 @@ y   复制块
 d   删除块
 
 ~   切换块中内容的大小写
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[about vm]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-    <updated>2013-03-04T17:21:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
-    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
-
-<hr />
-
-<ol>
-<li><p>虚拟机不能上网  桥接方式</p>
-
-<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
-</code></pre></li>
-<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
-
-<pre><code>  网址不能访问是linux下的防火墙没有关闭
-
-  service iptables stop 注意要用root权限关闭，不然不起作用
-
-  putty连不上的原因，是因为没有安装openssh
-
-  yum -y install openssh-client openssh-server
-
-  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
-
-  service sshd start
-</code></pre></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-    <updated>2013-03-04T16:42:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
-    <content type="html"><![CDATA[<p>安装mysql</p>
-
-<pre><code>yum -y install mysql
-</code></pre>
-
-<p>配置文件-设置编码为utf8</p>
-
-<pre><code>vim /etc/my.cnf
-
-[mysql]
-default-character-set = utf8
-</code></pre>
-
-<p>启动mysql服务</p>
-
-<pre><code>/etc/rc.d/init.d/msyqld start
-</code></pre>
-
-<p>设置mysql随机启动</p>
-
-<pre><code>chkconfig mysqld on 
-chkconfig --liset mysqld
-</code></pre>
-
-<p>创建数据库</p>
-
-<pre><code>msyqladmin -u root create depot_development
-</code></pre>
-
-<p>修改root用户的密码</p>
-
-<pre><code>update user set password = password('root') where user = 'root'
-
-/etc/init.d/mysqld restart
-
-mysql -uroot -p
-</code></pre>
-
-<p>创建rails项目</p>
-
-<pre><code>rails new depot --database=mysql
-</code></pre>
-
-<p>出现错误</p>
-
-<pre><code>mysql.h is missing.
-</code></pre>
-
-<p>解决办法:</p>
-
-<pre><code>yum -y install mysql-devel
-</code></pre>
-
-<p>mysql 查看表结构</p>
-
-<pre><code>desc 表名
 </code></pre>
 ]]></content>
   </entry>
