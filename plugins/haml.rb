@@ -1,4 +1,4 @@
-module Jekyll
+﻿module Jekyll
   require 'haml'
   class HamlConverter < Converter
     safe true

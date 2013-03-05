@@ -1,4 +1,4 @@
-require 'pygments'
+﻿require 'pygments'
 require 'fileutils'
 require 'digest/md5'
 

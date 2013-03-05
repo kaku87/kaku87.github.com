@@ -1,4 +1,4 @@
-# include the MD5 gem, this should be part of a standard ruby install
+﻿# include the MD5 gem, this should be part of a standard ruby install
 require 'digest/md5'
 
 module Jekyll

@@ -1,4 +1,4 @@
-# Title: Simple Video tag for Jekyll
+﻿# Title: Simple Video tag for Jekyll
 # Author: Brandon Mathis http://brandonmathis.com
 # Description: Easily output MPEG4 HTML5 video with a flash backup.
 #

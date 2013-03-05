@@ -1,4 +1,4 @@
-module Jekyll
+﻿module Jekyll
 
   # Extended plugin type that allows the plugin
   # to be called on varous callback methods.

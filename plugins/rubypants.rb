@@ -1,4 +1,4 @@
-#
+﻿#
 # = RubyPants -- SmartyPants ported to Ruby
 #
 # Ported by Christian Neukirchen <mailto:chneukirchen@gmail.com>

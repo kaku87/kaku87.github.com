@@ -1,4 +1,4 @@
-# Title: jsFiddle tag for Jekyll
+﻿# Title: jsFiddle tag for Jekyll
 # Author: Brian Arnold (@brianarn)
 # Description:
 #   Given a jsFiddle shortcode, outputs the jsFiddle iframe code.
