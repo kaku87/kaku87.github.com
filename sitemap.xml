@@ -1,24 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://kaku87.github.com/blog/2013/03/04/new-post/</loc>
-        <lastmod>2013-03-05T13:38:00+09:00</lastmod>
-    </url>
-    <url>
         <loc>http://kaku87.github.com/blog/2013/03/04/about-vm/</loc>
         <lastmod>2013-03-05T13:37:53+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kaku87.github.com/blog/2013/03/04/new-post/</loc>
+        <lastmod>2013-03-05T13:38:00+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/2013/03/05/about-vim/</loc>
         <lastmod>2013-03-05T13:38:11+09:00</lastmod>
     </url>
     <url>
+        <loc>http://kaku87.github.com/blog/2013/03/07/impression-after-listening-of-teahour/</loc>
+        <lastmod>2013-03-07T13:38:00+09:00</lastmod>
+    </url>
+    <url>
         <loc>http://kaku87.github.com/blog/archives/</loc>
-        <lastmod>2013-03-05T13:38:11+09:00</lastmod>
+        <lastmod>2013-03-07T13:38:00+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/</loc>
-        <lastmod>2013-03-05T13:38:11+09:00</lastmod>
+        <lastmod>2013-03-07T13:38:00+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/robots.txt</loc>
