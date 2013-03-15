@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2013-03-15T16:55:19+09:00</updated>
+  <updated>2013-03-15T17:05:02+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -14,18 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[About Rails Functional Test]]></title>
+    <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/"/>
-    <updated>2013-03-15T00:00:00+09:00</updated>
+    <updated>2013-03-15T15:16:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test</id>
-    <content type="html"><![CDATA[<p>layout: post
-title: &#8220;关于rails控制器的功能测试&#8221;
-date: 2013-03-15 15:16
-comments: true</p>
-
-<h2>categories: </h2>
-
-<h1>控制器的功能测试</h1>
+    <content type="html"><![CDATA[<h1>控制器的功能测试</h1>
 
 <pre><code> require File.dirname(__FILE__) + '/../test_helper'
 </code></pre>
