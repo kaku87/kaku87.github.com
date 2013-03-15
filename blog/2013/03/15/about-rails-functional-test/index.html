@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="utf8"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: rails - kaku's Blog</title>
+  <title>关于rails控制器的功能测试 - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="Category: rails">
+  <meta name="description" content="控制器的功能测试 require File.dirname(__FILE__) + '/../test_helper' 关键在于setup方法，有三个东西
+1.controller
+2.request
+3.response get()方法时由测试辅助类提供的， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/categories/rails/">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,50 +78,184 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Rails</h1>
+    
+      <h1 class="entry-title">关于rails控制器的功能测试</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h1>控制器的功能测试</h1>
 
-  
-  <h2>2013</h2>
+<pre><code> require File.dirname(__FILE__) + '/../test_helper'
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/about-vm/">about vm</a></h1>
-<time datetime="2013-03-04T17:21:00+09:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+<p>关键在于setup方法，有三个东西
+1.controller
+2.request
+3.response</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
+<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
+然后用assert_response来检查是否应答正确</p>
 
+<p>-n可以指定运行某一个特定的测试方法</p>
 
-</article>
+<pre><code> ruby test/functional/logni_controller_test.rb -n test_index
+</code></pre>
 
+<p>assert_redirected_to :action=>&#8221;login&#8221;</p>
 
+<h1>Dynamic Fixtures</h1>
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a></h1>
-<time datetime="2013-03-04T16:42:00+09:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+<p>在夹具中也可以使用ruby代码动态加入</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
+<p>assert_template &#8220;index&#8221; 对模版进行断言</p>
 
+<h1>测试登录</h1>
 
-</article>
+<p>def test_login
+  dave = users(:dave)
+  post :login, :nmae=>dave.name, :password=>&#8217;secret&#8217;
+  assert_redirected_to :action=>&#8221;index&#8221;
+  assert_equal dave.id, session[:user_id]
+end</p>
 
+<h1>HTTP请求方法</h1>
+
+<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP</p>
+
+<p>RESPONSE</p>
+
+<pre><code> 例: get(action,parameteres=nil,session=nil,flash=nil)
+</code></pre>
+
+<p>post() 提交表单</p>
+
+<pre><code> 例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
+
+ *模拟XMLHttp请求
+ xhr(method,action,parameters,session,flash)
+</code></pre>
+
+<p>put(),delete(),head()</p>
+
+<h1>功能测试的断言</h1>
+
+<pre><code> assert_dom_equal(expected_html,actual_html,message)
+ 例:assert_dom_equal(expected,@response.body)
+
+ assert_response(type,message)
+ type的种类
+ 1.:success
+ 2.:redirect
+ 3.:missing
+ 4.:error
+ 例:assert_response :success
+</code></pre>
+
+<h1>变量</h1>
+
+<pre><code> assigns(key=nil)
+      assert_not_nil assigns["items"]
+ session
+      assert_equal 2, session[:cart].items.size
+ flash
+      assert_equal "Danger!", flash[:notice]
+ cookies
+      assert_equal "Danger!", cookies[:name]
+ redirect_to_url
+      assert_equal "http://test.host/login", redirect_to_url
+</code></pre>
+
+<h1>辅助方法</h1>
+
+<pre><code> find_tag(conditions)
+ find_all_tag(conditions)
+ follow_redirect
+ fixture_file_upload(path,mime_type)
+</code></pre>
+
+<h1>测试response的content</h1>
+
+<p>   使用强大的assert_select</p>
+
+<pre><code> assert_select "title",  "TEST"
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/07/impression-after-listening-of-teahour/" title="Previous Post: 听完teahour后的一些感想">&laquo; 听完teahour后的一些感想</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -197,7 +334,10 @@
       var disqus_shortname = 'kaku87blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/';
+        var disqus_url = 'http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

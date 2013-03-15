@@ -9,9 +9,10 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="刚开始接触ruby和rails还是第一次rubyconf china上海大会的时候，那时只是觉的这又是一门刚刚兴
-起的语言，在学校和开始工作以后接触了这么多语言以后，就觉得也许它是适用于某个特殊行业，所以才流
-行起来的，没必要特别关注，写代码嘛万变不离其宗，只要搞懂一门语言就会一通百通。 &hellip;">
+  <meta name="description" content="控制器的功能测试 require File.dirname(__FILE__) + '/../test_helper' 关键在于setup方法，有三个东西
+1.controller
+2.request
+3.response get()方法时由测试辅助类提供的， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,139 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/03/15/about-rails-functional-test/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>控制器的功能测试</h1>
+
+<pre><code> require File.dirname(__FILE__) + '/../test_helper'
+</code></pre>
+
+<p>关键在于setup方法，有三个东西
+1.controller
+2.request
+3.response</p>
+
+<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
+然后用assert_response来检查是否应答正确</p>
+
+<p>-n可以指定运行某一个特定的测试方法</p>
+
+<pre><code> ruby test/functional/logni_controller_test.rb -n test_index
+</code></pre>
+
+<p>assert_redirected_to :action=>&#8221;login&#8221;</p>
+
+<h1>Dynamic Fixtures</h1>
+
+<p>在夹具中也可以使用ruby代码动态加入</p>
+
+<p>assert_template &#8220;index&#8221; 对模版进行断言</p>
+
+<h1>测试登录</h1>
+
+<p>def test_login
+  dave = users(:dave)
+  post :login, :nmae=>dave.name, :password=>&#8217;secret&#8217;
+  assert_redirected_to :action=>&#8221;index&#8221;
+  assert_equal dave.id, session[:user_id]
+end</p>
+
+<h1>HTTP请求方法</h1>
+
+<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP</p>
+
+<p>RESPONSE</p>
+
+<pre><code> 例: get(action,parameteres=nil,session=nil,flash=nil)
+</code></pre>
+
+<p>post() 提交表单</p>
+
+<pre><code> 例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
+
+ *模拟XMLHttp请求
+ xhr(method,action,parameters,session,flash)
+</code></pre>
+
+<p>put(),delete(),head()</p>
+
+<h1>功能测试的断言</h1>
+
+<pre><code> assert_dom_equal(expected_html,actual_html,message)
+ 例:assert_dom_equal(expected,@response.body)
+
+ assert_response(type,message)
+ type的种类
+ 1.:success
+ 2.:redirect
+ 3.:missing
+ 4.:error
+ 例:assert_response :success
+</code></pre>
+
+<h1>变量</h1>
+
+<pre><code> assigns(key=nil)
+      assert_not_nil assigns["items"]
+ session
+      assert_equal 2, session[:cart].items.size
+ flash
+      assert_equal "Danger!", flash[:notice]
+ cookies
+      assert_equal "Danger!", cookies[:name]
+ redirect_to_url
+      assert_equal "http://test.host/login", redirect_to_url
+</code></pre>
+
+<h1>辅助方法</h1>
+
+<pre><code> find_tag(conditions)
+ find_all_tag(conditions)
+ follow_redirect
+ fixture_file_upload(path,mime_type)
+</code></pre>
+
+<h1>测试response的content</h1>
+
+<p>   使用强大的assert_select</p>
+
+<pre><code> assert_select "title",  "TEST"
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -643,6 +777,10 @@ mysql -uroot -p
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/03/07/impression-after-listening-of-teahour/">听完teahour后的一些感想</a>
