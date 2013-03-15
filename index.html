@@ -9,10 +9,10 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="控制器的功能测试 require File.dirname(__FILE__) + '/../test_helper' 关键在于setup方法，有三个东西
-1.controller
-2.request
-3.response get()方法时由测试辅助类提供的， &hellip;">
+  <meta name="description" content="layout: post
+title: &#8220;关于rails控制器的功能测试&#8221;
+date: 2013-03-15 15:16
+comments: true categories: 控制器的功能测试 require File.dirname(__FILE__) + '/../ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,7 +85,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/03/15/about-rails-functional-test/">About Rails Functional Test</a></h1>
     
     
       <p class="meta">
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+<time datetime="2013-03-15T00:00:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/03/15/about-rails-functional-test/#disqus_thread">Comments</a>
         
@@ -110,15 +110,24 @@
   </header>
 
 
-  <div class="entry-content"><h1>控制器的功能测试</h1>
+  <div class="entry-content"><p>layout: post
+title: &#8220;关于rails控制器的功能测试&#8221;
+date: 2013-03-15 15:16
+comments: true</p>
+
+<h2>categories: </h2>
+
+<h1>控制器的功能测试</h1>
 
 <pre><code> require File.dirname(__FILE__) + '/../test_helper'
 </code></pre>
 
-<p>关键在于setup方法，有三个东西
-1.controller
+<p>关键在于setup方法，有三个东西</p>
+
+<pre><code>1.controller
 2.request
-3.response</p>
+3.response
+</code></pre>
 
 <p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
 然后用assert_response来检查是否应答正确</p>
@@ -138,27 +147,26 @@
 
 <h1>测试登录</h1>
 
-<p>def test_login
+<pre><code>def test_login
   dave = users(:dave)
-  post :login, :nmae=>dave.name, :password=>&#8217;secret&#8217;
-  assert_redirected_to :action=>&#8221;index&#8221;
+  post :login, :nmae=&gt;dave.name, :password=&gt;'secret'
+  assert_redirected_to :action=&gt;"index"
   assert_equal dave.id, session[:user_id]
-end</p>
+end
+</code></pre>
 
 <h1>HTTP请求方法</h1>
 
-<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP</p>
+<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
 
-<p>RESPONSE</p>
-
-<pre><code> 例: get(action,parameteres=nil,session=nil,flash=nil)
+<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
 </code></pre>
 
 <p>post() 提交表单</p>
 
-<pre><code> 例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
+<pre><code>例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
 
- *模拟XMLHttp请求
+ 模拟XMLHttp请求
  xhr(method,action,parameters,session,flash)
 </code></pre>
 
@@ -779,7 +787,7 @@ mysql -uroot -p
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a>
+        <a href="/blog/2013/03/15/about-rails-functional-test/">About Rails Functional Test</a>
       </li>
     
       <li class="post">

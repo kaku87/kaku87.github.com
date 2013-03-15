@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2013-03-15T16:46:42+09:00</updated>
+  <updated>2013-03-15T16:55:19+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -14,19 +14,28 @@
 
   
   <entry>
-    <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
+    <title type="html"><![CDATA[About Rails Functional Test]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/"/>
-    <updated>2013-03-15T15:16:00+09:00</updated>
+    <updated>2013-03-15T00:00:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test</id>
-    <content type="html"><![CDATA[<h1>控制器的功能测试</h1>
+    <content type="html"><![CDATA[<p>layout: post
+title: &#8220;关于rails控制器的功能测试&#8221;
+date: 2013-03-15 15:16
+comments: true</p>
+
+<h2>categories: </h2>
+
+<h1>控制器的功能测试</h1>
 
 <pre><code> require File.dirname(__FILE__) + '/../test_helper'
 </code></pre>
 
-<p>关键在于setup方法，有三个东西
-1.controller
+<p>关键在于setup方法，有三个东西</p>
+
+<pre><code>1.controller
 2.request
-3.response</p>
+3.response
+</code></pre>
 
 <p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
 然后用assert_response来检查是否应答正确</p>
@@ -46,27 +55,26 @@
 
 <h1>测试登录</h1>
 
-<p>def test_login
+<pre><code>def test_login
   dave = users(:dave)
-  post :login, :nmae=>dave.name, :password=>&#8217;secret&#8217;
-  assert_redirected_to :action=>&#8221;index&#8221;
+  post :login, :nmae=&gt;dave.name, :password=&gt;'secret'
+  assert_redirected_to :action=&gt;"index"
   assert_equal dave.id, session[:user_id]
-end</p>
+end
+</code></pre>
 
 <h1>HTTP请求方法</h1>
 
-<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP</p>
+<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
 
-<p>RESPONSE</p>
-
-<pre><code> 例: get(action,parameteres=nil,session=nil,flash=nil)
+<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
 </code></pre>
 
 <p>post() 提交表单</p>
 
-<pre><code> 例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
+<pre><code>例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
 
- *模拟XMLHttp请求
+ 模拟XMLHttp请求
  xhr(method,action,parameters,session,flash)
 </code></pre>
 
