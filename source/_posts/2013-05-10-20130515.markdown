@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Rails3.0でモデルのER図を簡単に出力する方法"
+date: 2013-05-10 09:38
+comments: true
+categories: ruby
+---
+
+	* graphvizをインストール
+	* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
+	* 「rake erd」を実行
+
+
