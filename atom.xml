@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2013-03-15T17:05:02+09:00</updated>
+  <updated>2013-07-17T22:28:50+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
+    <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
+    <updated>2013-05-10T09:38:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
+    <content type="html"><![CDATA[<pre><code>* graphvizをインストール
+* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
+* 「rake erd」を実行
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
@@ -524,6 +536,15 @@ mysql -uroot -p
 
 <pre><code>desc 表名
 </code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[new Post]]></title>
+    <link href="http://kaku87.github.com/blog/2013/02/20/new-post/"/>
+    <updated>2013-02-20T11:41:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/02/20/new-post</id>
+    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
