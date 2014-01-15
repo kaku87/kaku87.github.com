@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2014-01-15T08:52:53+00:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[about vm]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
+    <updated>2013-03-04T17:21:00+00:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
+    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
+
+<hr />
+
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
+
+<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
+
+<pre><code>  网址不能访问是linux下的防火墙没有关闭
+
+  service iptables stop 注意要用root权限关闭，不然不起作用
+
+  putty连不上的原因，是因为没有安装openssh
+
+  yum -y install openssh-client openssh-server
+
+  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+  service sshd start
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
+    <updated>2013-03-04T16:42:00+00:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
+    <content type="html"><![CDATA[<p>安装mysql</p>
+
+<pre><code>yum -y install mysql
+</code></pre>
+
+<p>配置文件-设置编码为utf8</p>
+
+<pre><code>vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+</code></pre>
+
+<p>启动mysql服务</p>
+
+<pre><code>/etc/rc.d/init.d/msyqld start
+</code></pre>
+
+<p>设置mysql随机启动</p>
+
+<pre><code>chkconfig mysqld on 
+chkconfig --liset mysqld
+</code></pre>
+
+<p>创建数据库</p>
+
+<pre><code>msyqladmin -u root create depot_development
+</code></pre>
+
+<p>修改root用户的密码</p>
+
+<pre><code>update user set password = password('root') where user = 'root'
+
+/etc/init.d/mysqld restart
+
+mysql -uroot -p
+</code></pre>
+
+<p>创建rails项目</p>
+
+<pre><code>rails new depot --database=mysql
+</code></pre>
+
+<p>出现错误</p>
+
+<pre><code>mysql.h is missing.
+</code></pre>
+
+<p>解决办法:</p>
+
+<pre><code>yum -y install mysql-devel
+</code></pre>
+
+<p>mysql 查看表结构</p>
+
+<pre><code>desc 表名
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

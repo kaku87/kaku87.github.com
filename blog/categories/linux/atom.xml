@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-<<<<<<< HEAD
-  <title><![CDATA[天平小胖的 Blog]]></title>
-  <link href="http://kaku87.github.com/atom.xml" rel="self"/>
-  <link href="http://kaku87.github.com/"/>
-  <updated>2013-02-19T22:22:59+09:00</updated>
-=======
-  <title><![CDATA[kaku's Blog]]></title>
-  <link href="http://kaku87.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: linux | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
   <updated>2014-01-15T08:52:53+00:00</updated>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -19,145 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-<<<<<<< HEAD
-    <title type="html"><![CDATA[hello]]></title>
-    <link href="http://kaku87.github.com/blog/2013/02/19/hello/"/>
-    <updated>2013-02-19T21:31:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/02/19/hello</id>
-    <content type="html"><![CDATA[
-=======
-    <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
-    <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
-    <updated>2013-05-10T09:38:00+00:00</updated>
-    <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
-    <content type="html"><![CDATA[<pre><code>* graphvizをインストール
-* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
-* 「rake erd」を実行
-</code></pre>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
-]]></content>
-  </entry>
-  
-  <entry>
-<<<<<<< HEAD
-    <title type="html"><![CDATA[First Post]]></title>
-    <link href="http://kaku87.github.com/blog/2013/02/19/first-post/"/>
-    <updated>2013-02-19T00:00:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/02/19/first-post</id>
-    <content type="html"><![CDATA[<p>yout: post
-title: &#8220;これはテスト記事です&#8221;
-date: 2012-10-06 1:00
-comments: true</p>
-
-<h2>categories:</h2>
-
-<p>テスト</p>
-=======
-    <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/"/>
-    <updated>2013-03-15T15:16:00+00:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test</id>
-    <content type="html"><![CDATA[<h1>控制器的功能测试</h1>
-
-<pre><code> require File.dirname(__FILE__) + '/../test_helper'
-</code></pre>
-
-<p>关键在于setup方法，有三个东西</p>
-
-<pre><code>1.controller
-2.request
-3.response
-</code></pre>
-
-<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
-然后用assert_response来检查是否应答正确</p>
-
-<p>-n可以指定运行某一个特定的测试方法</p>
-
-<pre><code> ruby test/functional/logni_controller_test.rb -n test_index
-</code></pre>
-
-<p>assert_redirected_to :action=>&#8221;login&#8221;</p>
-
-<h1>Dynamic Fixtures</h1>
-
-<p>在夹具中也可以使用ruby代码动态加入</p>
-
-<p>assert_template &#8220;index&#8221; 对模版进行断言</p>
-
-<h1>测试登录</h1>
-
-<pre><code>def test_login
-  dave = users(:dave)
-  post :login, :nmae=&gt;dave.name, :password=&gt;'secret'
-  assert_redirected_to :action=&gt;"index"
-  assert_equal dave.id, session[:user_id]
-end
-</code></pre>
-
-<h1>HTTP请求方法</h1>
-
-<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
-
-<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
-</code></pre>
-
-<p>post() 提交表单</p>
-
-<pre><code>例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
-
- 模拟XMLHttp请求
- xhr(method,action,parameters,session,flash)
-</code></pre>
-
-<p>put(),delete(),head()</p>
-
-<h1>功能测试的断言</h1>
-
-<pre><code> assert_dom_equal(expected_html,actual_html,message)
- 例:assert_dom_equal(expected,@response.body)
-
- assert_response(type,message)
- type的种类
- 1.:success
- 2.:redirect
- 3.:missing
- 4.:error
- 例:assert_response :success
-</code></pre>
-
-<h1>变量</h1>
-
-<pre><code> assigns(key=nil)
-      assert_not_nil assigns["items"]
- session
-      assert_equal 2, session[:cart].items.size
- flash
-      assert_equal "Danger!", flash[:notice]
- cookies
-      assert_equal "Danger!", cookies[:name]
- redirect_to_url
-      assert_equal "http://test.host/login", redirect_to_url
-</code></pre>
-
-<h1>辅助方法</h1>
-
-<pre><code> find_tag(conditions)
- find_all_tag(conditions)
- follow_redirect
- fixture_file_upload(path,mime_type)
-</code></pre>
-
-<h1>测试response的content</h1>
-
-<p>   使用强大的assert_select</p>
-
-<pre><code> assert_select "title",  "TEST"
-</code></pre>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
@@ -276,7 +130,7 @@ P   粘贴粘贴板的内容到当前行的上面
 "a  将内容放入/存入a寄存器，可以支持多粘贴板
 </code></pre>
 
-<p>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为&#8221;+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<p>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为"+p,注意此处的+不表示操作符，二十一个寄存器。</p>
 
 <h1>移动光标</h1>
 
@@ -441,105 +295,6 @@ d   删除块
 
 ~   切换块中内容的大小写
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[about vm]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-    <updated>2013-03-04T17:21:00+00:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
-    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
-
-<hr />
-
-<ol>
-<li><p>虚拟机不能上网  桥接方式</p>
-
-<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
-</code></pre></li>
-<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
-
-<pre><code>  网址不能访问是linux下的防火墙没有关闭
-
-  service iptables stop 注意要用root权限关闭，不然不起作用
-
-  putty连不上的原因，是因为没有安装openssh
-
-  yum -y install openssh-client openssh-server
-
-  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
-
-  service sshd start
-</code></pre></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-    <updated>2013-03-04T16:42:00+00:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
-    <content type="html"><![CDATA[<p>安装mysql</p>
-
-<pre><code>yum -y install mysql
-</code></pre>
-
-<p>配置文件-设置编码为utf8</p>
-
-<pre><code>vim /etc/my.cnf
-
-[mysql]
-default-character-set = utf8
-</code></pre>
-
-<p>启动mysql服务</p>
-
-<pre><code>/etc/rc.d/init.d/msyqld start
-</code></pre>
-
-<p>设置mysql随机启动</p>
-
-<pre><code>chkconfig mysqld on 
-chkconfig --liset mysqld
-</code></pre>
-
-<p>创建数据库</p>
-
-<pre><code>msyqladmin -u root create depot_development
-</code></pre>
-
-<p>修改root用户的密码</p>
-
-<pre><code>update user set password = password('root') where user = 'root'
-
-/etc/init.d/mysqld restart
-
-mysql -uroot -p
-</code></pre>
-
-<p>创建rails项目</p>
-
-<pre><code>rails new depot --database=mysql
-</code></pre>
-
-<p>出现错误</p>
-
-<pre><code>mysql.h is missing.
-</code></pre>
-
-<p>解决办法:</p>
-
-<pre><code>yum -y install mysql-devel
-</code></pre>
-
-<p>mysql 查看表结构</p>
-
-<pre><code>desc 表名
-</code></pre>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 ]]></content>
   </entry>
   

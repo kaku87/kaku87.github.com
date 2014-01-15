@@ -13,8 +13,13 @@ var github = (function(){
   return {
     showRepos: function(options){
       $.ajax({
+<<<<<<< HEAD
           url: "https://api.github.com/users/"+options.user+"/repos?sort=pushed;callback=?"
         , type: 'jsonp'
+=======
+          url: "https://api.github.com/users/"+options.user+"/repos?sort=pushed&callback=?"
+        , dataType: 'jsonp'
+>>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
         , error: function (err) { $(options.target + ' li.loading').addClass('error').text("Error loading feed"); }
         , success: function(data) {
           var repos = [];

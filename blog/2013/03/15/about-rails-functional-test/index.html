@@ -5,24 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
-  <title>Blog Archive - 天平小胖的 Blog</title>
+  <title>关于rails控制器的功能测试 - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content=" Blog Archive 2013 hello
-Feb 19 2013 First Post
-Feb 19 2013 关于我 有各种爱的IT小胖 我的摄影空间 Recent Posts hello First Post ">
-=======
-  <title>Blog Archive - kaku's Blog</title>
-  <meta name="author" content="kaku">
-
-  
-  <meta name="description" content="Blog Archive 2013 Rails3.0でモデルのER図を簡単に出力する方法
-May 10 2013 posted in ruby 关于rails控制器的功能测试
-Mar 15 2013 对于vim命令的一些总结
-Mar 05 2013 posted in linux about &hellip;">
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+  <meta name="description" content="控制器的功能测试 require File.dirname(__FILE__) + '/../test_helper' 关键在于setup方法，有三个东西 1.controller
+2.request
+3.response get()方法时由测试辅助类提供的， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -31,29 +20,7 @@ Mar 05 2013 posted in linux about &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-<<<<<<< HEAD
-  <link rel="canonical" href="http://kaku87.github.com/blog/archives/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="天平小胖的 Blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">天平小胖的 Blog</a></h1>
-  
-    <h2>http://weibo.com/kaku87</h2>
-=======
-  <link rel="canonical" href="http://kaku87.github.com/blog/archives">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -86,7 +53,6 @@ Mar 05 2013 posted in linux about &hellip;">
   <h1><a href="/">kaku's Blog</a></h1>
   
     <h2>有各种爱的IT从业人员</h2>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
   
 </hgroup>
 
@@ -112,119 +78,193 @@ Mar 05 2013 posted in linux about &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">关于rails控制器的功能测试</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-15T15:16:00+00:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h1>控制器的功能测试</h1>
 
-  
-  <h2>2013</h2>
+<pre><code> require File.dirname(__FILE__) + '/../test_helper'
+</code></pre>
 
-<article>
-  
-<<<<<<< HEAD
-<h1><a href="/blog/2013/02/19/hello/">hello</a></h1>
-<time datetime="2013-02-19T21:31:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-=======
-<h1><a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a></h1>
-<time datetime="2013-05-10T09:38:00+00:00" pubdate><span class='month'>May</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+<p>关键在于setup方法，有三个东西</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<pre><code>1.controller
+2.request
+3.response
+</code></pre>
 
+<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
+然后用assert_response来检查是否应答正确</p>
 
-</article>
+<p>-n可以指定运行某一个特定的测试方法</p>
 
+<pre><code> ruby test/functional/logni_controller_test.rb -n test_index
+</code></pre>
 
+<p>assert_redirected_to :action=>&#8221;login&#8221;</p>
 
-<article>
-  
-<h1><a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a></h1>
-<time datetime="2013-03-15T15:16:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>15</span> <span class='year'>2013</span></time>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+<h1>Dynamic Fixtures</h1>
 
+<p>在夹具中也可以使用ruby代码动态加入</p>
 
-</article>
+<p>assert_template &#8220;index&#8221; 对模版进行断言</p>
 
+<h1>测试登录</h1>
 
+<pre><code>def test_login
+  dave = users(:dave)
+  post :login, :nmae=&gt;dave.name, :password=&gt;'secret'
+  assert_redirected_to :action=&gt;"index"
+  assert_equal dave.id, session[:user_id]
+end
+</code></pre>
 
-<article>
-  
-<<<<<<< HEAD
-<h1><a href="/blog/2013/02/19/first-post/">First Post</a></h1>
-<time datetime="2013-02-19T00:00:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-=======
-<h1><a href="/blog/2013/03/05/about-vim/">对于vim命令的一些总结</a></h1>
-<time datetime="2013-03-05T12:00:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>05</span> <span class='year'>2013</span></time>
+<h1>HTTP请求方法</h1>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/linux/'>linux</a></span>
-</footer>
+<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
 
+<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
+</code></pre>
 
-</article>
+<p>post() 提交表单</p>
 
+<pre><code>例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
 
+ 模拟XMLHttp请求
+ xhr(method,action,parameters,session,flash)
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/about-vm/">about vm</a></h1>
-<time datetime="2013-03-04T17:21:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+<p>put(),delete(),head()</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
+<h1>功能测试的断言</h1>
 
+<pre><code> assert_dom_equal(expected_html,actual_html,message)
+ 例:assert_dom_equal(expected,@response.body)
 
-</article>
+ assert_response(type,message)
+ type的种类
+ 1.:success
+ 2.:redirect
+ 3.:missing
+ 4.:error
+ 例:assert_response :success
+</code></pre>
 
+<h1>变量</h1>
 
+<pre><code> assigns(key=nil)
+      assert_not_nil assigns["items"]
+ session
+      assert_equal 2, session[:cart].items.size
+ flash
+      assert_equal "Danger!", flash[:notice]
+ cookies
+      assert_equal "Danger!", cookies[:name]
+ redirect_to_url
+      assert_equal "http://test.host/login", redirect_to_url
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a></h1>
-<time datetime="2013-03-04T16:42:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
+<h1>辅助方法</h1>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+<pre><code> find_tag(conditions)
+ find_all_tag(conditions)
+ follow_redirect
+ fixture_file_upload(path,mime_type)
+</code></pre>
 
+<h1>测试response的content</h1>
 
-</article>
+<p>   使用强大的assert_select</p>
 
+<pre><code> assert_select "title",  "TEST"
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-15T15:16:00+00:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/05/about-vim/" title="Previous Post: 对于vim命令的一些总结">&laquo; 对于vim命令的一些总结</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/05/10/20130515/" title="Next Post: Rails3.0でモデルのER図を簡単に出力する方法">Rails3.0でモデルのER図を簡単に出力する方法 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
-<<<<<<< HEAD
-=======
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+
 </div>
 
 <aside class="sidebar">
   
-<<<<<<< HEAD
-    
-<section>
-	<span>
-		<img src="http://www.gravatar.com/avatar/45b4a702314975b51fa30175cfd20ad9" alt="Gravatar of kaku " title="Gravatar of kaku" />
-	</span>
-</section>
-<section>
-  <h1>关于我</h1>
-  <p>有各种爱的IT小胖</p>
-  <a href = "http://kaku87.pp.163.com/>我的摄影空间</a>
-=======
     
 <section>
 	<span>
@@ -250,7 +290,6 @@ Mar 05 2013 posted in linux about &hellip;">
   
     <a href="http://twitter.com/ghjcumt2008" class="twitter-follow-button" data-show-count="false">Follow @ghjcumt2008</a>
   
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 </section>
 
 <section>
@@ -258,13 +297,6 @@ Mar 05 2013 posted in linux about &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
-<<<<<<< HEAD
-        <a href="/blog/2013/02/19/hello/">hello</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/19/first-post/">First Post</a>
-=======
         <a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a>
       </li>
     
@@ -282,7 +314,6 @@ Mar 05 2013 posted in linux about &hellip;">
     
       <li class="post">
         <a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
       </li>
     
   </ul>
@@ -295,26 +326,21 @@ Mar 05 2013 posted in linux about &hellip;">
     </div>
   </div>
   <footer role="contentinfo"><p>
-<<<<<<< HEAD
-  Copyright &copy; 2013 - kaku -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-=======
   Copyright &copy; 2014 - kaku -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 </p>
 
 </footer>
   
 
-<<<<<<< HEAD
-
-=======
 <script type="text/javascript">
       var disqus_shortname = 'kaku87blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/';
+        var disqus_url = 'http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -336,7 +362,6 @@ Mar 05 2013 posted in linux about &hellip;">
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 
 
 

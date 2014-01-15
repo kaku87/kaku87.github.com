@@ -5,24 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
-  <title>Blog Archive - 天平小胖的 Blog</title>
+  <title>about vm - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content=" Blog Archive 2013 hello
-Feb 19 2013 First Post
-Feb 19 2013 关于我 有各种爱的IT小胖 我的摄影空间 Recent Posts hello First Post ">
-=======
-  <title>Blog Archive - kaku's Blog</title>
-  <meta name="author" content="kaku">
-
-  
-  <meta name="description" content="Blog Archive 2013 Rails3.0でモデルのER図を簡単に出力する方法
-May 10 2013 posted in ruby 关于rails控制器的功能测试
-Mar 15 2013 对于vim命令的一些总结
-Mar 05 2013 posted in linux about &hellip;">
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+  <meta name="description" content="VM设定时遇到的网络问题 虚拟机不能上网 桥接方式 桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上 window下的putty不能连接到虚拟机上，网址也不能访问 网址不能访问是linux下的防火墙没有关闭 service iptables stop &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -31,29 +18,7 @@ Mar 05 2013 posted in linux about &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-<<<<<<< HEAD
-  <link rel="canonical" href="http://kaku87.github.com/blog/archives/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="天平小胖的 Blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">天平小胖的 Blog</a></h1>
-  
-    <h2>http://weibo.com/kaku87</h2>
-=======
-  <link rel="canonical" href="http://kaku87.github.com/blog/archives">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2013/03/04/about-vm">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -86,7 +51,6 @@ Mar 05 2013 posted in linux about &hellip;">
   <h1><a href="/">kaku's Blog</a></h1>
   
     <h2>有各种爱的IT从业人员</h2>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
   
 </hgroup>
 
@@ -112,119 +76,127 @@ Mar 05 2013 posted in linux about &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">About Vm</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T17:21:00+00:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h2>VM设定时遇到的网络问题</h2>
 
-  
-  <h2>2013</h2>
+<hr />
 
-<article>
-  
-<<<<<<< HEAD
-<h1><a href="/blog/2013/02/19/hello/">hello</a></h1>
-<time datetime="2013-02-19T21:31:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-=======
-<h1><a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a></h1>
-<time datetime="2013-05-10T09:38:00+00:00" pubdate><span class='month'>May</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
 
+<pre><code>  网址不能访问是linux下的防火墙没有关闭
 
-</article>
+  service iptables stop 注意要用root权限关闭，不然不起作用
 
+  putty连不上的原因，是因为没有安装openssh
 
+  yum -y install openssh-client openssh-server
 
-<article>
-  
-<h1><a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a></h1>
-<time datetime="2013-03-15T15:16:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>15</span> <span class='year'>2013</span></time>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
 
-
-</article>
-
-
-
-<article>
-  
-<<<<<<< HEAD
-<h1><a href="/blog/2013/02/19/first-post/">First Post</a></h1>
-<time datetime="2013-02-19T00:00:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-=======
-<h1><a href="/blog/2013/03/05/about-vim/">对于vim命令的一些总结</a></h1>
-<time datetime="2013-03-05T12:00:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>05</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/linux/'>linux</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/03/04/about-vm/">about vm</a></h1>
-<time datetime="2013-03-04T17:21:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a></h1>
-<time datetime="2013-03-04T16:42:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a></span>
-</footer>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
-
-
-</article>
+  service sshd start
+</code></pre></li>
+</ol>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T17:21:00+00:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2013/03/04/about-vm/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2013/03/04/about-vm/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/04/new-post/" title="Previous Post: centos下搭rails开发环境时的一些记录">&laquo; centos下搭rails开发环境时的一些记录</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/05/about-vim/" title="Next Post: 对于vim命令的一些总结">对于vim命令的一些总结 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
-<<<<<<< HEAD
-=======
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+
 </div>
 
 <aside class="sidebar">
   
-<<<<<<< HEAD
-    
-<section>
-	<span>
-		<img src="http://www.gravatar.com/avatar/45b4a702314975b51fa30175cfd20ad9" alt="Gravatar of kaku " title="Gravatar of kaku" />
-	</span>
-</section>
-<section>
-  <h1>关于我</h1>
-  <p>有各种爱的IT小胖</p>
-  <a href = "http://kaku87.pp.163.com/>我的摄影空间</a>
-=======
     
 <section>
 	<span>
@@ -250,7 +222,6 @@ Mar 05 2013 posted in linux about &hellip;">
   
     <a href="http://twitter.com/ghjcumt2008" class="twitter-follow-button" data-show-count="false">Follow @ghjcumt2008</a>
   
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 </section>
 
 <section>
@@ -258,13 +229,6 @@ Mar 05 2013 posted in linux about &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
-<<<<<<< HEAD
-        <a href="/blog/2013/02/19/hello/">hello</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/19/first-post/">First Post</a>
-=======
         <a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a>
       </li>
     
@@ -282,7 +246,6 @@ Mar 05 2013 posted in linux about &hellip;">
     
       <li class="post">
         <a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
       </li>
     
   </ul>
@@ -295,26 +258,21 @@ Mar 05 2013 posted in linux about &hellip;">
     </div>
   </div>
   <footer role="contentinfo"><p>
-<<<<<<< HEAD
-  Copyright &copy; 2013 - kaku -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-=======
   Copyright &copy; 2014 - kaku -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 </p>
 
 </footer>
   
 
-<<<<<<< HEAD
-
-=======
 <script type="text/javascript">
       var disqus_shortname = 'kaku87blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2013/03/04/about-vm/';
+        var disqus_url = 'http://kaku87.github.com/blog/2013/03/04/about-vm/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -336,7 +294,6 @@ Mar 05 2013 posted in linux about &hellip;">
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
->>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 
 
 
