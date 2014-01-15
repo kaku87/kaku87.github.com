@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2013-07-17T23:06:57+09:00</updated>
+  <updated>2014-01-15T05:23:49+00:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/05/about-vim/"/>
-    <updated>2013-03-05T12:00:00+09:00</updated>
+    <updated>2013-03-05T12:00:00+00:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/05/about-vim</id>
     <content type="html"><![CDATA[<h1>宏命令(Macros)</h1>
 
