@@ -9,9 +9,8 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="* graphvizをインストール
-* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
-* 「rake erd」を実行 ">
+  <meta name="description" content="基本工具
+执行以下命令: sudo yum install -y unzip curl wget 启用 EPEL: sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,96 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/07/an-zhuang-rablelde/">安装rablel的</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T07:15:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/07/an-zhuang-rablelde/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本工具
+执行以下命令:</p>
+
+<p>sudo yum install -y unzip curl wget</p>
+
+<p>启用 EPEL:</p>
+
+<p>sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm&#8217;</p>
+
+<p>注意：对于CentOS 5.x系列，需要用下面的方式:</p>
+
+<p>sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm&#8217;</p>
+
+<p>Ruby 1.9.3
+我们使用RVM来安装Ruby 1.9.3。RVM是Ruby版本管理器，可以方便的安装各种Ruby版本。
+在终端执行一下命令:</p>
+
+<p>curl -L https://get.rvm.io | bash -s stable</p>
+
+<p>然后执行:</p>
+
+<p>source ~/.rvm/scripts/rvm</p>
+
+<p>这样RVM就安装好了，现在我们就可以用rvm来编译安装Ruby 1.9.3。在编译之前，需要安装Ruby依赖的软件。在安装这些软件之前，首先更新一下系统软件库:</p>
+
+<p>sudo yum update</p>
+
+<p>然后执行：</p>
+
+<p>sudo yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel \
+libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake \
+libtool bison gsfonts iconv-devel git \
+mysql-libs mysql-devel ImageMagick-devel</p>
+
+<p>然后执行：</p>
+
+<p>rvm install 1.9.3-p327</p>
+
+<p>这时候执行:</p>
+
+<p>rvm list</p>
+
+<p>可以看到类似以下的输出:</p>
+
+<p>rvm rubies</p>
+
+<p>   ruby-1.9.3-p327 [ x86_64 ]</p>
+
+<p>我们把 Ruby 1.9.3 设置为默认Ruby:</p>
+
+<p>rvm use 1.9.3-p327 &#8211;default</p>
+
+<p>到这里Ruby 1.9.3就安装成功了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -765,6 +854,10 @@ mysql -uroot -p
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/07/an-zhuang-rablelde/">安装rablel的</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a>
       </li>
     
@@ -778,10 +871,6 @@ mysql -uroot -p
     
       <li class="post">
         <a href="/blog/2013/03/04/about-vm/">about vm</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/04/new-post/">centos下搭rails开发环境时的一些记录</a>
       </li>
     
   </ul>
