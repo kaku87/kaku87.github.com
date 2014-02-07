@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2014-02-07T07:19:09+00:00</updated>
+  <updated>2014-02-07T08:27:31+00:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[install heroku on centos]]></title>
+    <link href="http://kaku87.github.com/blog/2014/02/07/install-heroku-on-centos/"/>
+    <updated>2014-02-07T08:26:00+00:00</updated>
+    <id>http://kaku87.github.com/blog/2014/02/07/install-heroku-on-centos</id>
+    <content type="html"><![CDATA[<p>1、install ruby</p>
+
+<p>wget http://mirrors.ibiblio.org/ruby/1.9/ruby-1.9.2-p180.tar.gz tar -xvzf ruby-1.9.2-p180.tar.gz cd ruby-1.9.2-p180/ ./configure make &amp;&amp; sudo make install
+2、install rubygems</p>
+
+<p>wget http://rubyforge.org/frs/download.php/76728/rubygems-1.8.25.zip unzip rubygems-1.8.25.zip cd rubygems-1.8.25 ruby setup.rb
+3、install rb-readline</p>
+
+<p>gem install rb-readline
+4、install heroku toolbelt</p>
+
+<p>wget -c https://toolbelt.herokuapp.com/install.sh &amp;&amp; sh install.sh
+Once installed, you will have access to the heroku command from your command shell. Log in using the email address and password you used when creating your Heroku account:</p>
+
+<p>$ heroku login
+Enter your Heroku credentials.
+Email: adam@example.com
+Password:
+Could not find an existing public key.
+Would you like to generate one? [Yn]
+Generating new SSH public key.
+Uploading ssh public key /Users/adam/.ssh/id_rsa.pub
+You are now ready to create your first Heroku app:</p>
+
+<p>$ cd ~/myapp
+$ heroku create
+Creating stark-fog-398&#8230; done, stack is cedar
+http://stark-fog-398.herokuapp.com/ | git@heroku.com:stark-fog-398.git
+Git remote heroku added</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[安装rablel的手顺]]></title>

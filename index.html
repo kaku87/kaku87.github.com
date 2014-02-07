@@ -9,8 +9,7 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="基本工具
-执行以下命令: sudo yum install -y unzip curl wget 启用 EPEL: sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6 &hellip;">
+  <meta name="description" content="1、install ruby wget http://mirrors.ibiblio.org/ruby/1.9/ruby-1.9.2-p180.tar.gz tar -xvzf ruby-1.9.2-p180.tar.gz cd ruby-1.9.2-p180/ ./configure make &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +77,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/07/install-heroku-on-centos/">Install Heroku on Centos</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T08:26:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/02/07/install-heroku-on-centos/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1、install ruby</p>
+
+<p>wget http://mirrors.ibiblio.org/ruby/1.9/ruby-1.9.2-p180.tar.gz tar -xvzf ruby-1.9.2-p180.tar.gz cd ruby-1.9.2-p180/ ./configure make &amp;&amp; sudo make install
+2、install rubygems</p>
+
+<p>wget http://rubyforge.org/frs/download.php/76728/rubygems-1.8.25.zip unzip rubygems-1.8.25.zip cd rubygems-1.8.25 ruby setup.rb
+3、install rb-readline</p>
+
+<p>gem install rb-readline
+4、install heroku toolbelt</p>
+
+<p>wget -c https://toolbelt.herokuapp.com/install.sh &amp;&amp; sh install.sh
+Once installed, you will have access to the heroku command from your command shell. Log in using the email address and password you used when creating your Heroku account:</p>
+
+<p>$ heroku login
+Enter your Heroku credentials.
+Email: adam@example.com
+Password:
+Could not find an existing public key.
+Would you like to generate one? [Yn]
+Generating new SSH public key.
+Uploading ssh public key /Users/adam/.ssh/id_rsa.pub
+You are now ready to create your first Heroku app:</p>
+
+<p>$ cd ~/myapp
+$ heroku create
+Creating stark-fog-398&#8230; done, stack is cedar
+http://stark-fog-398.herokuapp.com/ | git@heroku.com:stark-fog-398.git
+Git remote heroku added</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -854,6 +919,10 @@ mysql -uroot -p
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/07/install-heroku-on-centos/">install heroku on centos</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/07/an-zhuang-rablelde/">安装rablel的手顺</a>
       </li>
     
@@ -867,10 +936,6 @@ mysql -uroot -p
     
       <li class="post">
         <a href="/blog/2013/03/05/about-vim/">对于vim命令的一些总结</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/04/about-vm/">about vm</a>
       </li>
     
   </ul>
