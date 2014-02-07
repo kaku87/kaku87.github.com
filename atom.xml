@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2014-02-07T08:27:31+00:00</updated>
+  <updated>2014-02-07T08:35:04+00:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[heorku commond not found]]></title>
+    <link href="http://kaku87.github.com/blog/2014/02/07/heorku-commond-not-found/"/>
+    <updated>2014-02-07T08:33:00+00:00</updated>
+    <id>http://kaku87.github.com/blog/2014/02/07/heorku-commond-not-found</id>
+    <content type="html"><![CDATA[<p>安装heroku后如果找不到heroku命令，可能是路径问题，需要加一下链接</p>
+
+<p>sudo ln -s /usr/local/heroku/bin/heroku /usr/bin/heroku</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[install heroku on centos]]></title>
