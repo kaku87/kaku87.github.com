@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://kaku87.github.com/sitemap.xml 
+Sitemap: http://kaku87.github.com/sitemap.xml

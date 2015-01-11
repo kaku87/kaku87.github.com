@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T14:33:31+09:00</updated>
+  <updated>2015-01-11T15:18:55+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[gulp入门]]></title>
+    <title type="html"><![CDATA[Gulp入门]]></title>
     <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
     <updated>2015-01-11T01:05:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
@@ -656,7 +656,7 @@ d   删除块
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[about vm]]></title>
+    <title type="html"><![CDATA[About Vm]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
     <updated>2013-03-04T17:21:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
@@ -689,7 +689,7 @@ d   删除块
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
+    <title type="html"><![CDATA[Centos下搭rails开发环境时的一些记录]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
     <updated>2013-03-04T16:42:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>

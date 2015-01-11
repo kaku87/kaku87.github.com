@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gulp | kaku's Blog]]></title>
+  <title><![CDATA[Category: Gulp | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T14:33:31+09:00</updated>
+  <updated>2015-01-11T15:18:55+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[gulp入门]]></title>
+    <title type="html"><![CDATA[Gulp入门]]></title>
     <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
     <updated>2015-01-11T01:05:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
