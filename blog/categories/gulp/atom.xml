@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gulp | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T14:10:17+09:00</updated>
+  <updated>2015-01-11T14:14:19+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -122,17 +122,20 @@ gulp.task('default', ['hello']);
 
 <h2>文件拷贝</h2>
 
-<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。</p>
+<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。
+```
+var gulp = require('gulp');</p>
 
-<pre><code>var gulp = require('gulp');
+<p>gulp.task('copy', function() {</p>
 
-gulp.task('copy', function() {
-    gulp.src('./package.json')
-      .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('default',['copy']);
+<pre><code>gulp.src('./package.json')
+  .pipe(gulp.dest('./dist'));
 </code></pre>
+
+<p>});</p>
+
+<p>gulp.task('default',['copy']);
+```</p>
 
 <h2>gulp的常用5种API</h2>
 

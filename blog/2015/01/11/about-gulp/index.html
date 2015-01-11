@@ -211,15 +211,25 @@ gulp.task('default', ['hello']);
 
 <p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。</p>
 
-<pre><code>var gulp = require('gulp');
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
+</span><span class='line'>
+</span><span class='line'>gulp.task('copy', function() {
+</span><span class='line'>    gulp.src('./package.json')
+</span><span class='line'>      .pipe(gulp.dest('./dist'));
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>gulp.task('default',['copy']);</span></code></pre></td></tr></table></div></figure>
 
-gulp.task('copy', function() {
-    gulp.src('./package.json')
-      .pipe(gulp.dest('./dist'));
-});
 
-gulp.task('default',['copy']);
-</code></pre>
+<p></p>
 
 <h2>gulp的常用5种API</h2>
 
