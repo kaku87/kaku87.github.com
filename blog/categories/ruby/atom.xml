@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby | kaku's Blog]]></title>
+  <title><![CDATA[Category: ruby | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T15:20:03+09:00</updated>
+  <updated>2015-01-11T15:23:45+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
