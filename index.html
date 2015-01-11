@@ -9,7 +9,7 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="gulp.js 概要 前端任务自动化工具 官方网站 gulpjs.com 相关知识 GoogleのWenStarterKit是用gulp来做的。 环境 vagrant centos 安装 1. sudo yum -y install epel-release 2. sodu yum -y &hellip;">
+  <meta name="description" content="概要 前端任务自动化工具 官方网站 gulpjs.com 相关知识 GoogleのWenStarterKit是用gulp来做的。 环境 vagrant centos 安装 1. sudo yum -y install epel-release 2. sodu yum -y install &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -108,9 +108,7 @@
   </header>
 
 
-  <div class="entry-content"><h1>gulp.js</h1>
-
-<h2>概要</h2>
+  <div class="entry-content"><h2>概要</h2>
 
 <p>前端任务自动化工具</p>
 
@@ -181,11 +179,11 @@
 
 <h2>和Grunt相比较的优点</h2>
 
-<p>1.配置文件比Grant要少</p>
+<p>1.配置文件比Grunt要少</p>
 
-<p>2.比Grant要快</p>
+<p>2.比Grunt要快</p>
 
-<h2>和Grant相比的缺点</h2>
+<h2>和Grunt相比的缺点</h2>
 
 <p>1.写法和Node接近，所以相对比较复杂</p>
 
@@ -231,31 +229,35 @@ gulp.task('default',['copy']);
 <ol>
 <li><p>定义task</p>
 
-<pre><code> gulp.task('name',['tasks'], function() {
-     // content
- });
-</code></pre></li>
+<p> gulp.task(&#8216;name&#8217;,[&#8216;tasks&#8217;], function() {</p>
+
+<pre><code> // content
+</code></pre>
+
+<p> });</p></li>
 <li><p>输入路径指定</p>
 
-<pre><code> gulp.src('files')
-   .pipe(name(''))
-</code></pre></li>
+<p> gulp.src(&#8216;files&#8217;)
+   .pipe(name(&#8221;))</p></li>
 <li><p>执行task</p>
 
-<pre><code> gulp.task('foo', function() {
-     gulp.run('bar');
- });
-</code></pre></li>
+<p> gulp.task(&#8216;foo&#8217;, function() {</p>
+
+<pre><code> gulp.run('bar');
+</code></pre>
+
+<p> });</p></li>
 <li><p>输出路径指定</p>
 
-<pre><code> .pipe(gulp.dest('folder'));
-</code></pre></li>
+<p> .pipe(gulp.dest(&#8216;folder&#8217;));</p></li>
 <li><p>监视文件</p>
 
-<pre><code> gulp.watch('files', function (event) {
-     console.log('js file changed!!');
- });
-</code></pre></li>
+<p> gulp.watch(&#8216;files&#8217;, function (event) {</p>
+
+<pre><code> console.log('js file changed!!');
+</code></pre>
+
+<p> });</p></li>
 </ol>
 
 
@@ -269,19 +271,24 @@ gulp.task('default',['copy']);
 <li>前面的task要写return</li>
 <li><p>后面的task要加第二参数，值为前面的task</p>
 
-<pre><code> var gulp = require('gulp');
+<p> var gulp = require(&#8216;gulp&#8217;);</p>
 
- gulp.task('first', function() {
-     return gulp.src('./package.json')
-       .pipe(gulp.dest('./dist'));
- });
+<p> gulp.task(&#8216;first&#8217;, function() {</p>
 
- gulp.task('second',['first'], function() {
-     console.log('first task done!!');
- });
+<pre><code> return gulp.src('./package.json')
+   .pipe(gulp.dest('./dist'));
+</code></pre>
 
- gulp.task('default',['second']);
-</code></pre></li>
+<p> });</p>
+
+<p> gulp.task(&#8216;second&#8217;,[&#8216;first&#8217;], function() {</p>
+
+<pre><code> console.log('first task done!!');
+</code></pre>
+
+<p> });</p>
+
+<p> gulp.task(&#8216;default&#8217;,[&#8216;second&#8217;]);</p></li>
 </ol>
 
 </div>

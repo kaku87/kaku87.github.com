@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gulp | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T13:31:19+09:00</updated>
+  <updated>2015-01-11T14:10:17+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -18,9 +18,7 @@
     <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
     <updated>2015-01-11T01:05:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
-    <content type="html"><![CDATA[<h1>gulp.js</h1>
-
-<h2>概要</h2>
+    <content type="html"><![CDATA[<h2>概要</h2>
 
 <p>前端任务自动化工具</p>
 
@@ -91,11 +89,11 @@
 
 <h2>和Grunt相比较的优点</h2>
 
-<p>1.配置文件比Grant要少</p>
+<p>1.配置文件比Grunt要少</p>
 
-<p>2.比Grant要快</p>
+<p>2.比Grunt要快</p>
 
-<h2>和Grant相比的缺点</h2>
+<h2>和Grunt相比的缺点</h2>
 
 <p>1.写法和Node接近，所以相对比较复杂</p>
 
@@ -141,31 +139,35 @@ gulp.task('default',['copy']);
 <ol>
 <li><p>定义task</p>
 
-<pre><code> gulp.task('name',['tasks'], function() {
-     // content
- });
-</code></pre></li>
+<p> gulp.task('name',['tasks'], function() {</p>
+
+<pre><code> // content
+</code></pre>
+
+<p> });</p></li>
 <li><p>输入路径指定</p>
 
-<pre><code> gulp.src('files')
-   .pipe(name(''))
-</code></pre></li>
+<p> gulp.src('files')
+   .pipe(name(''))</p></li>
 <li><p>执行task</p>
 
-<pre><code> gulp.task('foo', function() {
-     gulp.run('bar');
- });
-</code></pre></li>
+<p> gulp.task('foo', function() {</p>
+
+<pre><code> gulp.run('bar');
+</code></pre>
+
+<p> });</p></li>
 <li><p>输出路径指定</p>
 
-<pre><code> .pipe(gulp.dest('folder'));
-</code></pre></li>
+<p> .pipe(gulp.dest('folder'));</p></li>
 <li><p>监视文件</p>
 
-<pre><code> gulp.watch('files', function (event) {
-     console.log('js file changed!!');
- });
-</code></pre></li>
+<p> gulp.watch('files', function (event) {</p>
+
+<pre><code> console.log('js file changed!!');
+</code></pre>
+
+<p> });</p></li>
 </ol>
 
 
@@ -179,19 +181,24 @@ gulp.task('default',['copy']);
 <li>前面的task要写return</li>
 <li><p>后面的task要加第二参数，值为前面的task</p>
 
-<pre><code> var gulp = require('gulp');
+<p> var gulp = require('gulp');</p>
 
- gulp.task('first', function() {
-     return gulp.src('./package.json')
-       .pipe(gulp.dest('./dist'));
- });
+<p> gulp.task('first', function() {</p>
 
- gulp.task('second',['first'], function() {
-     console.log('first task done!!');
- });
+<pre><code> return gulp.src('./package.json')
+   .pipe(gulp.dest('./dist'));
+</code></pre>
 
- gulp.task('default',['second']);
-</code></pre></li>
+<p> });</p>
+
+<p> gulp.task('second',['first'], function() {</p>
+
+<pre><code> console.log('first task done!!');
+</code></pre>
+
+<p> });</p>
+
+<p> gulp.task('default',['second']);</p></li>
 </ol>
 
 ]]></content>
