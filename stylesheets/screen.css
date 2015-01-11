@@ -1,26 +1,19 @@
 /*
-Syntax error: File to import not found or unreadable: custom/**\/*.
+Syntax error: File to import not found or unreadable: plugins/**\/*.
               Load paths:
                 /Users/kaku/blog/kaku87.github.com/sass
                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/blueprint/stylesheets
                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets
                 Compass::SpriteImporter
-        on line 47 of /Users/kaku/blog/kaku87.github.com/sass/oscailte/_oscailte.scss
-        from line 1 of /Users/kaku/blog/kaku87.github.com/sass/screen.scss
+        on line 9 of /Users/kaku/blog/kaku87.github.com/sass/screen.scss
 
 Backtrace:
-/Users/kaku/blog/kaku87.github.com/sass/oscailte/_oscailte.scss:47
-/Users/kaku/blog/kaku87.github.com/sass/screen.scss:1
+/Users/kaku/blog/kaku87.github.com/sass/screen.scss:9
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:45:in `import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:28:in `imported_file'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:37:in `css_import?'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -62,4 +55,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: custom/**/*.\A               Load paths:\A                 /Users/kaku/blog/kaku87.github.com/sass\A                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 Compass::SpriteImporter\A         on line 47 of /Users/kaku/blog/kaku87.github.com/sass/oscailte/_oscailte.scss\A         from line 1 of /Users/kaku/blog/kaku87.github.com/sass/screen.scss"; }
+  content: "Syntax error: File to import not found or unreadable: plugins/**/*.\A               Load paths:\A                 /Users/kaku/blog/kaku87.github.com/sass\A                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 Compass::SpriteImporter\A         on line 9 of /Users/kaku/blog/kaku87.github.com/sass/screen.scss"; }

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title><![CDATA[Category: linux | kaku's Blog]]></title>
-    <link href="http://kaku87.github.com/blog/categories/linux/atom.xml" rel="self"/>
-    <link href="http://kaku87.github.com/"/>
-    <updated>2015-01-11T15:33:54+09:00</updated>
-    <id>http://kaku87.github.com/</id>
-    <author>
-        <name><![CDATA[kaku]]></name>
-        <email><![CDATA[ghjcumt2008@gmail.com]]></email>
-      </author>
-    <generator uri="http://octopress.org/">Octopress</generator>
+  <title><![CDATA[Category: Linux | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-01-11T15:39:43+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-    
-    <entry>
-        <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
-        <link href="http://kaku87.github.com/blog/2013/03/05/about-vim/"/>
-        <updated>2013-03-05T12:00:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/03/05/about-vim</id>
-        <content type="html"><![CDATA[<h1>宏命令(Macros)</h1>
+  
+  <entry>
+    <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/05/about-vim/"/>
+    <updated>2013-03-05T12:00:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/05/about-vim</id>
+    <content type="html"><![CDATA[<h1>宏命令(Macros)</h1>
 
 <p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
 
@@ -296,6 +296,6 @@ d   删除块
 ~   切换块中内容的大小写
 </code></pre>
 ]]></content>
-    </entry>
-    
+  </entry>
+  
 </feed>

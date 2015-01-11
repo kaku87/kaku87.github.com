@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title><![CDATA[Category: ruby | kaku's Blog]]></title>
-    <link href="http://kaku87.github.com/blog/categories/ruby/atom.xml" rel="self"/>
-    <link href="http://kaku87.github.com/"/>
-    <updated>2015-01-11T15:33:54+09:00</updated>
-    <id>http://kaku87.github.com/</id>
-    <author>
-        <name><![CDATA[kaku]]></name>
-        <email><![CDATA[ghjcumt2008@gmail.com]]></email>
-      </author>
-    <generator uri="http://octopress.org/">Octopress</generator>
+  <title><![CDATA[Category: Ruby | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-01-11T15:39:43+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-    
-    <entry>
-        <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
-        <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
-        <updated>2013-05-10T09:38:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
-        <content type="html"><![CDATA[<pre><code>* graphvizをインストール
+  
+  <entry>
+    <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
+    <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
+    <updated>2013-05-10T09:38:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
+    <content type="html"><![CDATA[<pre><code>* graphvizをインストール
 * Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
 * 「rake erd」を実行
 </code></pre>
 ]]></content>
-    </entry>
-    
+  </entry>
+  
 </feed>

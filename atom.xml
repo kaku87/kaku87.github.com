@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title><![CDATA[kaku's Blog]]></title>
-    <link href="http://kaku87.github.com/atom.xml" rel="self"/>
-    <link href="http://kaku87.github.com/"/>
-    <updated>2015-01-11T15:33:54+09:00</updated>
-    <id>http://kaku87.github.com/</id>
-    <author>
-        <name><![CDATA[kaku]]></name>
-        <email><![CDATA[ghjcumt2008@gmail.com]]></email>
-    </author>
-    <generator uri="http://octopress.org/">Octopress</generator>
+  <title><![CDATA[kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-01-11T15:39:43+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-    
-    <entry>
-        <title type="html"><![CDATA[gulp入门]]></title>
-        <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
-        <updated>2015-01-11T01:05:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
-        <content type="html"><![CDATA[<h2>概要</h2>
+  
+  <entry>
+    <title type="html"><![CDATA[Gulp入门]]></title>
+    <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
+    <updated>2015-01-11T01:05:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
 
 <p>前端任务自动化工具</p>
 
@@ -251,26 +251,26 @@
 
 <p></p>
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
-        <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
-        <updated>2013-05-10T09:38:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
-        <content type="html"><![CDATA[<pre><code>* graphvizをインストール
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
+    <link href="http://kaku87.github.com/blog/2013/05/10/20130515/"/>
+    <updated>2013-05-10T09:38:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/05/10/20130515</id>
+    <content type="html"><![CDATA[<pre><code>* graphvizをインストール
 * Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
 * 「rake erd」を実行
 </code></pre>
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
-        <link href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/"/>
-        <updated>2013-03-15T15:16:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test</id>
-        <content type="html"><![CDATA[<h1>控制器的功能测试</h1>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[关于rails控制器的功能测试]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/"/>
+    <updated>2013-03-15T15:16:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test</id>
+    <content type="html"><![CDATA[<h1>控制器的功能测试</h1>
 
 <pre><code> require File.dirname(__FILE__) + '/../test_helper'
 </code></pre>
@@ -368,14 +368,14 @@ end
 <pre><code> assert_select "title",  "TEST"
 </code></pre>
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
-        <link href="http://kaku87.github.com/blog/2013/03/05/about-vim/"/>
-        <updated>2013-03-05T12:00:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/03/05/about-vim</id>
-        <content type="html"><![CDATA[<h1>宏命令(Macros)</h1>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[对于vim命令的一些总结]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/05/about-vim/"/>
+    <updated>2013-03-05T12:00:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/05/about-vim</id>
+    <content type="html"><![CDATA[<h1>宏命令(Macros)</h1>
 
 <p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
 
@@ -653,14 +653,14 @@ d   删除块
 ~   切换块中内容的大小写
 </code></pre>
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[about vm]]></title>
-        <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-        <updated>2013-03-04T17:21:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
-        <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[About Vm]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
+    <updated>2013-03-04T17:21:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
+    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
 
 <hr />
 
@@ -686,14 +686,14 @@ d   删除块
 </ol>
 
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
-        <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-        <updated>2013-03-04T16:42:00+09:00</updated>
-        <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
-        <content type="html"><![CDATA[<p>安装mysql</p>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Centos下搭rails开发环境时的一些记录]]></title>
+    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
+    <updated>2013-03-04T16:42:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
+    <content type="html"><![CDATA[<p>安装mysql</p>
 
 <pre><code>yum -y install mysql
 </code></pre>
@@ -751,6 +751,6 @@ mysql -uroot -p
 <pre><code>desc 表名
 </code></pre>
 ]]></content>
-    </entry>
-    
+  </entry>
+  
 </feed>
