@@ -26,35 +26,43 @@
         <lastmod>2013-02-19T20:36:28+09:00</lastmod>
 =======
         <loc>http://kaku87.github.com/blog/2013/03/04/new-post/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/2013/03/04/about-vm/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/2013/03/05/about-vim/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/2013/05/10/20130515/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kaku87.github.com/blog/2015/01/11/about-gulp/</loc>
+        <lastmod>2015-01-11T14:33:26+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/blog/archives/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T14:33:26+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/</loc>
-        <lastmod>2014-01-15T08:51:19+00:00</lastmod>
+        <lastmod>2015-01-11T14:33:26+09:00</lastmod>
     </url>
     <url>
         <loc>http://kaku87.github.com/robots.txt</loc>
+<<<<<<< HEAD
         <lastmod>2014-01-15T08:51:19+00:00</lastmod>
 >>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
+=======
+        <lastmod>2015-01-11T00:50:36+09:00</lastmod>
+>>>>>>> f79fac3c680c9d9ace61eed5f42ca93cf55d6902
     </url>
 </urlset>

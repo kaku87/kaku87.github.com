@@ -121,7 +121,7 @@ gulp.watch('files', function (event) {
 	console.log('js file changed!!');
 });
 ```	
-详细API信息请参照这里   [github API doc](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
+详细API信息请参照这里   [github API](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
 
 ##gulp task执行顺序
 

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gulp | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-01-11T14:33:31+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[gulp入门]]></title>
+    <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
+    <updated>2015-01-11T01:05:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>前端任务自动化工具</p>
+
+<h2>官方网站</h2>
+
+<p><a href="gulpjs.com">gulpjs.com</a></p>
+
+<h2>相关知识</h2>
+
+<p>GoogleのWenStarterKit是用gulp来做的。</p>
+
+<h2>环境</h2>
+
+<p>vagrant centos</p>
+
+<h2>安装</h2>
+
+<pre><code>1. sudo yum -y install epel-release
+
+2. sodu yum -y install nodejs npm
+
+    `node -v`确认node的版本号
+
+    `npm -v`确认npm的版本号
+
+3. sudo npm install gulp -g
+
+    `gulp -v`确认gulp的版本号
+</code></pre>
+
+<h2>gulp和grunt的区别</h2>
+
+<table>
+<thead>
+<tr>
+<th>gulp         </th>
+<th> grunt </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 插件少       </td>
+<td>  插件多</td>
+</tr>
+<tr>
+<td>8,398sta     </td>
+<td>  8,439starM</td>
+</tr>
+<tr>
+<td>2013/6/30    </td>
+<td>  2011/9/18</td>
+</tr>
+<tr>
+<td>gulpfie.js   </td>
+<td>  Gruntfile.js</td>
+</tr>
+<tr>
+<td>类似Node       </td>
+<td>类似JavaScript</td>
+</tr>
+<tr>
+<td>Node的插件    </td>
+<td>  Grunt的插件</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>和Grunt相比较的优点</h2>
+
+<p>1.配置文件比Grunt要少</p>
+
+<p>2.比Grunt要快</p>
+
+<h2>和Grunt相比的缺点</h2>
+
+<p>1.写法和Node接近，所以相对比较复杂</p>
+
+<p>2.文档较少</p>
+
+<h2>创建package.json</h2>
+
+<p><code>
+mkdir mysite
+cd mysite
+npm init
+npm install --save-dev gulp
+npm -i -D gulp
+rm -rf node_modules
+npm install
+</code></p>
+
+<h2>初识gulp.task()</h2>
+
+<p>```
+var gulp = require('gulp');</p>
+
+<pre><code>gulp.task('hello', function(){
+    console.log('hello world!')
+</code></pre>
+
+<p>})</p>
+
+<p>gulp.task('default', ['hello']);
+```</p>
+
+<h2>文件拷贝</h2>
+
+<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。
+```
+var gulp = require('gulp');</p>
+
+<p>gulp.task('copy', function() {</p>
+
+<pre><code>gulp.src('./package.json')
+  .pipe(gulp.dest('./dist'));
+</code></pre>
+
+<p>});</p>
+
+<p>gulp.task('default',['copy']);
+```</p>
+
+<h2>gulp的常用5种API</h2>
+
+<ol>
+<li>定义task
+<code>
+gulp.task('name',['tasks'], function() {
+ // content
+});
+</code></li>
+<li>输入路径指定
+<code>
+gulp.src('files')
+.pipe(name(''))
+</code></li>
+<li>执行task
+<code>
+gulp.task('foo', function() {
+ gulp.run('bar');
+});
+</code></li>
+<li>输出路径指定
+<code>
+.pipe(gulp.dest('folder'));
+</code></li>
+<li>监视文件
+<code>    
+gulp.watch('files', function (event) {
+ console.log('js file changed!!');
+});
+</code>
+详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API</a></li>
+</ol>
+
+
+<h2>gulp task执行顺序</h2>
+
+<p>gulp的task默认为并行触发，若要顺序执行，要做如下处理。</p>
+
+<ol>
+<li>前面的task要写return</li>
+<li>后面的task要加第二参数，值为前面的task
+```
+var gulp = require('gulp');</li>
+</ol>
+
+
+<p>gulp.task('first', function() {</p>
+
+<pre><code>return gulp.src('./package.json')
+  .pipe(gulp.dest('./dist'));
+</code></pre>
+
+<p>});</p>
+
+<p>gulp.task('second',['first'], function() {</p>
+
+<pre><code>console.log('first task done!!');
+</code></pre>
+
+<p>});</p>
+
+<p>gulp.task('default',['second']);
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

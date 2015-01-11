@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: ghjcumt2008@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -100,3 +100,40 @@ facebook_like: true
 
 # Gravatar  
 gravatar_email: ghjcumt2008@gmail.com
+
+ Oscailte Theme Settings
+oscailte:
+    hire: # The "Available for Hire" widget
+        visible:
+            footer: false
+            sidebar: true
+        footer-cols: 6 # Number of columns available for the footer component, max 12
+        available: true # Whether or not you're available for hire
+        vibrant: false # Makes the widget much more noticeable
+        message: "Available for new opportunities"
+    social:
+        visible: true
+        title: # Defaults to "Follow me!" if not present
+        adn: # App.net
+        coinbase:
+        dribbble:
+        facebook:
+            user:
+            app_id: # For enabling Open Graph metadata
+        github:
+            user: ghjcumt2008@gmail.com
+            show_profile_link:
+        googleplus:
+        hackernews:
+        keybase:
+        linkedin:
+        pinterest:
+        reddit:
+        stackoverflow:
+        twitter:
+            user: ghjcumt2008
+            widget: # Shows the Recent Tweets widget in sidebar
+                is_shown: true
+                show_profile_link: false
+                widget_id: "554204630339436545"
+        youtube:

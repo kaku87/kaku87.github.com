@@ -1,13 +1,12 @@
 $blockquote: $type-border !default;
-
-// Fonts
-$sans: "Open Sans","Helvetica Neue", Arial, sans-serif !default;
+$sans: "PT Sans", "Helvetica Neue", Arial, sans-serif !default;
 $serif: "PT Serif", Georgia, Times, "Times New Roman", serif !default;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
-$heading-font-family: "Fjalla One", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
+$heading-font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
 $header-title-font-family: $heading-font-family !default;
-$header-subtitle-font-family: $serif !default;
+$header-subtitle-font-family: $heading-font-family !default;
 
+// Fonts
 .heading {
   font-family: $heading-font-family;
 }
@@ -35,6 +34,9 @@ body {
 h1 {
   font-size: 2.2em;
   line-height: 1.2em;
+  //Added by lijinma
+  color: #329628;
+  //end
 }
 
 @media only screen and (min-width: 992px) {
@@ -64,7 +66,10 @@ h6, section h5, section section h4, section section section h3 {
   font-size: .8em;
 }
 
-p, article blockquote, ul, ol { margin-bottom: 1.5em; }
+//p, article blockquote, ul, ol { margin-bottom: 1.5em; }
+//Added by lijinma
+p, article blockquote, ul, ol { margin-bottom: .8em; }
+//end
 
 ul { list-style-type: disc;
   ul { list-style-type: circle; margin-bottom: 0px;
@@ -81,9 +86,11 @@ strong { font-weight: bold; }
 
 em { font-style: italic; }
 
-sup, sub { font-size: 0.8em; position: relative;  display: inline-block; }
+sup, sub { font-size: 0.75em; position: relative;  display: inline-block; padding: 0 .2em; line-height: .8em;}
 sup { top: -.5em; }
 sub { bottom: -.5em; }
+
+a[rev='footnote']{ font-size: .75em; padding: 0 .3em; line-height: 1; }
 
 q { font-style: italic;
   &:before { content: "\201C"; }
@@ -100,8 +107,6 @@ abbr, acronym { border-bottom: 1px dotted; cursor: help; }
 
 pre, code, tt { @extend .mono; }
 
-sub, sup { line-height: 0; }
-
 hr { margin-bottom: 0.2em; }
 
 small { font-size: .8em; }
@@ -109,13 +114,20 @@ small { font-size: .8em; }
 big { font-size: 1.2em; }
 
 article blockquote {
-  $bq-margin: 1.2em;
-  font-style: italic;
-  position: relative;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  padding-left: 1em;
-  border-left: 4px solid rgba($text-color-light, .5);
+  // $bq-margin: 1.2em;
+  // font-style: italic;
+  // position: relative;
+  // font-size: 1.2em;
+  // line-height: 1.5em;
+  // padding-left: 1em;
+  // border-left: 4px solid rgba($text-color-light, .5);
+  // Added by lijinma
+  padding: 15px 20px;
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  border-left: 5px solid #ddd;
+  background-color: rgba(102, 128, 153, 0.05);
+  // end
   cite {
     font-style: italic;
     a { color: $text-color-light !important; word-wrap: break-word; }
@@ -126,6 +138,7 @@ article blockquote {
     border-left-width: 4px;
   }
 }
+
 
 .pullquote-right:before,
 .pullquote-left:before {
@@ -162,3 +175,4 @@ article blockquote {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
