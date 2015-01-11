@@ -9,8 +9,7 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="安装heroku后如果找不到heroku命令，可能是路径问题，需要加一下链接 sudo ln -s /usr/local/heroku/bin/heroku /usr/bin/heroku
-">
+  <meta name="description" content="gulp.js 概要 前端任务自动化工具 官方网站 gulpjs.com 相关知识 GoogleのWenStarterKit是用gulp来做的。 环境 vagrant centos 安装 1. sudo yum -y install epel-release 2. sodu yum -y &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/07/heorku-commond-not-found/">Heorku Commond Not Found</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/01/11/about-gulp/">Gulp入门</a></h1>
     
     
       <p class="meta">
@@ -100,174 +99,191 @@
   
 
 
-<time datetime="2014-02-07T08:33:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+<time datetime="2015-01-11T01:05:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2015</time>
         
-         | <a href="/blog/2014/02/07/heorku-commond-not-found/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>安装heroku后如果找不到heroku命令，可能是路径问题，需要加一下链接</p>
-
-<p>sudo ln -s /usr/local/heroku/bin/heroku /usr/bin/heroku</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/07/install-heroku-on-centos/">Install Heroku on Centos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-07T08:26:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/07/install-heroku-on-centos/#disqus_thread">Comments</a>
+         | <a href="/blog/2015/01/11/about-gulp/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>1、install ruby</p>
+  <div class="entry-content"><h1>gulp.js</h1>
 
-<p>wget http://mirrors.ibiblio.org/ruby/1.9/ruby-1.9.2-p180.tar.gz tar -xvzf ruby-1.9.2-p180.tar.gz cd ruby-1.9.2-p180/ ./configure make &amp;&amp; sudo make install
-2、install rubygems</p>
+<h2>概要</h2>
 
-<p>wget http://rubyforge.org/frs/download.php/76728/rubygems-1.8.25.zip unzip rubygems-1.8.25.zip cd rubygems-1.8.25 ruby setup.rb
-3、install rb-readline</p>
+<p>前端任务自动化工具</p>
 
-<p>gem install rb-readline
-4、install heroku toolbelt</p>
+<h2>官方网站</h2>
 
-<p>wget -c https://toolbelt.herokuapp.com/install.sh &amp;&amp; sh install.sh
-Once installed, you will have access to the heroku command from your command shell. Log in using the email address and password you used when creating your Heroku account:</p>
+<p><a href="gulpjs.com">gulpjs.com</a></p>
 
-<p>$ heroku login
-Enter your Heroku credentials.
-Email: adam@example.com
-Password:
-Could not find an existing public key.
-Would you like to generate one? [Yn]
-Generating new SSH public key.
-Uploading ssh public key /Users/adam/.ssh/id_rsa.pub
-You are now ready to create your first Heroku app:</p>
+<h2>相关知识</h2>
 
-<p>$ cd ~/myapp
-$ heroku create
-Creating stark-fog-398&#8230; done, stack is cedar
-http://stark-fog-398.herokuapp.com/ | git@heroku.com:stark-fog-398.git
-Git remote heroku added</p>
-</div>
-  
-  
+<p>GoogleのWenStarterKit是用gulp来做的。</p>
+
+<h2>环境</h2>
+
+<p>vagrant centos</p>
+
+<h2>安装</h2>
+
+<pre><code>1. sudo yum -y install epel-release
+
+2. sodu yum -y install nodejs npm
+
+    `node -v`确认node的版本号
+
+    `npm -v`确认npm的版本号
+
+3. sudo npm install gulp -g
+
+    `gulp -v`确认gulp的版本号
+</code></pre>
+
+<h2>gulp和grunt的区别</h2>
+
+<table>
+<thead>
+<tr>
+<th>gulp         </th>
+<th> grunt </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 插件少       </td>
+<td>  插件多</td>
+</tr>
+<tr>
+<td>8,398sta     </td>
+<td>  8,439starM</td>
+</tr>
+<tr>
+<td>2013/6/30    </td>
+<td>  2011/9/18</td>
+</tr>
+<tr>
+<td>gulpfie.js   </td>
+<td>  Gruntfile.js</td>
+</tr>
+<tr>
+<td>类似Node       </td>
+<td>类似JavaScript</td>
+</tr>
+<tr>
+<td>Node的插件    </td>
+<td>  Grunt的插件</td>
+</tr>
+</tbody>
+</table>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/07/an-zhuang-rablelde/">安装rablel的手顺</a></h1>
-    
-    
-      <p class="meta">
-        
+<h2>和Grunt相比较的优点</h2>
+
+<p>1.配置文件比Grant要少</p>
+
+<p>2.比Grant要快</p>
+
+<h2>和Grant相比的缺点</h2>
+
+<p>1.写法和Node接近，所以相对比较复杂</p>
+
+<p>2.文档较少</p>
+
+<h2>创建package.json</h2>
+
+<pre><code>mkdir mysite
+cd mysite 
+npm init
+npm install --save-dev gulp
+npm -i -D gulp
+rm -rf node_modules
+npm install
+</code></pre>
+
+<h2>初识gulp.task()</h2>
+
+<pre><code>var gulp = require('gulp');
+gulp.task('hello', function(){
+    console.log('hello world!')
+})
+
+gulp.task('default', ['hello']);
+</code></pre>
+
+<h2>文件拷贝</h2>
+
+<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。</p>
+
+<pre><code>var gulp = require('gulp');
+
+gulp.task('copy', function() {
+    gulp.src('./package.json')
+      .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default',['copy']);
+</code></pre>
+
+<h2>gulp的常用5种API</h2>
+
+<ol>
+<li><p>定义task</p>
+
+<pre><code> gulp.task('name',['tasks'], function() {
+     // content
+ });
+</code></pre></li>
+<li><p>输入路径指定</p>
+
+<pre><code> gulp.src('files')
+   .pipe(name(''))
+</code></pre></li>
+<li><p>执行task</p>
+
+<pre><code> gulp.task('foo', function() {
+     gulp.run('bar');
+ });
+</code></pre></li>
+<li><p>输出路径指定</p>
+
+<pre><code> .pipe(gulp.dest('folder'));
+</code></pre></li>
+<li><p>监视文件</p>
+
+<pre><code> gulp.watch('files', function (event) {
+     console.log('js file changed!!');
+ });
+</code></pre></li>
+</ol>
 
 
+<p>详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></p>
 
+<h2>gulp task执行顺序</h2>
 
+<p>gulp的task默认为并行触发，若要顺序执行，要做如下处理。</p>
 
+<ol>
+<li>前面的task要写return</li>
+<li><p>后面的task要加第二参数，值为前面的task</p>
 
+<pre><code> var gulp = require('gulp');
 
+ gulp.task('first', function() {
+     return gulp.src('./package.json')
+       .pipe(gulp.dest('./dist'));
+ });
 
-  
+ gulp.task('second',['first'], function() {
+     console.log('first task done!!');
+ });
 
+ gulp.task('default',['second']);
+</code></pre></li>
+</ol>
 
-<time datetime="2014-02-07T07:15:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/02/07/an-zhuang-rablelde/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>基本工具
-执行以下命令:</p>
-
-<p>sudo yum install -y unzip curl wget</p>
-
-<p>启用 EPEL:</p>
-
-<p>sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm&#8217;</p>
-
-<p>注意：对于CentOS 5.x系列，需要用下面的方式:</p>
-
-<p>sudo su -c &#8216;rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm&#8217;</p>
-
-<p>Ruby 1.9.3
-我们使用RVM来安装Ruby 1.9.3。RVM是Ruby版本管理器，可以方便的安装各种Ruby版本。
-在终端执行一下命令:</p>
-
-<p>curl -L https://get.rvm.io | bash -s stable</p>
-
-<p>然后执行:</p>
-
-<p>source ~/.rvm/scripts/rvm</p>
-
-<p>这样RVM就安装好了，现在我们就可以用rvm来编译安装Ruby 1.9.3。在编译之前，需要安装Ruby依赖的软件。在安装这些软件之前，首先更新一下系统软件库:</p>
-
-<p>sudo yum update</p>
-
-<p>然后执行：</p>
-
-<p>sudo yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel \
-libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake \
-libtool bison gsfonts iconv-devel git \
-mysql-libs mysql-devel ImageMagick-devel</p>
-
-<p>然后执行：</p>
-
-<p>rvm install 1.9.3-p327</p>
-
-<p>这时候执行:</p>
-
-<p>rvm list</p>
-
-<p>可以看到类似以下的输出:</p>
-
-<p>rvm rubies</p>
-
-<p>   ruby-1.9.3-p327 [ x86_64 ]</p>
-
-<p>我们把 Ruby 1.9.3 设置为默认Ruby:</p>
-
-<p>rvm use 1.9.3-p327 &#8211;default</p>
-
-<p>到这里Ruby 1.9.3就安装成功了。</p>
 </div>
   
   
@@ -296,7 +312,7 @@ mysql-libs mysql-devel ImageMagick-devel</p>
   
 
 
-<time datetime="2013-05-10T09:38:00+00:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+<time datetime="2013-05-10T09:38:00+09:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/05/10/20130515/#disqus_thread">Comments</a>
         
@@ -337,7 +353,7 @@ mysql-libs mysql-devel ImageMagick-devel</p>
   
 
 
-<time datetime="2013-03-15T15:16:00+00:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/03/15/about-rails-functional-test/#disqus_thread">Comments</a>
         
@@ -471,7 +487,7 @@ end
   
 
 
-<time datetime="2013-03-05T12:00:00+00:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
+<time datetime="2013-03-05T12:00:00+09:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/03/05/about-vim/#disqus_thread">Comments</a>
         
@@ -785,7 +801,7 @@ d   删除块
   
 
 
-<time datetime="2013-03-04T17:21:00+00:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+<time datetime="2013-03-04T17:21:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/03/04/about-vm/#disqus_thread">Comments</a>
         
@@ -847,7 +863,7 @@ d   删除块
   
 
 
-<time datetime="2013-03-04T16:42:00+00:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+<time datetime="2013-03-04T16:42:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
         
          | <a href="/blog/2013/03/04/new-post/#disqus_thread">Comments</a>
         
@@ -960,15 +976,7 @@ mysql -uroot -p
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/02/07/heorku-commond-not-found/">heorku commond not found</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/07/install-heroku-on-centos/">install heroku on centos</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/07/an-zhuang-rablelde/">安装rablel的手顺</a>
+        <a href="/blog/2015/01/11/about-gulp/">gulp入门</a>
       </li>
     
       <li class="post">
@@ -977,6 +985,14 @@ mysql -uroot -p
     
       <li class="post">
         <a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/05/about-vim/">对于vim命令的一些总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/04/about-vm/">about vm</a>
       </li>
     
   </ul>
@@ -988,7 +1004,7 @@ mysql -uroot -p
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - kaku -
+  Copyright &copy; 2015 - kaku -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 

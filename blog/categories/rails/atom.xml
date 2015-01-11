@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2014-02-07T08:46:42+00:00</updated>
+  <updated>2015-01-11T13:31:19+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[about vm]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-    <updated>2013-03-04T17:21:00+00:00</updated>
+    <updated>2013-03-04T17:21:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
     <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
 
@@ -49,7 +49,7 @@
   <entry>
     <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
     <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-    <updated>2013-03-04T16:42:00+00:00</updated>
+    <updated>2013-03-04T16:42:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
     <content type="html"><![CDATA[<p>安装mysql</p>
 
