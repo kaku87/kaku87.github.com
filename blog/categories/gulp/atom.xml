@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gulp | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T14:14:19+09:00</updated>
+  <updated>2015-01-11T14:16:12+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -101,24 +101,29 @@
 
 <h2>创建package.json</h2>
 
-<pre><code>mkdir mysite
-cd mysite 
+<p><code>
+mkdir mysite
+cd mysite
 npm init
 npm install --save-dev gulp
 npm -i -D gulp
 rm -rf node_modules
 npm install
-</code></pre>
+</code></p>
 
 <h2>初识gulp.task()</h2>
 
-<pre><code>var gulp = require('gulp');
-gulp.task('hello', function(){
-    console.log('hello world!')
-})
+<p>```
+var gulp = require('gulp');</p>
 
-gulp.task('default', ['hello']);
+<pre><code>gulp.task('hello', function(){
+    console.log('hello world!')
 </code></pre>
+
+<p>})</p>
+
+<p>gulp.task('default', ['hello']);
+```</p>
 
 <h2>文件拷贝</h2>
 
@@ -140,41 +145,36 @@ var gulp = require('gulp');</p>
 <h2>gulp的常用5种API</h2>
 
 <ol>
-<li><p>定义task</p>
-
-<p> gulp.task('name',['tasks'], function() {</p>
-
-<pre><code> // content
-</code></pre>
-
-<p> });</p></li>
-<li><p>输入路径指定</p>
-
-<p> gulp.src('files')
-   .pipe(name(''))</p></li>
-<li><p>执行task</p>
-
-<p> gulp.task('foo', function() {</p>
-
-<pre><code> gulp.run('bar');
-</code></pre>
-
-<p> });</p></li>
-<li><p>输出路径指定</p>
-
-<p> .pipe(gulp.dest('folder'));</p></li>
-<li><p>监视文件</p>
-
-<p> gulp.watch('files', function (event) {</p>
-
-<pre><code> console.log('js file changed!!');
-</code></pre>
-
-<p> });</p></li>
+<li>定义task
+<code>
+gulp.task('name',['tasks'], function() {
+ // content
+});
+</code></li>
+<li>输入路径指定
+<code>
+gulp.src('files')
+.pipe(name(''))
+</code></li>
+<li>执行task
+<code>
+gulp.task('foo', function() {
+ gulp.run('bar');
+});
+</code></li>
+<li>输出路径指定
+<code>
+.pipe(gulp.dest('folder'));
+</code></li>
+<li>监视文件
+<code>    
+gulp.watch('files', function (event) {
+ console.log('js file changed!!');
+});
+</code>
+详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></li>
 </ol>
 
-
-<p>详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></p>
 
 <h2>gulp task执行顺序</h2>
 
@@ -182,28 +182,29 @@ var gulp = require('gulp');</p>
 
 <ol>
 <li>前面的task要写return</li>
-<li><p>后面的task要加第二参数，值为前面的task</p>
-
-<p> var gulp = require('gulp');</p>
-
-<p> gulp.task('first', function() {</p>
-
-<pre><code> return gulp.src('./package.json')
-   .pipe(gulp.dest('./dist'));
-</code></pre>
-
-<p> });</p>
-
-<p> gulp.task('second',['first'], function() {</p>
-
-<pre><code> console.log('first task done!!');
-</code></pre>
-
-<p> });</p>
-
-<p> gulp.task('default',['second']);</p></li>
+<li>后面的task要加第二参数，值为前面的task
+```
+var gulp = require('gulp');</li>
 </ol>
 
+
+<p>gulp.task('first', function() {</p>
+
+<pre><code>return gulp.src('./package.json')
+  .pipe(gulp.dest('./dist'));
+</code></pre>
+
+<p>});</p>
+
+<p>gulp.task('second',['first'], function() {</p>
+
+<pre><code>console.log('first task done!!');
+</code></pre>
+
+<p>});</p>
+
+<p>gulp.task('default',['second']);
+```</p>
 ]]></content>
   </entry>
   

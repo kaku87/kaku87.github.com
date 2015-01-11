@@ -191,24 +191,37 @@
 
 <h2>创建package.json</h2>
 
-<pre><code>mkdir mysite
-cd mysite 
-npm init
-npm install --save-dev gulp
-npm -i -D gulp
-rm -rf node_modules
-npm install
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir mysite
+</span><span class='line'>cd mysite 
+</span><span class='line'>npm init
+</span><span class='line'>npm install --save-dev gulp
+</span><span class='line'>npm -i -D gulp
+</span><span class='line'>rm -rf node_modules
+</span><span class='line'>npm install</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>初识gulp.task()</h2>
 
-<pre><code>var gulp = require('gulp');
-gulp.task('hello', function(){
-    console.log('hello world!')
-})
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
+</span><span class='line'>  gulp.task('hello', function(){
+</span><span class='line'>      console.log('hello world!')
+</span><span class='line'>})
+</span><span class='line'>
+</span><span class='line'>gulp.task('default', ['hello']);</span></code></pre></td></tr></table></div></figure>
 
-gulp.task('default', ['hello']);
-</code></pre>
 
 <h2>文件拷贝</h2>
 
@@ -237,41 +250,58 @@ gulp.task('default', ['hello']);
 <h2>gulp的常用5种API</h2>
 
 <ol>
-<li><p>定义task</p>
-
-<p> gulp.task(&#8216;name&#8217;,[&#8216;tasks&#8217;], function() {</p>
-
-<pre><code> // content
-</code></pre>
-
-<p> });</p></li>
-<li><p>输入路径指定</p>
-
-<p> gulp.src(&#8216;files&#8217;)
-   .pipe(name(&#8221;))</p></li>
-<li><p>执行task</p>
-
-<p> gulp.task(&#8216;foo&#8217;, function() {</p>
-
-<pre><code> gulp.run('bar');
-</code></pre>
-
-<p> });</p></li>
-<li><p>输出路径指定</p>
-
-<p> .pipe(gulp.dest(&#8216;folder&#8217;));</p></li>
-<li><p>监视文件</p>
-
-<p> gulp.watch(&#8216;files&#8217;, function (event) {</p>
-
-<pre><code> console.log('js file changed!!');
-</code></pre>
-
-<p> });</p></li>
+<li>定义task</li>
 </ol>
 
 
-<p>详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.task('name',['tasks'], function() {
+</span><span class='line'>    // content
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <br/>
+2. 输入路径指定</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.src('files')
+</span><span class='line'>  .pipe(name(''))</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+3. 执行task</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.task('foo', function() {
+</span><span class='line'>    gulp.run('bar');
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <br/>
+4. 输出路径指定</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.pipe(gulp.dest('folder'));</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <br/>
+5. 监视文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.watch('files', function (event) {
+</span><span class='line'>  console.log('js file changed!!');
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <br/>
+详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></p>
 
 <h2>gulp task执行顺序</h2>
 
@@ -279,28 +309,37 @@ gulp.task('default', ['hello']);
 
 <ol>
 <li>前面的task要写return</li>
-<li><p>后面的task要加第二参数，值为前面的task</p>
-
-<p> var gulp = require(&#8216;gulp&#8217;);</p>
-
-<p> gulp.task(&#8216;first&#8217;, function() {</p>
-
-<pre><code> return gulp.src('./package.json')
-   .pipe(gulp.dest('./dist'));
-</code></pre>
-
-<p> });</p>
-
-<p> gulp.task(&#8216;second&#8217;,[&#8216;first&#8217;], function() {</p>
-
-<pre><code> console.log('first task done!!');
-</code></pre>
-
-<p> });</p>
-
-<p> gulp.task(&#8216;default&#8217;,[&#8216;second&#8217;]);</p></li>
+<li>后面的task要加第二参数，值为前面的task</li>
 </ol>
 
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
+</span><span class='line'>
+</span><span class='line'>gulp.task('first', function() {
+</span><span class='line'>    return gulp.src('./package.json')
+</span><span class='line'>      .pipe(gulp.dest('./dist'));
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>gulp.task('second',['first'], function() {
+</span><span class='line'>    console.log('first task done!!');
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>gulp.task('default',['second']);</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 </div>
   
   
