@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gulp | kaku's Blog]]></title>
-  <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
-  <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T15:23:45+09:00</updated>
-  <id>http://kaku87.github.com/</id>
-  <author>
-    <name><![CDATA[kaku]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: gulp | kaku's Blog]]></title>
+    <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
+    <link href="http://kaku87.github.com/"/>
+    <updated>2015-01-11T15:33:54+09:00</updated>
+    <id>http://kaku87.github.com/</id>
+    <author>
+        <name><![CDATA[kaku]]></name>
+        <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[gulp入门]]></title>
-    <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
-    <updated>2015-01-11T01:05:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
-    <content type="html"><![CDATA[<h2>概要</h2>
+    
+    <entry>
+        <title type="html"><![CDATA[gulp入门]]></title>
+        <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
+        <updated>2015-01-11T01:05:00+09:00</updated>
+        <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>
+        <content type="html"><![CDATA[<h2>概要</h2>
 
 <p>前端任务自动化工具</p>
 
@@ -206,6 +206,6 @@ var gulp = require('gulp');</li>
 <p>gulp.task('default',['second']);
 ```</p>
 ]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

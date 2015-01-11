@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: rails | kaku's Blog]]></title>
-  <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T15:23:45+09:00</updated>
-  <id>http://kaku87.github.com/</id>
-  <author>
-    <name><![CDATA[kaku]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: rails | kaku's Blog]]></title>
+    <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
+    <link href="http://kaku87.github.com/"/>
+    <updated>2015-01-11T15:33:54+09:00</updated>
+    <id>http://kaku87.github.com/</id>
+    <author>
+        <name><![CDATA[kaku]]></name>
+        <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[about vm]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-    <updated>2013-03-04T17:21:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
-    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
+    
+    <entry>
+        <title type="html"><![CDATA[about vm]]></title>
+        <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
+        <updated>2013-03-04T17:21:00+09:00</updated>
+        <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
+        <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
 
 <hr />
 
@@ -44,14 +44,14 @@
 </ol>
 
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-    <updated>2013-03-04T16:42:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
-    <content type="html"><![CDATA[<p>安装mysql</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[centos下搭rails开发环境时的一些记录]]></title>
+        <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
+        <updated>2013-03-04T16:42:00+09:00</updated>
+        <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
+        <content type="html"><![CDATA[<p>安装mysql</p>
 
 <pre><code>yum -y install mysql
 </code></pre>
@@ -109,6 +109,6 @@ mysql -uroot -p
 <pre><code>desc 表名
 </code></pre>
 ]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>
