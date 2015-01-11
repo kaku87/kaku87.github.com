@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gulp | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gulp/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T14:16:12+09:00</updated>
+  <updated>2015-01-11T14:33:31+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -172,7 +172,7 @@ gulp.watch('files', function (event) {
  console.log('js file changed!!');
 });
 </code>
-详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API doc</a></li>
+详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API</a></li>
 </ol>
 
 
