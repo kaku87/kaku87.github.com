@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-26T23:26:52+09:00</updated>
+  <updated>2015-01-26T23:28:21+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -24,7 +24,7 @@
 
 <p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
 
-<h1>基本使用方法</h1>
+<h2>基本使用方法</h2>
 
 <p>创建project</p>
 
