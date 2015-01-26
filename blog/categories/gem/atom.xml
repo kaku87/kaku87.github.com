@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gem | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-01-26T23:25:43+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之devise]]></title>
+    <link href="http://kaku87.github.com/blog/2015/01/26/devise/"/>
+    <updated>2015-01-26T22:48:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/01/26/devise</id>
+    <content type="html"><![CDATA[<h1>Devise</h1>
+
+<h2>概要</h2>
+
+<p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
+
+<h1>基本使用方法</h1>
+
+<p>创建project</p>
+
+<p>```
+rails new blog
+cd blog</p>
+
+<p>```</p>
+
+<p>Gemfile中加入devise gem</p>
+
+<p>```</p>
+
+<h1>Gemfile</h1>
+
+<p>gem 'devise'</p>
+
+<p>```</p>
+
+<p>运行bundle install</p>
+
+<p>```
+bundle install</p>
+
+<p>```</p>
+
+<p>安装devise</p>
+
+<p><code>
+rails g devise:install
+</code></p>
+
+<p>指定发送邮件时的host名</p>
+
+<p>```</p>
+
+<h1>config/environments/development.rb</h1>
+
+<p>Rails.application.configure do
+  ...
+  # deviseの設定
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+end
+```</p>
+
+<p>指定root_url</p>
+
+<p>```</p>
+
+<h1>config/routes.rb</h1>
+
+<p>  root to: "home#index"
+  ... <br/>
+```</p>
+
+<p>加入错误消息显示部分代码</p>
+
+<p>```</p>
+
+<h1>app/views/layouts/application.html.erb</h1>
+
+<p><body></p>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
+
+```
+
+生成devise model
+
+```
+rails g devise user
+```
+
+执行migrate
+
+rake db:migrate
+
+
+添加登陆，退出，注册，设置链接
+
+```
+# app/views/layouts/application.html.erb
+...
+<body>
+<header>
+  <nav>
+    <!-- user_signed_in? devise的Helper方法，验证是否已登陆 -->
+    <% if user_signed_in? %> 
+      <!-- current_user 当前登陆User对象 -->
+      <!-- *_path devise自动生成的路由，执行rake routes可以确认 -->
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to '设置', edit_user_registration_path %> |
+      <%= link_to "退出", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "注册", new_user_registration_path %> |
+      <%= link_to "登陆", new_user_session_path %>
+    <% end %>
+  </nav>
+</header>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
+```
+
+启动服务，就可以看到画面啦。
+
+```
+rails s
+```
+
+]]></content>
+  </entry>
+  
+</feed>

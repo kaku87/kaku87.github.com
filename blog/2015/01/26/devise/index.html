@@ -5,11 +5,17 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gulp入门 - kaku's Blog</title>
+  <title>Rails Gem系列之devise - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="概要 前端任务自动化工具 官方网站 gulpjs.com 相关知识 GoogleのWenStarterKit是用gulp来做的。 环境 vagrant centos 安装 1. sudo yum -y install epel-release 2. sodu yum -y install &hellip;">
+  <meta name="description" content="Devise 概要 最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。 基本使用方法 创建project 1
+2
+rails new blog
+cd blog Gemfile中加入devise gem 1
+2
+# Gemfile
+gem 'devise' &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/2015/01/11/about-gulp">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/01/26/devise">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -80,7 +86,7 @@
   
   <header>
     
-      <h1 class="entry-title">Gulp入门</h1>
+      <h1 class="entry-title">Rails Gem系列之devise</h1>
     
     
       <p class="meta">
@@ -96,7 +102,7 @@
   
 
 
-<time datetime="2015-01-11T01:05:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2015</time>
+<time datetime="2015-01-26T22:48:00+09:00" pubdate data-updated="true">Jan 26<span>th</span>, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kaku87.github.com">Comments</a>
@@ -106,88 +112,46 @@
   </header>
 
 
-<div class="entry-content"><h2>概要</h2>
+<div class="entry-content"><h1>Devise</h1>
 
-<p>前端任务自动化工具</p>
+<h2>概要</h2>
 
-<h2>官方网站</h2>
+<p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
 
-<p><a href="gulpjs.com">gulpjs.com</a></p>
+<h1>基本使用方法</h1>
 
-<h2>相关知识</h2>
+<p>创建project</p>
 
-<p>GoogleのWenStarterKit是用gulp来做的。</p>
-
-<h2>环境</h2>
-
-<p>vagrant centos</p>
-
-<h2>安装</h2>
-
-<pre><code>1. sudo yum -y install epel-release
-
-2. sodu yum -y install nodejs npm
-
-    `node -v`确认node的版本号
-
-    `npm -v`确认npm的版本号
-
-3. sudo npm install gulp -g
-
-    `gulp -v`确认gulp的版本号
-</code></pre>
-
-<h2>gulp和grunt的区别</h2>
-
-<table>
-<thead>
-<tr>
-<th>gulp         </th>
-<th> grunt </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> 插件少       </td>
-<td>  插件多</td>
-</tr>
-<tr>
-<td>8,398sta     </td>
-<td>  8,439starM</td>
-</tr>
-<tr>
-<td>2013/6/30    </td>
-<td>  2011/9/18</td>
-</tr>
-<tr>
-<td>gulpfie.js   </td>
-<td>  Gruntfile.js</td>
-</tr>
-<tr>
-<td>类似Node       </td>
-<td>类似JavaScript</td>
-</tr>
-<tr>
-<td>Node的插件    </td>
-<td>  Grunt的插件</td>
-</tr>
-</tbody>
-</table>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails new blog
+</span><span class='line'>cd blog
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>和Grunt相比较的优点</h2>
+<p>Gemfile中加入devise gem</p>
 
-<p>1.配置文件比Grunt要少</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Gemfile
+</span><span class='line'>gem 'devise'
+</span></code></pre></td></tr></table></div></figure>
 
-<p>2.比Grunt要快</p>
 
-<h2>和Grunt相比的缺点</h2>
+<p>运行bundle install</p>
 
-<p>1.写法和Node接近，所以相对比较复杂</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install
+</span></code></pre></td></tr></table></div></figure>
 
-<p>2.文档较少</p>
 
-<h2>创建package.json</h2>
+<p>安装devise</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise:install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>指定发送邮件时的host名</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -195,35 +159,25 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir mysite
-</span><span class='line'>cd mysite 
-</span><span class='line'>npm init
-</span><span class='line'>npm install --save-dev gulp
-</span><span class='line'>npm -i -D gulp
-</span><span class='line'>rm -rf node_modules
-</span><span class='line'>npm install</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#config/environments/development.rb
+</span><span class='line'>Rails.application.configure do
+</span><span class='line'>  ...
+</span><span class='line'>  # deviseの設定
+</span><span class='line'>  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>初识gulp.task()</h2>
+<p>指定root_url</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
-</span><span class='line'>  gulp.task('hello', function(){
-</span><span class='line'>      console.log('hello world!')
-</span><span class='line'>})
-</span><span class='line'>
-</span><span class='line'>gulp.task('default', ['hello']);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'># config/routes.rb
+</span><span class='line'>  root to: "home#index"
+</span><span class='line'>  ... </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>文件拷贝</h2>
-
-<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。</p>
+<p>加入错误消息显示部分代码</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -233,83 +187,30 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>gulp.task('copy', function() {
-</span><span class='line'>    gulp.src('./package.json')
-</span><span class='line'>      .pipe(gulp.dest('./dist'));
-</span><span class='line'>});
+</span><span class='line'>&lt;%= yield %&gt;
 </span><span class='line'>
-</span><span class='line'>gulp.task('default',['copy']);</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
-
-<h2>gulp的常用5种API</h2>
-
-<ol>
-<li>定义task</li>
-</ol>
-
+<p>生成devise model</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.task('name',['tasks'], function() {
-</span><span class='line'>    // content
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise user</span></code></pre></td></tr></table></div></figure>
 
 
-<p>  <br/>
-2. 输入路径指定</p>
+<p>执行migrate</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.src('files')
-</span><span class='line'>  .pipe(name(''))</span></code></pre></td></tr></table></div></figure>
+<p>rake db:migrate</p>
 
-
-<p>
-3. 执行task</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.task('foo', function() {
-</span><span class='line'>    gulp.run('bar');
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>  <br/>
-4. 输出路径指定</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>.pipe(gulp.dest('folder'));</span></code></pre></td></tr></table></div></figure>
-
-
-<p> <br/>
-5. 监视文件</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gulp.watch('files', function (event) {
-</span><span class='line'>  console.log('js file changed!!');
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>  <br/>
-详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">github API</a></p>
-
-<h2>gulp task执行顺序</h2>
-
-<p>gulp的task默认为并行触发，若要顺序执行，要做如下处理。</p>
-
-<ol>
-<li>前面的task要写return</li>
-<li>后面的task要加第二参数，值为前面的task</li>
-</ol>
-
+<p>添加登陆，退出，注册，设置链接</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -323,21 +224,53 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var gulp = require('gulp');
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>...
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;header&gt;
+</span><span class='line'>  &lt;nav&gt;
+</span><span class='line'>    &lt;!-- user_signed_in? devise的Helper方法，验证是否已登陆 --&gt;
+</span><span class='line'>    &lt;% if user_signed_in? %&gt; 
+</span><span class='line'>      &lt;!-- current_user 当前登陆User对象 --&gt;
+</span><span class='line'>      &lt;!-- *_path devise自动生成的路由，执行rake routes可以确认 --&gt;
+</span><span class='line'>      Logged in as &lt;strong&gt;&lt;%= current_user.email %&gt;&lt;/strong&gt;.
+</span><span class='line'>      &lt;%= link_to '设置', edit_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "退出", destroy_user_session_path, method: :delete %&gt;
+</span><span class='line'>    &lt;% else %&gt;
+</span><span class='line'>      &lt;%= link_to "注册", new_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "登陆", new_user_session_path %&gt;
+</span><span class='line'>    &lt;% end %&gt;
+</span><span class='line'>  &lt;/nav&gt;
+</span><span class='line'>&lt;/header&gt;
 </span><span class='line'>
-</span><span class='line'>gulp.task('first', function() {
-</span><span class='line'>    return gulp.src('./package.json')
-</span><span class='line'>      .pipe(gulp.dest('./dist'));
-</span><span class='line'>});
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>gulp.task('second',['first'], function() {
-</span><span class='line'>    console.log('first task done!!');
-</span><span class='line'>});
+</span><span class='line'>&lt;%= yield %&gt;
 </span><span class='line'>
-</span><span class='line'>gulp.task('default',['second']);</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
+<p>启动服务，就可以看到画面啦。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails s</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -360,12 +293,12 @@
   
 
 
-<time datetime="2015-01-11T01:05:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2015</time>
+<time datetime="2015-01-26T22:48:00+09:00" pubdate data-updated="true">Jan 26<span>th</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/gulp/'>gulp</a>
+    <a class='category' href='/blog/categories/gem/'>gem</a>
   
 </span>
 
@@ -374,7 +307,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/01/11/about-gulp/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/01/11/about-gulp/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/01/26/devise/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/01/26/devise/" >Tweet</a>
   
   
   
@@ -385,10 +318,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/05/10/20130515/" title="Previous Post: Rails3.0でモデルのER図を簡単に出力する方法">&laquo; Rails3.0でモデルのER図を簡単に出力する方法</a>
+        <a class="basic-alignment left" href="/blog/2015/01/11/about-gulp/" title="Previous Post: gulp入门">&laquo; gulp入门</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/26/devise/" title="Next Post: rails gem系列之devise">rails gem系列之devise &raquo;</a>
       
     </p>
   </footer>
@@ -473,8 +404,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kaku87.github.com/blog/2015/01/11/about-gulp/';
-        var disqus_url = 'http://kaku87.github.com/blog/2015/01/11/about-gulp/';
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/01/26/devise/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/01/26/devise/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-11T19:52:10+09:00</updated>
+  <updated>2015-01-26T23:25:43+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,173 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之devise]]></title>
+    <link href="http://kaku87.github.com/blog/2015/01/26/devise/"/>
+    <updated>2015-01-26T22:48:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/01/26/devise</id>
+    <content type="html"><![CDATA[<h1>Devise</h1>
+
+<h2>概要</h2>
+
+<p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
+
+<h1>基本使用方法</h1>
+
+<p>创建project</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails new blog
+</span><span class='line'>cd blog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gemfile中加入devise gem</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Gemfile
+</span><span class='line'>gem 'devise'
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>运行bundle install</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装devise</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise:install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>指定发送邮件时的host名</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#config/environments/development.rb
+</span><span class='line'>Rails.application.configure do
+</span><span class='line'>  ...
+</span><span class='line'>  # deviseの設定
+</span><span class='line'>  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>指定root_url</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># config/routes.rb
+</span><span class='line'>  root to: "home#index"
+</span><span class='line'>  ... </span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入错误消息显示部分代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;%= yield %&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成devise model</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise user</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行migrate</p>
+
+<p>rake db:migrate</p>
+
+<p>添加登陆，退出，注册，设置链接</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>...
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;header&gt;
+</span><span class='line'>  &lt;nav&gt;
+</span><span class='line'>    &lt;!-- user_signed_in? devise的Helper方法，验证是否已登陆 --&gt;
+</span><span class='line'>    &lt;% if user_signed_in? %&gt; 
+</span><span class='line'>      &lt;!-- current_user 当前登陆User对象 --&gt;
+</span><span class='line'>      &lt;!-- *_path devise自动生成的路由，执行rake routes可以确认 --&gt;
+</span><span class='line'>      Logged in as &lt;strong&gt;&lt;%= current_user.email %&gt;&lt;/strong&gt;.
+</span><span class='line'>      &lt;%= link_to '设置', edit_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "退出", destroy_user_session_path, method: :delete %&gt;
+</span><span class='line'>    &lt;% else %&gt;
+</span><span class='line'>      &lt;%= link_to "注册", new_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "登陆", new_user_session_path %&gt;
+</span><span class='line'>    &lt;% end %&gt;
+</span><span class='line'>  &lt;/nav&gt;
+</span><span class='line'>&lt;/header&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;%= yield %&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>启动服务，就可以看到画面啦。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails s</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gulp入门]]></title>
