@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gem | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-26T23:25:43+09:00</updated>
+  <updated>2015-01-26T23:26:52+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -106,8 +106,9 @@ rails g devise user
 
 执行migrate
 
+```
 rake db:migrate
-
+```
 
 添加登陆，退出，注册，设置链接
 
