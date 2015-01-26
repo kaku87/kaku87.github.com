@@ -1,0 +1,128 @@
+---
+layout: post
+title: "rails gem系列之devise"
+date: 2015-01-26 22:48
+comments: true
+categories: gem
+---
+Devise
+==========
+概要
+------------
+最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。
+
+
+基本使用方法
+------------
+创建project
+
+```
+rails new blog
+cd blog
+
+```
+
+Gemfile中加入devise gem
+
+```
+# Gemfile
+gem 'devise'
+
+```
+
+运行bundle install
+
+```
+bundle install
+
+```
+
+安装devise
+
+```
+rails g devise:install
+```
+	
+指定发送邮件时的host名
+
+```
+#config/environments/development.rb
+Rails.application.configure do
+  ...
+  # deviseの設定
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+end
+```
+
+指定root_url
+
+```
+# config/routes.rb
+  root to: "home#index"
+  ...	
+```
+
+加入错误消息显示部分代码
+
+
+```
+# app/views/layouts/application.html.erb
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
+
+```
+
+生成devise model
+
+```
+rails g devise user
+```
+
+执行migrate
+
+```
+rake db:migrate
+```
+
+添加登陆，退出，注册，设置链接
+
+```
+# app/views/layouts/application.html.erb
+...
+<body>
+<header>
+  <nav>
+    <!-- user_signed_in? devise的Helper方法，验证是否已登陆 -->
+    <% if user_signed_in? %> 
+      <!-- current_user 当前登陆User对象 -->
+      <!-- *_path devise自动生成的路由，执行rake routes可以确认 -->
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to '设置', edit_user_registration_path %> |
+      <%= link_to "退出", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "注册", new_user_registration_path %> |
+      <%= link_to "登陆", new_user_session_path %>
+    <% end %>
+  </nav>
+</header>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
+```
+
+启动服务，就可以看到画面啦。
+
+```
+rails s
+```
