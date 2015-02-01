@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-01-26T23:28:21+09:00</updated>
+  <updated>2015-02-01T14:24:38+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,115 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[zsh下git命令Cheat-sheet]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/01/git-commond/"/>
+    <updated>2015-02-01T14:20:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/01/git-commond</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>g - git
+</span><span class='line'>gst - git status
+</span><span class='line'>gl - git pull
+</span><span class='line'>gup - git pull --rebase
+</span><span class='line'>gp - git push
+</span><span class='line'>gd - git diff
+</span><span class='line'>gdc - git diff --cached
+</span><span class='line'>gdv - git diff -w "$@" | view -
+</span><span class='line'>gc - git commit -v
+</span><span class='line'>gc! - git commit -v --amend
+</span><span class='line'>gca - git commit -v -a
+</span><span class='line'>gca! - git commit -v -a --amend
+</span><span class='line'>gcmsg - git commit -m
+</span><span class='line'>gco - git checkout
+</span><span class='line'>gcm - git checkout master
+</span><span class='line'>gr - git remote
+</span><span class='line'>grv - git remote -v
+</span><span class='line'>grmv - git remote rename
+</span><span class='line'>grrm - git remote remove
+</span><span class='line'>gsetr - git remote set-url
+</span><span class='line'>grup - git remote update
+</span><span class='line'>grbi - git rebase -i
+</span><span class='line'>grbc - git rebase --continue
+</span><span class='line'>grba - git rebase --abort
+</span><span class='line'>gb - git branch
+</span><span class='line'>gba - git branch -a
+</span><span class='line'>gcount - git shortlog -sn
+</span><span class='line'>gcl - git config --list
+</span><span class='line'>gcp - git cherry-pick
+</span><span class='line'>glg - git log --stat --max-count=10
+</span><span class='line'>glgg - git log --graph --max-count=10
+</span><span class='line'>glgga - git log --graph --decorate --all
+</span><span class='line'>glo - git log --oneline --decorate --color
+</span><span class='line'>glog - git log --oneline --decorate --color --graph
+</span><span class='line'>gss - git status -s
+</span><span class='line'>ga - git add
+</span><span class='line'>gm - git merge
+</span><span class='line'>grh - git reset HEAD
+</span><span class='line'>grhh - git reset HEAD --hard
+</span><span class='line'>gclean - git reset --hard && git clean -dfx
+</span><span class='line'>gwc - git whatchanged -p --abbrev-commit --pretty=medium
+</span><span class='line'>gsts - git stash show --text
+</span><span class='line'>gsta - git stash
+</span><span class='line'>gstp - git stash pop
+</span><span class='line'>gstd - git stash drop
+</span><span class='line'>ggpull - git pull origin $(current_branch)
+</span><span class='line'>ggpur - git pull --rebase origin $(current_branch)
+</span><span class='line'>ggpush - git push origin $(current_branch)
+</span><span class='line'>ggpnp - git pull origin $(current_branch) && git push origin $(current_branch)
+</span><span class='line'>glp - _git_log_prettily</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之devise]]></title>

@@ -5,13 +5,61 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails3.0でモデルのER図を簡単に出力する方法 - kaku's Blog</title>
+  <title>zsh下git命令Cheat-sheet - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="* graphvizをインストール
-* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
-* 「rake erd」を実行 ">
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+g - git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +68,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/2013/05/10/20130515">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/git-commond">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -82,7 +130,7 @@
   
   <header>
     
-      <h1 class="entry-title">Rails3.0でモデルのER図を簡単に出力する方法</h1>
+      <h1 class="entry-title">zsh下git命令Cheat-sheet</h1>
     
     
       <p class="meta">
@@ -98,7 +146,7 @@
   
 
 
-<time datetime="2013-05-10T09:38:00+09:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kaku87.github.com">Comments</a>
@@ -108,10 +156,107 @@
   </header>
 
 
-<div class="entry-content"><pre><code>* graphvizをインストール
-* Gemfileのdevelopment環境の設定に「gem "rails-erd"」を追加
-* 「rake erd」を実行
-</code></pre>
+<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>g - git
+</span><span class='line'>gst - git status
+</span><span class='line'>gl - git pull
+</span><span class='line'>gup - git pull --rebase
+</span><span class='line'>gp - git push
+</span><span class='line'>gd - git diff
+</span><span class='line'>gdc - git diff --cached
+</span><span class='line'>gdv - git diff -w "$@" | view -
+</span><span class='line'>gc - git commit -v
+</span><span class='line'>gc! - git commit -v --amend
+</span><span class='line'>gca - git commit -v -a
+</span><span class='line'>gca! - git commit -v -a --amend
+</span><span class='line'>gcmsg - git commit -m
+</span><span class='line'>gco - git checkout
+</span><span class='line'>gcm - git checkout master
+</span><span class='line'>gr - git remote
+</span><span class='line'>grv - git remote -v
+</span><span class='line'>grmv - git remote rename
+</span><span class='line'>grrm - git remote remove
+</span><span class='line'>gsetr - git remote set-url
+</span><span class='line'>grup - git remote update
+</span><span class='line'>grbi - git rebase -i
+</span><span class='line'>grbc - git rebase --continue
+</span><span class='line'>grba - git rebase --abort
+</span><span class='line'>gb - git branch
+</span><span class='line'>gba - git branch -a
+</span><span class='line'>gcount - git shortlog -sn
+</span><span class='line'>gcl - git config --list
+</span><span class='line'>gcp - git cherry-pick
+</span><span class='line'>glg - git log --stat --max-count=10
+</span><span class='line'>glgg - git log --graph --max-count=10
+</span><span class='line'>glgga - git log --graph --decorate --all
+</span><span class='line'>glo - git log --oneline --decorate --color
+</span><span class='line'>glog - git log --oneline --decorate --color --graph
+</span><span class='line'>gss - git status -s
+</span><span class='line'>ga - git add
+</span><span class='line'>gm - git merge
+</span><span class='line'>grh - git reset HEAD
+</span><span class='line'>grhh - git reset HEAD --hard
+</span><span class='line'>gclean - git reset --hard && git clean -dfx
+</span><span class='line'>gwc - git whatchanged -p --abbrev-commit --pretty=medium
+</span><span class='line'>gsts - git stash show --text
+</span><span class='line'>gsta - git stash
+</span><span class='line'>gstp - git stash pop
+</span><span class='line'>gstd - git stash drop
+</span><span class='line'>ggpull - git pull origin $(current_branch)
+</span><span class='line'>ggpur - git pull --rebase origin $(current_branch)
+</span><span class='line'>ggpush - git push origin $(current_branch)
+</span><span class='line'>ggpnp - git pull origin $(current_branch) && git push origin $(current_branch)
+</span><span class='line'>glp - _git_log_prettily</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -134,12 +279,12 @@
   
 
 
-<time datetime="2013-05-10T09:38:00+09:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/zsh/'>zsh</a>
   
 </span>
 
@@ -148,7 +293,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2013/05/10/20130515/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2013/05/10/20130515/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/git-commond/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/git-commond/" >Tweet</a>
   
   
   
@@ -159,10 +304,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/03/15/about-rails-functional-test/" title="Previous Post: 关于rails控制器的功能测试">&laquo; 关于rails控制器的功能测试</a>
+        <a class="basic-alignment left" href="/blog/2015/01/26/devise/" title="Previous Post: rails gem系列之devise">&laquo; rails gem系列之devise</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/11/about-gulp/" title="Next Post: gulp入门">gulp入门 &raquo;</a>
       
     </p>
   </footer>
@@ -247,8 +390,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kaku87.github.com/blog/2013/05/10/20130515/';
-        var disqus_url = 'http://kaku87.github.com/blog/2013/05/10/20130515/';
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
         var disqus_script = 'embed.js';
       
     (function () {
