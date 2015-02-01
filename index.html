@@ -9,57 +9,11 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="下载auto-fu.zsh 1
 2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-g - git &hellip;">
+cd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu 执行zcompile 1
+A=~/.oh-my-zsh/custom/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -127,6 +81,101 @@ g - git &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/">安装auto-fu.zsh让命令输入自动补全</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+        
+           | <a href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif" alt="" /></p>
+
+<ul>
+<li>下载auto-fu.zsh</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.oh-my-zsh/custom/plugins
+</span><span class='line'>git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>执行zcompile</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">A</span><span class="o">=</span>~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; <span class="o">(</span>zsh -c <span class="s2">&quot;source $A ; auto-fu-zcompile $A ~/.zsh&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>添加下面的设置到zshrc中</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">## auto-fu.zsh stuff.</span>
+</span><span class='line'><span class="c"># source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh</span>
+</span><span class='line'><span class="o">{</span> . ~/.zsh/auto-fu; auto-fu-install; <span class="o">}</span>
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> input bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> completion <span class="nb">fg</span><span class="o">=</span>black,bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:var&#39;</span> postdisplay <span class="s1">$&#39;\n-azfu-&#39;</span>
+</span><span class='line'>zle-line-init <span class="o">()</span> <span class="o">{</span>auto-fu-init;<span class="o">}</span>; zle -N zle-line-init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>重新编译zshrc</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.zshrc
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1422,6 +1471,10 @@ mysql -uroot -p
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/">安装auto-fu.zsh让命令输入自动补全</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/02/01/git-commond/">zsh下git命令Cheat-sheet</a>
       </li>
     
@@ -1435,10 +1488,6 @@ mysql -uroot -p
     
       <li class="post">
         <a href="/blog/2013/05/10/20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a>
       </li>
     
   </ul>

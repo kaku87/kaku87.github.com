@@ -5,11 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Zsh - kaku's Blog</title>
+  <title>安装auto-fu.zsh让命令输入自动补全 - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="Category: zsh">
+  <meta name="description" content="下载auto-fu.zsh 1
+2
+cd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu 执行zcompile 1
+A=~/.oh-my-zsh/custom/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.comblog/categories/zsh">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -76,36 +80,146 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Zsh</h1>
+    
+      <h1 class="entry-title">安装auto-fu.zsh让命令输入自动补全</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><img src="https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif" alt="" /></p>
 
-  
-  <h2>2015</h2>
-
-<article>
-  
-<h1><a href="/blog/2015/02/01/git-commond/">zsh下git命令Cheat-sheet</a></h1>
-<time datetime="2015-02-01T14:20:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/zsh/'>zsh</a></span>
-</footer>
+<ul>
+<li>下载auto-fu.zsh</li>
+</ul>
 
 
-</article>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.oh-my-zsh/custom/plugins
+</span><span class='line'>git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>执行zcompile</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">A</span><span class="o">=</span>~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; <span class="o">(</span>zsh -c <span class="s2">&quot;source $A ; auto-fu-zcompile $A ~/.zsh&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>添加下面的设置到zshrc中</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">## auto-fu.zsh stuff.</span>
+</span><span class='line'><span class="c"># source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh</span>
+</span><span class='line'><span class="o">{</span> . ~/.zsh/auto-fu; auto-fu-install; <span class="o">}</span>
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> input bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> completion <span class="nb">fg</span><span class="o">=</span>black,bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:var&#39;</span> postdisplay <span class="s1">$&#39;\n-azfu-&#39;</span>
+</span><span class='line'>zle-line-init <span class="o">()</span> <span class="o">{</span>auto-fu-init;<span class="o">}</span>; zle -N zle-line-init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>重新编译zshrc</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.zshrc
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/01/git-commond/" title="Previous Post: zsh下git命令Cheat-sheet ">&laquo; zsh下git命令Cheat-sheet </a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -179,7 +293,10 @@
       var disqus_shortname = 'kaku87blog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
