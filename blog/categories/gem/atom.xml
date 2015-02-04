@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gem | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-01T15:18:10+09:00</updated>
+  <updated>2015-02-04T21:41:09+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之settingslogic]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/04/settingslogic/"/>
+    <updated>2015-02-04T21:37:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/04/settingslogic</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>可以从配置文件简单读取配置的gem</p>
+
+<p>github地址：https://github.com/binarylogic/settingslogic</p>
+
+<p>安装</p>
+
+<p><code>ruby
+gem install settingslogic
+</code></p>
+
+<p>定义class   app/models/settings.rb</p>
+
+<p><code>ruby
+class Settings &lt; Settingslogic
+  source "#{Rails.root}/config/application.yml"
+  namespace Rails.env
+end
+</code></p>
+
+<p>创建配置文件  config/application.yml</p>
+
+<p>```ruby
+defaults: &amp;defaults
+  cool:</p>
+
+<pre><code>saweet: nested settings
+</code></pre>
+
+<p>  neat_setting: 24
+  awesome_setting: &lt;%= "Did you know 5 + 5 = #{5 + 5}?" %></p>
+
+<p>development:
+  &lt;&lt;: *defaults
+  neat_setting: 800</p>
+
+<p>test:
+  &lt;&lt;: *defaults</p>
+
+<p>production:
+  &lt;&lt;: *defaults
+```</p>
+
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+
+<p>```ruby</p>
+
+<blockquote><blockquote><p>Rails.env
+=> "development"</p>
+
+<p>Settings.cool
+=> "#&lt;Settingslogic::Settings ... >"</p>
+
+<p>Settings.cool.saweet
+=> "nested settings"</p>
+
+<p>Settings.neat_setting
+=> 800</p>
+
+<p>Settings.awesome_setting
+=> "Did you know 5 + 5 = 10?"
+```</p></blockquote></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之devise]]></title>

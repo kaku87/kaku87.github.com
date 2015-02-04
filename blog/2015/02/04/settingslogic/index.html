@@ -5,61 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>zsh下git命令Cheat-sheet - kaku's Blog</title>
+  <title>Rails Gem系列之settingslogic - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="概要 可以从配置文件简单读取配置的gem github地址：https://github.com/binarylogic/settingslogic 安装 1
+gem install settingslogic 定义class app/models/settings.rb 1
 2
 3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-g - git &hellip;">
+4 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +22,7 @@ g - git &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/git-commond">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/04/settingslogic">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -130,7 +84,7 @@ g - git &hellip;">
   
   <header>
     
-      <h1 class="entry-title">zsh下git命令Cheat-sheet</h1>
+      <h1 class="entry-title">Rails Gem系列之settingslogic</h1>
     
     
       <p class="meta">
@@ -146,7 +100,7 @@ g - git &hellip;">
   
 
 
-<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+<time datetime="2015-02-04T21:37:00+09:00" pubdate data-updated="true">Feb 4<span>th</span>, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kaku87.github.com">Comments</a>
@@ -156,7 +110,35 @@ g - git &hellip;">
   </header>
 
 
-<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><h2>概要</h2>
+
+<p>可以从配置文件简单读取配置的gem</p>
+
+<p>github地址：https://github.com/binarylogic/settingslogic</p>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">settingslogic</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>定义class   app/models/settings.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Settings</span> <span class="o">&lt;</span> <span class="no">Settingslogic</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/config/application.yml&quot;</span>
+</span><span class='line'>  <span class="n">namespace</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>创建配置文件  config/application.yml</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -171,91 +153,55 @@ g - git &hellip;">
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>g - git
-</span><span class='line'>gst - git status
-</span><span class='line'>gl - git pull
-</span><span class='line'>gup - git pull --rebase
-</span><span class='line'>gp - git push
-</span><span class='line'>gd - git diff
-</span><span class='line'>gdc - git diff --cached
-</span><span class='line'>gdv - git diff -w "$@" | view -
-</span><span class='line'>gc - git commit -v
-</span><span class='line'>gc! - git commit -v --amend
-</span><span class='line'>gca - git commit -v -a
-</span><span class='line'>gca! - git commit -v -a --amend
-</span><span class='line'>gcmsg - git commit -m
-</span><span class='line'>gco - git checkout
-</span><span class='line'>gcm - git checkout master
-</span><span class='line'>gr - git remote
-</span><span class='line'>grv - git remote -v
-</span><span class='line'>grmv - git remote rename
-</span><span class='line'>grrm - git remote remove
-</span><span class='line'>gsetr - git remote set-url
-</span><span class='line'>grup - git remote update
-</span><span class='line'>grbi - git rebase -i
-</span><span class='line'>grbc - git rebase --continue
-</span><span class='line'>grba - git rebase --abort
-</span><span class='line'>gb - git branch
-</span><span class='line'>gba - git branch -a
-</span><span class='line'>gcount - git shortlog -sn
-</span><span class='line'>gcl - git config --list
-</span><span class='line'>gcp - git cherry-pick
-</span><span class='line'>glg - git log --stat --max-count=10
-</span><span class='line'>glgg - git log --graph --max-count=10
-</span><span class='line'>glgga - git log --graph --decorate --all
-</span><span class='line'>glo - git log --oneline --decorate --color
-</span><span class='line'>glog - git log --oneline --decorate --color --graph
-</span><span class='line'>gss - git status -s
-</span><span class='line'>ga - git add
-</span><span class='line'>gm - git merge
-</span><span class='line'>grh - git reset HEAD
-</span><span class='line'>grhh - git reset HEAD --hard
-</span><span class='line'>gclean - git reset --hard && git clean -dfx
-</span><span class='line'>gwc - git whatchanged -p --abbrev-commit --pretty=medium
-</span><span class='line'>gsts - git stash show --text
-</span><span class='line'>gsta - git stash
-</span><span class='line'>gstp - git stash pop
-</span><span class='line'>gstd - git stash drop
-</span><span class='line'>ggpull - git pull origin $(current_branch)
-</span><span class='line'>ggpur - git pull --rebase origin $(current_branch)
-</span><span class='line'>ggpush - git push origin $(current_branch)
-</span><span class='line'>ggpnp - git pull origin $(current_branch) && git push origin $(current_branch)
-</span><span class='line'>glp - _git_log_prettily</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">defaults</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="ss">cool</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">saweet</span><span class="p">:</span> <span class="n">nested</span> <span class="n">settings</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">24</span>
+</span><span class='line'>  <span class="n">awesome_setting</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= &quot;Did you know 5 + 5 =</span> <span class="c1">#{5 + 5}?&quot; %&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">development</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">test</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">production</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;development&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;#&lt;Settingslogic::Settings ... &gt;&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span><span class="o">.</span><span class="n">saweet</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;nested settings&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">neat_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">awesome_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;Did you know 5 + 5 = 10?&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -279,12 +225,12 @@ g - git &hellip;">
   
 
 
-<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+<time datetime="2015-02-04T21:37:00+09:00" pubdate data-updated="true">Feb 4<span>th</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/zsh/'>zsh</a>
+    <a class='category' href='/blog/categories/gem/'>gem</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
   
 </span>
 
@@ -293,7 +239,7 @@ g - git &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/git-commond/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/git-commond/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/04/settingslogic/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/04/settingslogic/" >Tweet</a>
   
   
   
@@ -304,10 +250,8 @@ g - git &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/26/devise/" title="Previous Post: rails gem系列之devise">&laquo; rails gem系列之devise</a>
+        <a class="basic-alignment left" href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" title="Previous Post: 安装auto-fu.zsh让命令输入自动补全">&laquo; 安装auto-fu.zsh让命令输入自动补全</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" title="Next Post: 安装auto-fu.zsh让命令输入自动补全">安装auto-fu.zsh让命令输入自动补全 &raquo;</a>
       
     </p>
   </footer>
@@ -392,8 +336,8 @@ g - git &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
-        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/04/settingslogic/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/04/settingslogic/';
         var disqus_script = 'embed.js';
       
     (function () {

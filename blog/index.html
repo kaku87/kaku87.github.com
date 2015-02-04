@@ -9,10 +9,8 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="安装auto-fu.zsh让命令输入自动补全 Comments 下载auto-fu.zsh 1
-2
-cd ~/.oh-my-zsh/custom/plugins
-git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu &hellip;">
+  <meta name="description" content="rails gem系列之settingslogic gem rails Comments 概要 可以从配置文件简单读取配置的gem github地址：https://github.com/binarylogic/settingslogic 安装 1
+gem install &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +77,156 @@ git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu &hellip;">
   <div id="main">
     <div id="content">
           
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2015/02/04/settingslogic/">rails gem系列之settingslogic</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="" pubdate><i class="fa fa-calendar"></i> </time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/gem/'>gem</a></li>
+            
+                <li><a class='category' href='/blog/categories/rails/'>rails</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://kaku87.github.com/blog/2015/02/04/settingslogic/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <h2>概要</h2>
+
+<p>可以从配置文件简单读取配置的gem</p>
+
+<p>github地址：https://github.com/binarylogic/settingslogic</p>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">settingslogic</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>定义class   app/models/settings.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Settings</span> <span class="o">&lt;</span> <span class="no">Settingslogic</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/config/application.yml&quot;</span>
+</span><span class='line'>  <span class="n">namespace</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>创建配置文件  config/application.yml</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">defaults</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="ss">cool</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">saweet</span><span class="p">:</span> <span class="n">nested</span> <span class="n">settings</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">24</span>
+</span><span class='line'>  <span class="n">awesome_setting</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= &quot;Did you know 5 + 5 =</span> <span class="c1">#{5 + 5}?&quot; %&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">development</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">test</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">production</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;development&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;#&lt;Settingslogic::Settings ... &gt;&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span><span class="o">.</span><span class="n">saweet</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;nested settings&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">neat_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">awesome_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;Did you know 5 + 5 = 10?&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
