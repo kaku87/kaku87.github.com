@@ -5,15 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails Gem系列之settingslogic - kaku's Blog</title>
+  <title>Rails Gem系列之ffaker - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="概要 可以从配置文件简单读取配置的gem github地址：https://github.com/binarylogic/settingslogic 安装 1
-gem install settingslogic 定义class app/models/settings.rb 1
-2
-3
-4 &hellip;">
+  <meta name="description" content="概要 ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。 fmaker的github地址:
+https://github.com/emmanueloga/ffaker 和faker的关系 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +20,7 @@ gem install settingslogic 定义class app/models/settings.rb 1
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/04/settingslogic">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/06/ffaker">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -84,7 +82,7 @@ gem install settingslogic 定义class app/models/settings.rb 1
   
   <header>
     
-      <h1 class="entry-title">Rails Gem系列之settingslogic</h1>
+      <h1 class="entry-title">Rails Gem系列之ffaker</h1>
     
     
       <p class="meta">
@@ -100,7 +98,7 @@ gem install settingslogic 定义class app/models/settings.rb 1
   
 
 
-<time datetime="2015-02-04T21:37:00+09:00" pubdate data-updated="true">Feb 4<span>th</span>, 2015</time>
+<time datetime="2015-02-06T23:17:00+09:00" pubdate data-updated="true">Feb 6<span>th</span>, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kaku87.github.com">Comments</a>
@@ -112,31 +110,82 @@ gem install settingslogic 定义class app/models/settings.rb 1
 
 <div class="entry-content"><h2>概要</h2>
 
-<p>可以从配置文件简单读取配置的gem</p>
+<p>ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。</p>
 
-<p>github地址：https://github.com/binarylogic/settingslogic</p>
+<p>fmaker的github地址:
+<a href="https://github.com/emmanueloga/ffaker">https://github.com/emmanueloga/ffaker</a></p>
 
-<p>安装</p>
+<h2>和faker的关系</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">settingslogic</span>
-</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li>ffaker是faker的重写版。</li>
+<li>ffaker要比faker执行快。</li>
+</ol>
 
 
-<p>定义class   app/models/settings.rb</p>
+<h2>和faker的速度比较</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Settings</span> <span class="o">&lt;</span> <span class="no">Settingslogic</span>
-</span><span class='line'>  <span class="n">source</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/config/application.yml&quot;</span>
-</span><span class='line'>  <span class="n">namespace</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">bench1000</span>
+</span><span class='line'>  <span class="n">start</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="mi">1000</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="k">yield</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">finish</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Time: </span><span class="si">#{</span><span class="p">(</span><span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">to_f</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>创建配置文件  config/application.yml</p>
+<p>faker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;faker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.186539</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ffaker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;ffaker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.009986</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>快了不止一点点啊。。。。</p>
+
+<h2>使用方法</h2>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem install ffaker
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="ss">profile</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>常用API</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -153,56 +202,25 @@ gem install settingslogic 定义class app/models/settings.rb 1
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">defaults</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">defaults</span>
-</span><span class='line'>  <span class="ss">cool</span><span class="p">:</span>
-</span><span class='line'>    <span class="ss">saweet</span><span class="p">:</span> <span class="n">nested</span> <span class="n">settings</span>
-</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">24</span>
-</span><span class='line'>  <span class="n">awesome_setting</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= &quot;Did you know 5 + 5 =</span> <span class="c1">#{5 + 5}?&quot; %&gt;</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span>      <span class="c1">#=&gt; &quot;Christophe Bartell&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="ss">development</span><span class="p">:</span>
-</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
-</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">800</span>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">email</span> <span class="c1">#=&gt; &quot;kirsten.greenholt@corkeryfisher.info&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">test</span><span class="p">:</span>
-</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:PhoneNumber</span><span class="o">.</span><span class="n">cell_phone</span> <span class="c1">#=&gt; &quot;(186)285-7925&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="ss">production</span><span class="p">:</span>
-</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span> <span class="c1">#=&gt; &quot;Dolore illum animi et neque accusantium.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">paragraph</span> <span class="c1">#=&gt; &quot;Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Number</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#=&gt; &quot;1968353479&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#=&gt; &quot;yfgjik0hgzdqs0&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Business</span><span class="o">.</span><span class="n">credit_card_number</span> <span class="c1">#=&gt; &quot;1228-1221-1221-1431&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;development&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;#&lt;Settingslogic::Settings ... &gt;&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span><span class="o">.</span><span class="n">saweet</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;nested settings&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">neat_setting</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="mi">800</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">awesome_setting</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;Did you know 5 + 5 = 10?&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>其他详细用法请详见这里 <a href="http://www.rubydoc.info/gems/faker/1.4.3">http://www.rubydoc.info/gems/faker/1.4.3</a></p>
 </div>
 
 
@@ -225,7 +243,7 @@ gem install settingslogic 定义class app/models/settings.rb 1
   
 
 
-<time datetime="2015-02-04T21:37:00+09:00" pubdate data-updated="true">Feb 4<span>th</span>, 2015</time>
+<time datetime="2015-02-06T23:17:00+09:00" pubdate data-updated="true">Feb 6<span>th</span>, 2015</time>
       
 
 <span class="categories">
@@ -239,7 +257,7 @@ gem install settingslogic 定义class app/models/settings.rb 1
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/04/settingslogic/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/04/settingslogic/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/06/ffaker/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/06/ffaker/" >Tweet</a>
   
   
   
@@ -250,10 +268,8 @@ gem install settingslogic 定义class app/models/settings.rb 1
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" title="Previous Post: 安装auto-fu.zsh让命令输入自动补全">&laquo; 安装auto-fu.zsh让命令输入自动补全</a>
+        <a class="basic-alignment left" href="/blog/2015/02/04/settingslogic/" title="Previous Post: rails gem系列之settingslogic">&laquo; rails gem系列之settingslogic</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/02/06/ffaker/" title="Next Post: rails gem系列之ffaker">rails gem系列之ffaker &raquo;</a>
       
     </p>
   </footer>
@@ -338,8 +354,8 @@ gem install settingslogic 定义class app/models/settings.rb 1
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/04/settingslogic/';
-        var disqus_url = 'http://kaku87.github.com/blog/2015/02/04/settingslogic/';
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/06/ffaker/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/06/ffaker/';
         var disqus_script = 'embed.js';
       
     (function () {

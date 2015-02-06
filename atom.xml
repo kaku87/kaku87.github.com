@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-04T21:41:09+09:00</updated>
+  <updated>2015-02-06T23:45:45+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,127 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ffaker]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/06/ffaker/"/>
+    <updated>2015-02-06T23:17:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/06/ffaker</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。</p>
+
+<p>fmaker的github地址:
+<a href="https://github.com/emmanueloga/ffaker">https://github.com/emmanueloga/ffaker</a></p>
+
+<h2>和faker的关系</h2>
+
+<ol>
+<li>ffaker是faker的重写版。</li>
+<li>ffaker要比faker执行快。</li>
+</ol>
+
+
+<h2>和faker的速度比较</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">bench1000</span>
+</span><span class='line'>  <span class="n">start</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="mi">1000</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="k">yield</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">finish</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Time: </span><span class="si">#{</span><span class="p">(</span><span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">to_f</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>faker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;faker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.186539</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ffaker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;ffaker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.009986</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>快了不止一点点啊。。。。</p>
+
+<h2>使用方法</h2>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem install ffaker
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="ss">profile</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>常用API</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span>      <span class="c1">#=&gt; &quot;Christophe Bartell&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">email</span> <span class="c1">#=&gt; &quot;kirsten.greenholt@corkeryfisher.info&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:PhoneNumber</span><span class="o">.</span><span class="n">cell_phone</span> <span class="c1">#=&gt; &quot;(186)285-7925&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span> <span class="c1">#=&gt; &quot;Dolore illum animi et neque accusantium.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">paragraph</span> <span class="c1">#=&gt; &quot;Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Number</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#=&gt; &quot;1968353479&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#=&gt; &quot;yfgjik0hgzdqs0&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Business</span><span class="o">.</span><span class="n">credit_card_number</span> <span class="c1">#=&gt; &quot;1228-1221-1221-1431&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其他详细用法请详见这里 <a href="http://www.rubydoc.info/gems/faker/1.4.3">http://www.rubydoc.info/gems/faker/1.4.3</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之settingslogic]]></title>

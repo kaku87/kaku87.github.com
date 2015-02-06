@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-04T21:41:09+09:00</updated>
+  <updated>2015-02-06T23:45:45+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ffaker]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/06/ffaker/"/>
+    <updated>2015-02-06T23:17:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/06/ffaker</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。</p>
+
+<p>fmaker的github地址:
+<a href="https://github.com/emmanueloga/ffaker">https://github.com/emmanueloga/ffaker</a></p>
+
+<h2>和faker的关系</h2>
+
+<ol>
+<li>ffaker是faker的重写版。</li>
+<li>ffaker要比faker执行快。</li>
+</ol>
+
+
+<h2>和faker的速度比较</h2>
+
+<p><code>ruby
+def bench1000
+  start = Time.now  
+  1000.times{yield}
+  finish = Time.now  
+  puts "Time: #{(finish - start).to_f}"  
+end
+</code></p>
+
+<p>faker的执行时间
+```ruby
+require 'faker'
+bench1000{Faker::Name.name}</p>
+
+<h1>=> Time: 0.186539</h1>
+
+<p>```</p>
+
+<p>ffaker的执行时间
+```ruby
+require 'ffaker'
+bench1000{Faker::Name.name}</p>
+
+<h1>=> Time: 0.009986</h1>
+
+<p>```</p>
+
+<p>快了不止一点点啊。。。。</p>
+
+<h2>使用方法</h2>
+
+<p>安装</p>
+
+<p><code>sh
+gem install ffaker
+</code></p>
+
+<p>在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。</p>
+
+<p>```ruby
+10.times do</p>
+
+<pre><code>User.create(name: Faker::Name.name, profile: Faker::Lorem.sentence(10))
+</code></pre>
+
+<p>end
+```</p>
+
+<h2>常用API</h2>
+
+<p>```ruby
+Faker::Name.name      #=> "Christophe Bartell"</p>
+
+<p>Faker::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"</p>
+
+<p>Faker::PhoneNumber.cell_phone #=> "(186)285-7925"</p>
+
+<p>Faker::Lorem.sentence #=> "Dolore illum animi et neque accusantium."</p>
+
+<p>Faker::Lorem.paragraph #=> "Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente."</p>
+
+<p>Faker::Number.number(10) #=> "1968353479"</p>
+
+<p>Faker::Internet.password(8) #=> "yfgjik0hgzdqs0"</p>
+
+<p>Faker::Business.credit_card_number #=> "1228-1221-1221-1431"</p>
+
+<p>```</p>
+
+<p>其他详细用法请详见这里 <a href="http://www.rubydoc.info/gems/faker/1.4.3">http://www.rubydoc.info/gems/faker/1.4.3</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之settingslogic]]></title>
