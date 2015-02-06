@@ -1,0 +1,86 @@
+---
+layout: post
+title: "rails gem系列之ffaker"
+date: 2015-02-06 23:17
+comments: true
+categories: rails gem
+---
+
+##概要
+
+ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。
+
+fmaker的github地址: 
+[https://github.com/emmanueloga/ffaker](https://github.com/emmanueloga/ffaker)
+
+##和faker的关系
+
+1. ffaker是faker的重写版。
+2. ffaker要比faker执行快。
+
+##和faker的速度比较
+
+```ruby
+def bench1000
+  start = Time.now  
+  1000.times{yield}
+  finish = Time.now  
+  puts "Time: #{(finish - start).to_f}"  
+end
+```
+
+faker的执行时间
+```ruby
+require 'faker'
+bench1000{Faker::Name.name}
+# => Time: 0.186539
+```
+
+ffaker的执行时间
+```ruby
+require 'ffaker'
+bench1000{Faker::Name.name}
+# => Time: 0.009986
+```
+
+快了不止一点点啊。。。。
+
+##使用方法
+
+安装
+
+```sh
+gem install ffaker
+```
+
+在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。
+
+```ruby
+10.times do
+	User.create(name: Faker::Name.name, profile: Faker::Lorem.sentence(10))
+end
+```
+
+##常用API
+```ruby
+Faker::Name.name      #=> "Christophe Bartell"
+
+Faker::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"
+
+Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+
+Faker::Lorem.sentence #=> "Dolore illum animi et neque accusantium."
+
+Faker::Lorem.paragraph #=> "Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente."
+
+Faker::Number.number(10) #=> "1968353479"
+
+Faker::Internet.password(8) #=> "yfgjik0hgzdqs0"
+
+Faker::Business.credit_card_number #=> "1228-1221-1221-1431"
+
+```
+
+其他详细用法请详见这里 [http://www.rubydoc.info/gems/faker/1.4.3](http://www.rubydoc.info/gems/faker/1.4.3)
+
