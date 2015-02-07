@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gem | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-07T23:43:44+09:00</updated>
+  <updated>2015-02-07T23:44:24+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -88,8 +88,6 @@ $("#posts").html("&lt;%= j(render :partial =&gt; 'posts') %&gt;");
 
 <p>&lt;%= paginate @posts %>
 ```</p>
-
-<p>效果图</p>
 ]]></content>
   </entry>
   
