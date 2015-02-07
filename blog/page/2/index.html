@@ -9,8 +9,7 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="安装mysql yum -y install mysql 配置文件-设置编码为utf8 vim /etc/my.cnf [mysql]
-default-character-set = utf8 启动mysql服务 /etc/rc.d/init.d/msyqld start 设置mysql随机启动 &hellip;">
+  <meta name="description" content="VM设定时遇到的网络问题 虚拟机不能上网 桥接方式 桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上 window下的putty不能连接到虚拟机上，网址也不能访问 网址不能访问是linux下的防火墙没有关闭 service iptables stop &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +77,69 @@ default-character-set = utf8 启动mysql服务 /etc/rc.d/init.d/msyqld start 设
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/04/about-vm/">About Vm</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T17:21:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/03/04/about-vm/#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com/blog/2013/03/04/about-vm/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>VM设定时遇到的网络问题</h2>
+
+<hr />
+
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
+
+<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
+
+<pre><code>  网址不能访问是linux下的防火墙没有关闭
+
+  service iptables stop 注意要用root权限关闭，不然不起作用
+
+  putty连不上的原因，是因为没有安装openssh
+
+  yum -y install openssh-client openssh-server
+
+  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+  service sshd start
+</code></pre></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -198,11 +260,15 @@ mysql -uroot -p
 </section>
 <section>
   <h1>标签</h1>
-    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 145.0%'>gem(3)</a> <a href='/blog/categories/git' style='font-size: 115.0%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 115.0%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 115.0%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(4)</a> <a href='/blog/categories/ruby' style='font-size: 115.0%'>ruby(1)</a> <a href='/blog/categories/zsh' style='font-size: 115.0%'>zsh(1)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 148.0%'>gem(4)</a> <a href='/blog/categories/git' style='font-size: 112.0%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 112.0%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 112.0%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(5)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/zsh' style='font-size: 112.0%'>zsh(1)</a> </span>
 </section>
 <section>
   <h1>最近发表</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/02/07/kaminari/">Rails Gem系列之kaminari</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/02/06/ffaker/">Rails Gem系列之ffaker</a>
@@ -218,10 +284,6 @@ mysql -uroot -p
     
       <li class="post">
         <a href="/blog/2015/02/01/git-commond/">zsh下git命令Cheat-sheet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/26/devise/">Rails Gem系列之devise</a>
       </li>
     
   </ul>

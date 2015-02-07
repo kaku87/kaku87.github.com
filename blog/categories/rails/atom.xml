@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-07T15:06:05+09:00</updated>
+  <updated>2015-02-07T23:43:44+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之kaminari]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/07/kaminari/"/>
+    <updated>2015-02-07T23:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/07/kaminari</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>kaminari是rails项目中常用的分页gem</p>
+
+<p>github地址：<a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></p>
+
+<h2>安装</h2>
+
+<p><code>ruby
+gem 'kaminari'
+</code></p>
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>基本使用</h2>
+
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。
+<code>ruby
+def index
+  @items = Item.page(params[:page])
+end
+</code></p>
+
+<p>view中加一行就会生成翻页部分了。so easy.
+<code>ruby index.html.erb
+&lt;%= paginate @items %&gt;
+</code></p>
+
+<h2>更改翻页样式</h2>
+
+<p><code>ruby
+rails g kaminari:views default
+</code></p>
+
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+<a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+
+<h2>ajax翻页</h2>
+
+<p>```ruby posts_controller.rb
+  respond_to :html, :js</p>
+
+<p>  def index</p>
+
+<pre><code>@posts = Post.page(params[:page]).per(10)
+respond_with(@posts)
+</code></pre>
+
+<p>  end
+```</p>
+
+<p>列表部分放到partial中
+<code>ruby _posts.html.erb
+&lt;% @posts.each do |post| %&gt;
+省略
+</code></p>
+
+<p><code>ruby index.js.erb
+$("#posts").html("&lt;%= j(render :partial =&gt; 'posts') %&gt;");
+</code></p>
+
+<p>```ruby index.html.erb
+ <div id="posts">
+  &lt;%= render :partial => "posts" %>
+</div></p>
+
+<p>&lt;%= paginate @posts %>
+```</p>
+
+<p>效果图</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之ffaker]]></title>

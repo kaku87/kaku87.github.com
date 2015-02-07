@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>安装auto-fu.zsh让命令输入自动补全 - kaku's Blog</title>
+  <title>Rails Gem系列之kaminari - kaku's Blog</title>
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="下载auto-fu.zsh 1
-2
-cd ~/.oh-my-zsh/custom/plugins
-git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu 执行zcompile 1
-A=~/.oh-my-zsh/custom/ &hellip;">
+  <meta name="description" content="概要 kaminari是rails项目中常用的分页gem github地址：https://github.com/amatsuda/kaminari 安装 1
+gem &#39;kaminari&#39; 然后执行bundle就可以了。 基本使用 分页的写法如下，默认为25行一页。改行数在后面加. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ A=~/.oh-my-zsh/custom/ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan">
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/07/kaminari">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
@@ -84,7 +81,7 @@ A=~/.oh-my-zsh/custom/ &hellip;">
   
   <header>
     
-      <h1 class="entry-title">安装auto-fu.zsh让命令输入自动补全</h1>
+      <h1 class="entry-title">Rails Gem系列之kaminari</h1>
     
     
       <p class="meta">
@@ -100,7 +97,7 @@ A=~/.oh-my-zsh/custom/ &hellip;">
   
 
 
-<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+<time datetime="2015-02-07T23:02:00+09:00" pubdate data-updated="true">Feb 7<span>th</span>, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kaku87.github.com">Comments</a>
@@ -110,63 +107,102 @@ A=~/.oh-my-zsh/custom/ &hellip;">
   </header>
 
 
-<div class="entry-content"><p><img src="https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif" alt="" /></p>
+<div class="entry-content"><h2>概要</h2>
 
-<ul>
-<li>下载auto-fu.zsh</li>
-</ul>
+<p>kaminari是rails项目中常用的分页gem</p>
 
+<p>github地址：<a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></p>
+
+<h2>安装</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;kaminari&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>基本使用</h2>
+
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.oh-my-zsh/custom/plugins
-</span><span class='line'>git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>  <span class="vi">@items</span> <span class="o">=</span> <span class="no">Item</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>执行zcompile</li>
-</ul>
+<p>view中加一行就会生成翻页部分了。so easy.</p>
 
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">A</span><span class="o">=</span>~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; <span class="o">(</span>zsh -c <span class="s2">&quot;source $A ; auto-fu-zcompile $A ~/.zsh&quot;</span><span class="o">)</span>
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@items</span> <span class="o">%&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>添加下面的设置到zshrc中</li>
-</ul>
-
+<h2>更改翻页样式</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="ss">kaminari</span><span class="p">:</span><span class="n">views</span> <span class="n">default</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+<a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+
+<h2>ajax翻页</h2>
+
+<figure class='code'><figcaption><span>posts_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">## auto-fu.zsh stuff.</span>
-</span><span class='line'><span class="c"># source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh</span>
-</span><span class='line'><span class="o">{</span> . ~/.zsh/auto-fu; auto-fu-install; <span class="o">}</span>
-</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> input bold
-</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> completion <span class="nb">fg</span><span class="o">=</span>black,bold
-</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:var&#39;</span> postdisplay <span class="s1">$&#39;\n-azfu-&#39;</span>
-</span><span class='line'>zle-line-init <span class="o">()</span> <span class="o">{</span>auto-fu-init;<span class="o">}</span>; zle -N zle-line-init
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">respond_to</span> <span class="ss">:html</span><span class="p">,</span> <span class="ss">:js</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">per</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">respond_with</span><span class="p">(</span><span class="vi">@posts</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>重新编译zshrc</li>
-</ul>
+<p>列表部分放到partial中</p>
 
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.zshrc
+<figure class='code'><figcaption><span>_posts.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% @posts.each </span><span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span> <span class="o">%&gt;</span>
+</span><span class='line'><span class="err">省略</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 
+
+<figure class='code'><figcaption><span>index.js.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#posts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="s2">&quot;&lt;%= j(render :partial =&gt; &#39;posts&#39;) %&gt;&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;posts&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render :partial =</span><span class="o">&gt;</span> <span class="s2">&quot;posts&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@posts</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>效果图</p>
 </div>
 
 
@@ -189,15 +225,21 @@ A=~/.oh-my-zsh/custom/ &hellip;">
   
 
 
-<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+<time datetime="2015-02-07T23:02:00+09:00" pubdate data-updated="true">Feb 7<span>th</span>, 2015</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gem/'>gem</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/07/kaminari/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/07/kaminari/" >Tweet</a>
   
   
   
@@ -208,10 +250,8 @@ A=~/.oh-my-zsh/custom/ &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/01/git-commond/" title="Previous Post: zsh下git命令Cheat-sheet ">&laquo; zsh下git命令Cheat-sheet </a>
+        <a class="basic-alignment left" href="/blog/2015/02/06/ffaker/" title="Previous Post: rails gem系列之ffaker">&laquo; rails gem系列之ffaker</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/02/04/settingslogic/" title="Next Post: rails gem系列之settingslogic">rails gem系列之settingslogic &raquo;</a>
       
     </p>
   </footer>
@@ -300,8 +340,8 @@ A=~/.oh-my-zsh/custom/ &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
-        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/07/kaminari/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/07/kaminari/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -9,9 +9,8 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="概要 ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
-rake db:seed 就可以生成大量的测试数据。 fmaker的github地址:
-https://github.com/emmanueloga/ffaker 和faker的关系 &hellip;">
+  <meta name="description" content="概要 kaminari是rails项目中常用的分页gem github地址：https://github.com/amatsuda/kaminari 安装 1
+gem &#39;kaminari&#39; 然后执行bundle就可以了。 基本使用 分页的写法如下，默认为25行一页。改行数在后面加. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,140 @@ https://github.com/emmanueloga/ffaker 和faker的关系 &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/07/kaminari/">Rails Gem系列之kaminari</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-07T23:02:00+09:00" pubdate data-updated="true">Feb 7<span>th</span>, 2015</time>
+        
+           | <a href="/blog/2015/02/07/kaminari/#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com/blog/2015/02/07/kaminari/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>概要</h2>
+
+<p>kaminari是rails项目中常用的分页gem</p>
+
+<p>github地址：<a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></p>
+
+<h2>安装</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;kaminari&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>基本使用</h2>
+
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>  <span class="vi">@items</span> <span class="o">=</span> <span class="no">Item</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>view中加一行就会生成翻页部分了。so easy.</p>
+
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@items</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>更改翻页样式</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="ss">kaminari</span><span class="p">:</span><span class="n">views</span> <span class="n">default</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+<a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+
+<h2>ajax翻页</h2>
+
+<figure class='code'><figcaption><span>posts_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">respond_to</span> <span class="ss">:html</span><span class="p">,</span> <span class="ss">:js</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">per</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">respond_with</span><span class="p">(</span><span class="vi">@posts</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>列表部分放到partial中</p>
+
+<figure class='code'><figcaption><span>_posts.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% @posts.each </span><span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span> <span class="o">%&gt;</span>
+</span><span class='line'><span class="err">省略</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.js.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#posts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="s2">&quot;&lt;%= j(render :partial =&gt; &#39;posts&#39;) %&gt;&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;posts&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render :partial =</span><span class="o">&gt;</span> <span class="s2">&quot;posts&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@posts</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>效果图</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1557,69 +1690,6 @@ d   删除块
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/04/about-vm/">About Vm</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-04T17:21:00+09:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/03/04/about-vm/#disqus_thread"
-             data-disqus-identifier="http://kaku87.github.com/blog/2013/03/04/about-vm/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>VM设定时遇到的网络问题</h2>
-
-<hr />
-
-<ol>
-<li><p>虚拟机不能上网  桥接方式</p>
-
-<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
-</code></pre></li>
-<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
-
-<pre><code>  网址不能访问是linux下的防火墙没有关闭
-
-  service iptables stop 注意要用root权限关闭，不然不起作用
-
-  putty连不上的原因，是因为没有安装openssh
-
-  yum -y install openssh-client openssh-server
-
-  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
-
-  service sshd start
-</code></pre></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1644,11 +1714,15 @@ d   删除块
 </section>
 <section>
   <h1>标签</h1>
-    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 145.0%'>gem(3)</a> <a href='/blog/categories/git' style='font-size: 115.0%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 115.0%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 115.0%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(4)</a> <a href='/blog/categories/ruby' style='font-size: 115.0%'>ruby(1)</a> <a href='/blog/categories/zsh' style='font-size: 115.0%'>zsh(1)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 148.0%'>gem(4)</a> <a href='/blog/categories/git' style='font-size: 112.0%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 112.0%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 112.0%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(5)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/zsh' style='font-size: 112.0%'>zsh(1)</a> </span>
 </section>
 <section>
   <h1>最近发表</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/02/07/kaminari/">Rails Gem系列之kaminari</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/02/06/ffaker/">Rails Gem系列之ffaker</a>
@@ -1664,10 +1738,6 @@ d   删除块
     
       <li class="post">
         <a href="/blog/2015/02/01/git-commond/">zsh下git命令Cheat-sheet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/26/devise/">Rails Gem系列之devise</a>
       </li>
     
   </ul>
