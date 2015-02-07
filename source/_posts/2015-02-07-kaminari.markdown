@@ -1,0 +1,75 @@
+---
+layout: post
+title: "rails gem系列之kaminari"
+date: 2015-02-07 23:02
+comments: true
+categories: rails gem
+---
+##概要
+kaminari是rails项目中常用的分页gem
+
+github地址：[https://github.com/amatsuda/kaminari](https://github.com/amatsuda/kaminari)
+
+##安装
+
+```ruby
+gem 'kaminari'
+```
+
+然后执行bundle就可以了。
+
+##基本使用
+
+分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。
+```ruby
+def index
+  @items = Item.page(params[:page])
+end
+```
+
+view中加一行就会生成翻页部分了。so easy.
+```ruby index.html.erb
+<%= paginate @items %>
+```
+
+##更改翻页样式
+
+```ruby 
+rails g kaminari:views default
+```
+
+这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。
+
+当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+[https://github.com/gabetax/twitter-bootstrap-kaminari-views](https://github.com/gabetax/twitter-bootstrap-kaminari-views)
+
+##ajax翻页
+
+```ruby posts_controller.rb
+  respond_to :html, :js
+
+  def index
+    @posts = Post.page(params[:page]).per(10)
+    respond_with(@posts)
+  end
+```
+
+列表部分放到partial中
+```ruby _posts.html.erb
+<% @posts.each do |post| %>
+省略
+```
+
+
+```ruby index.js.erb
+$("#posts").html("<%= j(render :partial => 'posts') %>");
+```
+
+```ruby index.html.erb
+ <div id="posts">
+  <%= render :partial => "posts" %>
+</div>
+
+<%= paginate @posts %>
+```
+
