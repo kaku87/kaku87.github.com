@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-07T23:44:24+09:00</updated>
+  <updated>2015-02-08T20:43:12+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,164 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ransack]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/08/ransack/"/>
+    <updated>2015-02-08T20:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/08/ransack</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ransack是一个用来实现检索功能的gem。</p>
+
+<p>github地址: <a href="https://github.com/activerecord-hackery/ransack">https://github.com/activerecord-hackery/ransack</a></p>
+
+<p>示例网站：<a href="http://ransack-demo.herokuapp.com">http://ransack-demo.herokuapp.com</a></p>
+
+<h2>安装</h2>
+
+<p><code>ruby Gemfile
+gem 'ransack'
+</code></p>
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>使用方法</h2>
+
+<p>在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。</p>
+
+<p><code>ruby
+def index
+  @q = Person.ransack(params[:q])
+  @people = @q.result(distinct: true)
+end
+</code></p>
+
+<p>view中的写法如下。</p>
+
+<p>```erb
+&lt;%= search_form_for @q do |f| %></p>
+
+<p>  # Search if the name field contains...
+  &lt;%= f.label :name_cont %>
+  &lt;%= f.search_field :name_cont %></p>
+
+<p>  # Search if an associated articles.title starts with...
+  &lt;%= f.label :articles_title_start %>
+  &lt;%= f.search_field :articles_title_start %></p>
+
+<p>  # Attributes may be chained. Search multiple attributes for one value...
+  &lt;%= f.label :name_or_description_or_email_or_articles_title_cont %>
+  &lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %></p>
+
+<p>  &lt;%= f.submit %>
+&lt;% end %>
+```</p>
+
+<h2>search的写法</h2>
+
+<p>eq表示等于</p>
+
+<p>```ruby
+Item.search(:name_eq => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> = 'test')"</h1>
+
+<p>```</p>
+
+<p>lt表示小于</p>
+
+<p>```ruby
+Item.search(:price_lt => 1000).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>price</code> &lt; 1000)"</h1>
+
+<p>```</p>
+
+<p>gt表示大于</p>
+
+<p>```ruby
+Item.search(:price_gt => 1000).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>price</code> > 1000)"</h1>
+
+<p>```</p>
+
+<p>in表示sql中的in
+```ruby
+Item.search(:category_id_in => [5,10,15,20]).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>category_id</code> IN (5,10,15,20))"</h1>
+
+<p>```</p>
+
+<p>cont表示包含，模糊查询</p>
+
+<p>```ruby
+Item.search(:name_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> LIKE '%test%')"</h1>
+
+<p>```</p>
+
+<p>start表示前端一致</p>
+
+<p>```ruby
+Item.search(:name_start => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> LIKE 'test%')"</h1>
+
+<p>```</p>
+
+<p>组合用法</p>
+
+<p>```ruby
+Item.search(:name_and_description_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%test%') AND (<code>items</code>.<code>description</code> LIKE '%test%')))"</h1>
+
+<p>Item.search(:name_or_description_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%test%') OR (<code>items</code>.<code>description</code> LIKE '%test%')))"</h1>
+
+<p>```</p>
+
+<p>条件组合
+末尾加<em>all是AND关系，末尾加</em>any是OR关系</p>
+
+<p>```ruby
+Item.search(:name_cont_all => ['AAA', 'BBB']).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%AAA%') AND (<code>items</code>.<code>name</code> LIKE '%BBB%')))"</h1>
+
+<p>Item.search(:name_cont_any => ['AAA', 'BBB']).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%AAA%') OR (<code>items</code>.<code>name</code> LIKE '%BBB%')))"</h1>
+
+<p>```</p>
+
+<p>相关模型检索</p>
+
+<p>```ruby
+Item.search(:comments_body_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> LEFT OUTER JOIN <code>item_comments</code> ON <code>item_comments</code>.<code>item_id</code> = <code>items</code>.<code>id</code> WHERE <code>item_comments</code>.<code>body</code> LIKE '%test%'"</h1>
+
+<p>```</p>
+
+<h2>表头排序</h2>
+
+<p><code>ruby
+&lt;%= sort_link(@q, :name) %&gt;
+</code></p>
+
+<p>加别名，加默认排序</p>
+
+<p><code>ruby
+&lt;%= sort_link(@q, :name, 'Last Name', default_order: :desc) %&gt;
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之kaminari]]></title>
@@ -288,71 +446,6 @@ defaults: &amp;defaults
 </code></pre></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Centos下搭rails开发环境时的一些记录]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/new-post/"/>
-    <updated>2013-03-04T16:42:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/new-post</id>
-    <content type="html"><![CDATA[<p>安装mysql</p>
-
-<pre><code>yum -y install mysql
-</code></pre>
-
-<p>配置文件-设置编码为utf8</p>
-
-<pre><code>vim /etc/my.cnf
-
-[mysql]
-default-character-set = utf8
-</code></pre>
-
-<p>启动mysql服务</p>
-
-<pre><code>/etc/rc.d/init.d/msyqld start
-</code></pre>
-
-<p>设置mysql随机启动</p>
-
-<pre><code>chkconfig mysqld on 
-chkconfig --liset mysqld
-</code></pre>
-
-<p>创建数据库</p>
-
-<pre><code>msyqladmin -u root create depot_development
-</code></pre>
-
-<p>修改root用户的密码</p>
-
-<pre><code>update user set password = password('root') where user = 'root'
-
-/etc/init.d/mysqld restart
-
-mysql -uroot -p
-</code></pre>
-
-<p>创建rails项目</p>
-
-<pre><code>rails new depot --database=mysql
-</code></pre>
-
-<p>出现错误</p>
-
-<pre><code>mysql.h is missing.
-</code></pre>
-
-<p>解决办法:</p>
-
-<pre><code>yum -y install mysql-devel
-</code></pre>
-
-<p>mysql 查看表结构</p>
-
-<pre><code>desc 表名
-</code></pre>
 ]]></content>
   </entry>
   
