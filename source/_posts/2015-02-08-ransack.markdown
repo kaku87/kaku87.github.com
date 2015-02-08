@@ -1,0 +1,137 @@
+---
+layout: post
+title: "rails gem系列之ransack"
+date: 2015-02-08 20:02
+comments: true
+categories: rails gem
+---
+
+##概要
+
+ransack是一个用来实现检索功能的gem。
+
+github地址: [https://github.com/activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack)
+
+示例网站：[http://ransack-demo.herokuapp.com](http://ransack-demo.herokuapp.com)
+
+##安装
+
+```ruby Gemfile
+gem 'ransack'
+```
+
+然后执行bundle就可以了。
+
+##使用方法
+
+在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。
+
+```ruby
+def index
+  @q = Person.ransack(params[:q])
+  @people = @q.result(distinct: true)
+end
+```
+
+view中的写法如下。
+
+```erb
+<%= search_form_for @q do |f| %>
+
+  # Search if the name field contains...
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  # Search if an associated articles.title starts with...
+  <%= f.label :articles_title_start %>
+  <%= f.search_field :articles_title_start %>
+
+  # Attributes may be chained. Search multiple attributes for one value...
+  <%= f.label :name_or_description_or_email_or_articles_title_cont %>
+  <%= f.search_field :name_or_description_or_email_or_articles_title_cont %>
+
+  <%= f.submit %>
+<% end %>
+```
+
+##search的写法
+
+eq表示等于
+
+```ruby
+Item.search(:name_eq => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`name` = 'test')"
+```
+
+lt表示小于
+
+```ruby
+Item.search(:price_lt => 1000).result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`price` < 1000)"
+```
+
+gt表示大于
+
+```ruby
+Item.search(:price_gt => 1000).result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`price` > 1000)"
+```
+
+in表示sql中的in
+```ruby
+Item.search(:category_id_in => [5,10,15,20]).result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`category_id` IN (5,10,15,20))"
+```
+
+cont表示包含，模糊查询
+
+```ruby
+Item.search(:name_cont => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE '%test%')"
+```
+
+start表示前端一致
+
+```ruby
+Item.search(:name_start => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE 'test%')"
+```
+
+组合用法
+
+```ruby
+Item.search(:name_and_description_cont => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%test%') AND (`items`.`description` LIKE '%test%')))"
+Item.search(:name_or_description_cont => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%test%') OR (`items`.`description` LIKE '%test%')))"
+```
+
+条件组合
+末尾加_all是AND关系，末尾加_any是OR关系
+
+```ruby
+Item.search(:name_cont_all => ['AAA', 'BBB']).result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%AAA%') AND (`items`.`name` LIKE '%BBB%')))"
+Item.search(:name_cont_any => ['AAA', 'BBB']).result.to_sql
+# => "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%AAA%') OR (`items`.`name` LIKE '%BBB%')))"
+```
+
+相关模型检索
+
+```ruby
+Item.search(:comments_body_cont => 'test').result.to_sql
+# => "SELECT `items`.* FROM `items` LEFT OUTER JOIN `item_comments` ON `item_comments`.`item_id` = `items`.`id` WHERE `item_comments`.`body` LIKE '%test%'"
+```
+
+##表头排序
+
+```ruby
+<%= sort_link(@q, :name) %>
+```
+
+加别名，加默认排序
+
+```ruby
+<%= sort_link(@q, :name, 'Last Name', default_order: :desc) %>
+```
+
