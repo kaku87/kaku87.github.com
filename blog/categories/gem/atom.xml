@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gem | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-11T23:11:01+09:00</updated>
+  <updated>2015-02-11T23:15:51+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/11/carrierwave/"/>
+    <updated>2015-02-11T22:50:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/11/carrierwave</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<p><code>ruby
+rails new test
+cd test
+rails g scaffold Product name:string
+rake db:migrate
+rails s
+</code></p>
+
+<p>加入CarrierWave的gem</p>
+
+<p><code>ruby Gemfile
+gem 'carrierwave'
+</code></p>
+
+<p>安装</p>
+
+<p><code>ruby
+bundle install
+</code></p>
+
+<p>生成carrierwave的配置文件</p>
+
+<p>```ruby
+rails g uploader Image</p>
+
+<pre><code>  create  app/uploaders/image_uploader.rb
+</code></pre>
+
+<p>```</p>
+
+<p>加入image列</p>
+
+<p><code>ruby
+rails g migration add_image_to_product image:string
+rake  db:migrate
+</code></p>
+
+<p>向model中加入mount_uploader方法</p>
+
+<p>```ruby</p>
+
+<h1>app/models/product.rb</h1>
+
+<p>class Product &lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+```</p>
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<p>```erb _form.html.erb</p>
+
+<!-- 开始 -->
+
+
+<p>  <div class="field"></p>
+
+<pre><code>&lt;% if @product.image? %&gt;
+  &lt;div class="thumbnail"&gt;
+    &lt;%= image_tag @product.image.url %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;&lt;br&gt;
+&lt;%= f.label :image %&gt;&lt;br&gt;
+&lt;%= f.file_field :image %&gt;
+&lt;%= f.hidden_field :image_cache %&gt;
+</code></pre>
+
+<p>  </div>
+  <div class="field"></p>
+
+<pre><code>&lt;!-- 既存product且存在图片--&gt;
+&lt;% if @product.persisted? &amp;&amp; @product.image? %&gt;
+  &lt;label&gt;
+    &lt;%= f.check_box :remove_image %&gt;
+    删除
+  &lt;/label&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>  </div>
+  <!-- 结束 -->
+```</p>
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<p><code>ruby products_controller.rb
+def product_params
+  params.require(:product).permit(:name, :price, :image, :image_cache, :remove_image)
+end
+</code></p>
+
+<p>添加显示部分的image_tag代码</p>
+
+<p>```erb show.html.erb</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @product.image? %>
+    <div class="thumbnail">
+      <%= image_tag @product.image.url %>
+    </div>
+  <% end %>
+</p>
+```
+
+就这些，大功告成，很简单。
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之ransack]]></title>
@@ -413,143 +542,6 @@ defaults: &amp;defaults
 <p>Settings.awesome_setting
 => "Did you know 5 + 5 = 10?"
 ```</p></blockquote></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rails Gem系列之devise]]></title>
-    <link href="http://kaku87.github.com/blog/2015/01/26/devise/"/>
-    <updated>2015-01-26T22:48:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2015/01/26/devise</id>
-    <content type="html"><![CDATA[<h1>Devise</h1>
-
-<h2>概要</h2>
-
-<p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
-
-<h2>基本使用方法</h2>
-
-<p>创建project</p>
-
-<p>```
-rails new blog
-cd blog</p>
-
-<p>```</p>
-
-<p>Gemfile中加入devise gem</p>
-
-<p>```</p>
-
-<h1>Gemfile</h1>
-
-<p>gem 'devise'</p>
-
-<p>```</p>
-
-<p>运行bundle install</p>
-
-<p>```
-bundle install</p>
-
-<p>```</p>
-
-<p>安装devise</p>
-
-<p><code>
-rails g devise:install
-</code></p>
-
-<p>指定发送邮件时的host名</p>
-
-<p>```</p>
-
-<h1>config/environments/development.rb</h1>
-
-<p>Rails.application.configure do
-  ...
-  # deviseの設定
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
-end
-```</p>
-
-<p>指定root_url</p>
-
-<p>```</p>
-
-<h1>config/routes.rb</h1>
-
-<p>  root to: "home#index"
-  ... <br/>
-```</p>
-
-<p>加入错误消息显示部分代码</p>
-
-<p>```</p>
-
-<h1>app/views/layouts/application.html.erb</h1>
-
-<p><body></p>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
-</body>
-</html>
-
-```
-
-生成devise model
-
-```
-rails g devise user
-```
-
-执行migrate
-
-```
-rake db:migrate
-```
-
-添加登陆，退出，注册，设置链接
-
-```
-# app/views/layouts/application.html.erb
-...
-<body>
-<header>
-  <nav>
-    <!-- user_signed_in? devise的Helper方法，验证是否已登陆 -->
-    <% if user_signed_in? %> 
-      <!-- current_user 当前登陆User对象 -->
-      <!-- *_path devise自动生成的路由，执行rake routes可以确认 -->
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to '设置', edit_user_registration_path %> |
-      <%= link_to "退出", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "注册", new_user_registration_path %> |
-      <%= link_to "登陆", new_user_session_path %>
-    <% end %>
-  </nav>
-</header>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
-</body>
-</html>
-```
-
-启动服务，就可以看到画面啦。
-
-```
-rails s
-```
-
 ]]></content>
   </entry>
   

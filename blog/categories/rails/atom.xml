@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-11T23:11:01+09:00</updated>
+  <updated>2015-02-11T23:15:51+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/11/carrierwave/"/>
+    <updated>2015-02-11T22:50:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/11/carrierwave</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<p><code>ruby
+rails new test
+cd test
+rails g scaffold Product name:string
+rake db:migrate
+rails s
+</code></p>
+
+<p>加入CarrierWave的gem</p>
+
+<p><code>ruby Gemfile
+gem 'carrierwave'
+</code></p>
+
+<p>安装</p>
+
+<p><code>ruby
+bundle install
+</code></p>
+
+<p>生成carrierwave的配置文件</p>
+
+<p>```ruby
+rails g uploader Image</p>
+
+<pre><code>  create  app/uploaders/image_uploader.rb
+</code></pre>
+
+<p>```</p>
+
+<p>加入image列</p>
+
+<p><code>ruby
+rails g migration add_image_to_product image:string
+rake  db:migrate
+</code></p>
+
+<p>向model中加入mount_uploader方法</p>
+
+<p>```ruby</p>
+
+<h1>app/models/product.rb</h1>
+
+<p>class Product &lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+```</p>
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<p>```erb _form.html.erb</p>
+
+<!-- 开始 -->
+
+
+<p>  <div class="field"></p>
+
+<pre><code>&lt;% if @product.image? %&gt;
+  &lt;div class="thumbnail"&gt;
+    &lt;%= image_tag @product.image.url %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;&lt;br&gt;
+&lt;%= f.label :image %&gt;&lt;br&gt;
+&lt;%= f.file_field :image %&gt;
+&lt;%= f.hidden_field :image_cache %&gt;
+</code></pre>
+
+<p>  </div>
+  <div class="field"></p>
+
+<pre><code>&lt;!-- 既存product且存在图片--&gt;
+&lt;% if @product.persisted? &amp;&amp; @product.image? %&gt;
+  &lt;label&gt;
+    &lt;%= f.check_box :remove_image %&gt;
+    删除
+  &lt;/label&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>  </div>
+  <!-- 结束 -->
+```</p>
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<p><code>ruby products_controller.rb
+def product_params
+  params.require(:product).permit(:name, :price, :image, :image_cache, :remove_image)
+end
+</code></p>
+
+<p>添加显示部分的image_tag代码</p>
+
+<p>```erb show.html.erb</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @product.image? %>
+    <div class="thumbnail">
+      <%= image_tag @product.image.url %>
+    </div>
+  <% end %>
+</p>
+```
+
+就这些，大功告成，很简单。
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Gem系列之ransack]]></title>
@@ -413,39 +542,6 @@ defaults: &amp;defaults
 <p>Settings.awesome_setting
 => "Did you know 5 + 5 = 10?"
 ```</p></blockquote></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[About Vm]]></title>
-    <link href="http://kaku87.github.com/blog/2013/03/04/about-vm/"/>
-    <updated>2013-03-04T17:21:00+09:00</updated>
-    <id>http://kaku87.github.com/blog/2013/03/04/about-vm</id>
-    <content type="html"><![CDATA[<h2>VM设定时遇到的网络问题</h2>
-
-<hr />
-
-<ol>
-<li><p>虚拟机不能上网  桥接方式</p>
-
-<pre><code>   桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
-</code></pre></li>
-<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
-
-<pre><code>  网址不能访问是linux下的防火墙没有关闭
-
-  service iptables stop 注意要用root权限关闭，不然不起作用
-
-  putty连不上的原因，是因为没有安装openssh
-
-  yum -y install openssh-client openssh-server
-
-  安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
-
-  service sshd start
-</code></pre></li>
-</ol>
-
 ]]></content>
   </entry>
   

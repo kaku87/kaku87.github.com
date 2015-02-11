@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | kaku's Blog]]></title>
   <link href="http://kaku87.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-11T23:11:01+09:00</updated>
+  <updated>2015-02-11T23:15:51+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/11/carrierwave/"/>
+    <updated>2015-02-11T22:50:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/11/carrierwave</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<p><code>ruby
+rails new test
+cd test
+rails g scaffold Product name:string
+rake db:migrate
+rails s
+</code></p>
+
+<p>加入CarrierWave的gem</p>
+
+<p><code>ruby Gemfile
+gem 'carrierwave'
+</code></p>
+
+<p>安装</p>
+
+<p><code>ruby
+bundle install
+</code></p>
+
+<p>生成carrierwave的配置文件</p>
+
+<p>```ruby
+rails g uploader Image</p>
+
+<pre><code>  create  app/uploaders/image_uploader.rb
+</code></pre>
+
+<p>```</p>
+
+<p>加入image列</p>
+
+<p><code>ruby
+rails g migration add_image_to_product image:string
+rake  db:migrate
+</code></p>
+
+<p>向model中加入mount_uploader方法</p>
+
+<p>```ruby</p>
+
+<h1>app/models/product.rb</h1>
+
+<p>class Product &lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+```</p>
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<p>```erb _form.html.erb</p>
+
+<!-- 开始 -->
+
+
+<p>  <div class="field"></p>
+
+<pre><code>&lt;% if @product.image? %&gt;
+  &lt;div class="thumbnail"&gt;
+    &lt;%= image_tag @product.image.url %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;&lt;br&gt;
+&lt;%= f.label :image %&gt;&lt;br&gt;
+&lt;%= f.file_field :image %&gt;
+&lt;%= f.hidden_field :image_cache %&gt;
+</code></pre>
+
+<p>  </div>
+  <div class="field"></p>
+
+<pre><code>&lt;!-- 既存product且存在图片--&gt;
+&lt;% if @product.persisted? &amp;&amp; @product.image? %&gt;
+  &lt;label&gt;
+    &lt;%= f.check_box :remove_image %&gt;
+    删除
+  &lt;/label&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>  </div>
+  <!-- 结束 -->
+```</p>
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<p><code>ruby products_controller.rb
+def product_params
+  params.require(:product).permit(:name, :price, :image, :image_cache, :remove_image)
+end
+</code></p>
+
+<p>添加显示部分的image_tag代码</p>
+
+<p>```erb show.html.erb</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @product.image? %>
+    <div class="thumbnail">
+      <%= image_tag @product.image.url %>
+    </div>
+  <% end %>
+</p>
+```
+
+就这些，大功告成，很简单。
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails3.0でモデルのER図を簡単に出力する方法]]></title>
