@@ -9,8 +9,12 @@
   <meta name="author" content="kaku">
 
   
-  <meta name="description" content="概要 ransack是一个用来实现检索功能的gem。 github地址: https://github.com/activerecord-hackery/ransack 示例网站：http://ransack-demo.herokuapp.com 安装 Gemfile1
-gem &#39; &hellip;">
+  <meta name="description" content="概要 CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。 和PaperClip的区别 1.PaperClip简单易用 2.CarrierWave的功能较多，应用广泛 用法 先来做一个测试用的project吧 1
+2
+3
+4
+5
+rails new &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +82,196 @@ gem &#39; &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/11/carrierwave/">Rails gem系列之CarrierWave</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-11T22:50:00+09:00" pubdate data-updated="true">Feb 11<span>th</span>, 2015</time>
+        
+           | <a href="/blog/2015/02/11/carrierwave/#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com/blog/2015/02/11/carrierwave/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="kp">new</span> <span class="nb">test</span>
+</span><span class='line'><span class="n">cd</span> <span class="nb">test</span>
+</span><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">scaffold</span> <span class="no">Product</span> <span class="nb">name</span><span class="ss">:string</span>
+</span><span class='line'><span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span><span class='line'><span class="n">rails</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入CarrierWave的gem</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;carrierwave&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">bundle</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成carrierwave的配置文件</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">uploader</span> <span class="no">Image</span>
+</span><span class='line'>      <span class="n">create</span>  <span class="n">app</span><span class="o">/</span><span class="n">uploaders</span><span class="o">/</span><span class="n">image_uploader</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入image列</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">migration</span> <span class="n">add_image_to_product</span> <span class="ss">image</span><span class="p">:</span><span class="n">string</span>
+</span><span class='line'><span class="n">rake</span>  <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>向model中加入mount_uploader方法</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/product.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">mount_uploader</span> <span class="ss">:image</span><span class="p">,</span> <span class="no">ImageUploader</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<figure class='code'><figcaption><span>_form.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;!-- 开始 --&gt;</span>
+</span><span class='line'><span class="x">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;div class=&quot;thumbnail&quot;&gt;</span>
+</span><span class='line'><span class="x">        </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;/div&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x">&lt;br&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:image</span> <span class="cp">%&gt;</span><span class="x">&lt;br&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">file_field</span> <span class="ss">:image</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">hidden_field</span> <span class="ss">:image_cache</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'><span class="x">    &lt;!-- 既存product且存在图片--&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">persisted?</span> <span class="o">&amp;&amp;</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;label&gt;</span>
+</span><span class='line'><span class="x">        </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">check_box</span> <span class="ss">:remove_image</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">        删除</span>
+</span><span class='line'><span class="x">      &lt;/label&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  &lt;!-- 结束 --&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<figure class='code'><figcaption><span>products_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">product_params</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:product</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:price</span><span class="p">,</span> <span class="ss">:image</span><span class="p">,</span> <span class="ss">:image_cache</span><span class="p">,</span> <span class="ss">:remove_image</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加显示部分的image_tag代码</p>
+
+<figure class='code'><figcaption><span>show.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;p&gt;</span>
+</span><span class='line'><span class="x">  &lt;strong&gt;Image:&lt;/strong&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;div class=&quot;thumbnail&quot;&gt;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/p&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就这些，大功告成，很简单。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1454,141 +1648,6 @@ rake db:seed 就可以生成大量的测试数据。</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/15/about-rails-functional-test/">关于rails控制器的功能测试</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-15T15:16:00+09:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/03/15/about-rails-functional-test/#disqus_thread"
-             data-disqus-identifier="http://kaku87.github.com/blog/2013/03/15/about-rails-functional-test/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>控制器的功能测试</h1>
-
-<pre><code> require File.dirname(__FILE__) + '/../test_helper'
-</code></pre>
-
-<p>关键在于setup方法，有三个东西</p>
-
-<pre><code>1.controller
-2.request
-3.response
-</code></pre>
-
-<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，
-然后用assert_response来检查是否应答正确</p>
-
-<p>-n可以指定运行某一个特定的测试方法</p>
-
-<pre><code> ruby test/functional/logni_controller_test.rb -n test_index
-</code></pre>
-
-<p>assert_redirected_to :action=>&#8221;login&#8221;</p>
-
-<h1>Dynamic Fixtures</h1>
-
-<p>在夹具中也可以使用ruby代码动态加入</p>
-
-<p>assert_template &#8220;index&#8221; 对模版进行断言</p>
-
-<h1>测试登录</h1>
-
-<pre><code>def test_login
-  dave = users(:dave)
-  post :login, :nmae=&gt;dave.name, :password=&gt;'secret'
-  assert_redirected_to :action=&gt;"index"
-  assert_equal dave.id, session[:user_id]
-end
-</code></pre>
-
-<h1>HTTP请求方法</h1>
-
-<p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
-
-<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
-</code></pre>
-
-<p>post() 提交表单</p>
-
-<pre><code>例: post :edit, :user =&gt; {:name =&gt; "dave", :age =&gt; "24"}
-
- 模拟XMLHttp请求
- xhr(method,action,parameters,session,flash)
-</code></pre>
-
-<p>put(),delete(),head()</p>
-
-<h1>功能测试的断言</h1>
-
-<pre><code> assert_dom_equal(expected_html,actual_html,message)
- 例:assert_dom_equal(expected,@response.body)
-
- assert_response(type,message)
- type的种类
- 1.:success
- 2.:redirect
- 3.:missing
- 4.:error
- 例:assert_response :success
-</code></pre>
-
-<h1>变量</h1>
-
-<pre><code> assigns(key=nil)
-      assert_not_nil assigns["items"]
- session
-      assert_equal 2, session[:cart].items.size
- flash
-      assert_equal "Danger!", flash[:notice]
- cookies
-      assert_equal "Danger!", cookies[:name]
- redirect_to_url
-      assert_equal "http://test.host/login", redirect_to_url
-</code></pre>
-
-<h1>辅助方法</h1>
-
-<pre><code> find_tag(conditions)
- find_all_tag(conditions)
- follow_redirect
- fixture_file_upload(path,mime_type)
-</code></pre>
-
-<h1>测试response的content</h1>
-
-<p>   使用强大的assert_select</p>
-
-<pre><code> assert_select "title",  "TEST"
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1620,6 +1679,10 @@ end
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/02/11/carrierwave/">Rails gem系列之CarrierWave</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/02/08/ransack/">Rails Gem系列之ransack</a>
       </li>
     
@@ -1633,10 +1696,6 @@ end
     
       <li class="post">
         <a href="/blog/2015/02/04/settingslogic/">Rails Gem系列之settingslogic</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/">安装auto-fu.zsh让命令输入自动补全</a>
       </li>
     
   </ul>
