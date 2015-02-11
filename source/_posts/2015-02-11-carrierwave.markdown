@@ -3,7 +3,7 @@ layout: post
 title: "rails gem系列之CarrierWave"
 date: 2015-02-11 22:50
 comments: true
-categories: 
+categories: rails gem ruby
 ---
 ##概要
 CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。
