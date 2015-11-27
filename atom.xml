@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-11-27T23:56:01+09:00</updated>
+  <updated>2015-11-28T00:01:19+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Cheat Sheet]]></title>
+    <link href="http://kaku87.github.com/blog/2015/11/27/vi-cheat-sheet/"/>
+    <updated>2015-11-27T23:46:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/11/27/vi-cheat-sheet</id>
+    <content type="html"><![CDATA[<p>发现了一张特别牛逼的图。
+用了vim以后会上瘾的。</p>
+
+<p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheat sheet" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何重新搭建一个已经存在的Octopress博客]]></title>
