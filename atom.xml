@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-11-27T22:54:23+09:00</updated>
+  <updated>2015-11-27T22:58:40+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -28,7 +28,7 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>git clone git@github.com:username/username.github.com.git
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git clone git@github.com:username/username.github.com.git
 </span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>username.github.com
 </span><span class='line'>username.github.com<span class="nv">$ </span>git checkout <span class="nb">source</span>
 </span><span class='line'>username.github.com<span class="nv">$ </span>mkdir _deploy
