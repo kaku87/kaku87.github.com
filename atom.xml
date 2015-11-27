@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-02-11T23:29:46+09:00</updated>
+  <updated>2015-11-27T22:51:40+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何重新搭建一个已经存在的Octopress博客]]></title>
+    <link href="http://kaku87.github.com/blog/2015/11/27/about-linux/"/>
+    <updated>2015-11-27T22:46:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/11/27/about-linux</id>
+    <content type="html"><![CDATA[<p>$ git clone git@github.com:username/username.github.com.git
+$ cd username.github.com
+username.github.com$ git checkout source
+username.github.com$ mkdir <em>deploy
+username.github.com$ cd </em>deploy
+username.github.com/<em>deploy$ git init
+username.github.com/</em>deploy$ git remote add origin git@github.com:username/username.github.com.git
+username.github.com/<em>deploy$ git pull origin master
+username.github.com/</em>deploy$ cd ..
+username.github.com$</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
