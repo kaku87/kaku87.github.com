@@ -78,4 +78,8 @@
         <loc>http://kaku87.github.com/robots.txt</loc>
         <lastmod>2015-05-09T19:58:22+09:00</lastmod>
     </url>
+    <url>
+        <loc>http://kaku87.github.com/vim-cheat-sheet/</loc>
+        <lastmod>2015-11-27T23:55:30+09:00</lastmod>
+    </url>
 </urlset>
