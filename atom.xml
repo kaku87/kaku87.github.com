@@ -4,7 +4,7 @@
   <title><![CDATA[kaku's Blog]]></title>
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
-  <updated>2015-11-27T22:51:40+09:00</updated>
+  <updated>2015-11-27T22:54:23+09:00</updated>
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -18,16 +18,28 @@
     <link href="http://kaku87.github.com/blog/2015/11/27/about-linux/"/>
     <updated>2015-11-27T22:46:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2015/11/27/about-linux</id>
-    <content type="html"><![CDATA[<p>$ git clone git@github.com:username/username.github.com.git
-$ cd username.github.com
-username.github.com$ git checkout source
-username.github.com$ mkdir <em>deploy
-username.github.com$ cd </em>deploy
-username.github.com/<em>deploy$ git init
-username.github.com/</em>deploy$ git remote add origin git@github.com:username/username.github.com.git
-username.github.com/<em>deploy$ git pull origin master
-username.github.com/</em>deploy$ cd ..
-username.github.com$</p>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>git clone git@github.com:username/username.github.com.git
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>username.github.com
+</span><span class='line'>username.github.com<span class="nv">$ </span>git checkout <span class="nb">source</span>
+</span><span class='line'>username.github.com<span class="nv">$ </span>mkdir _deploy
+</span><span class='line'>username.github.com<span class="nv">$ </span><span class="nb">cd </span>_deploy
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git init
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git remote add origin git@github.com:username/username.github.com.git
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git pull origin master
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span><span class="nb">cd</span> ..
+</span><span class='line'>username.github.com<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
