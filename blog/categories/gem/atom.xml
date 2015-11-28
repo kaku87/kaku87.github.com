@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gem | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/gem/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-04-29T17:27:23+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/11/carrierwave/"/>
+    <updated>2015-02-11T22:50:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/11/carrierwave</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<p><code>ruby
+rails new test
+cd test
+rails g scaffold Product name:string
+rake db:migrate
+rails s
+</code></p>
+
+<p>加入CarrierWave的gem</p>
+
+<p><code>ruby Gemfile
+gem 'carrierwave'
+</code></p>
+
+<p>安装</p>
+
+<p><code>ruby
+bundle install
+</code></p>
+
+<p>生成carrierwave的配置文件</p>
+
+<p>```ruby
+rails g uploader Image</p>
+
+<pre><code>  create  app/uploaders/image_uploader.rb
+</code></pre>
+
+<p>```</p>
+
+<p>加入image列</p>
+
+<p><code>ruby
+rails g migration add_image_to_product image:string
+rake  db:migrate
+</code></p>
+
+<p>向model中加入mount_uploader方法</p>
+
+<p>```ruby</p>
+
+<h1>app/models/product.rb</h1>
+
+<p>class Product &lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+```</p>
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<p>```erb _form.html.erb</p>
+
+<!-- 开始 -->
+
+
+<p>  <div class="field"></p>
+
+<pre><code>&lt;% if @product.image? %&gt;
+  &lt;div class="thumbnail"&gt;
+    &lt;%= image_tag @product.image.url %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;&lt;br&gt;
+&lt;%= f.label :image %&gt;&lt;br&gt;
+&lt;%= f.file_field :image %&gt;
+&lt;%= f.hidden_field :image_cache %&gt;
+</code></pre>
+
+<p>  </div>
+  <div class="field"></p>
+
+<pre><code>&lt;!-- 既存product且存在图片--&gt;
+&lt;% if @product.persisted? &amp;&amp; @product.image? %&gt;
+  &lt;label&gt;
+    &lt;%= f.check_box :remove_image %&gt;
+    删除
+  &lt;/label&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>  </div>
+  <!-- 结束 -->
+```</p>
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<p><code>ruby products_controller.rb
+def product_params
+  params.require(:product).permit(:name, :price, :image, :image_cache, :remove_image)
+end
+</code></p>
+
+<p>添加显示部分的image_tag代码</p>
+
+<p>```erb show.html.erb</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @product.image? %>
+    <div class="thumbnail">
+      <%= image_tag @product.image.url %>
+    </div>
+  <% end %>
+</p>
+```
+
+就这些，大功告成，很简单。
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ransack]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/08/ransack/"/>
+    <updated>2015-02-08T20:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/08/ransack</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ransack是一个用来实现检索功能的gem。</p>
+
+<p>github地址: <a href="https://github.com/activerecord-hackery/ransack">https://github.com/activerecord-hackery/ransack</a></p>
+
+<p>示例网站：<a href="http://ransack-demo.herokuapp.com">http://ransack-demo.herokuapp.com</a></p>
+
+<h2>安装</h2>
+
+<p><code>ruby Gemfile
+gem 'ransack'
+</code></p>
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>使用方法</h2>
+
+<p>在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。</p>
+
+<p><code>ruby
+def index
+  @q = Person.ransack(params[:q])
+  @people = @q.result(distinct: true)
+end
+</code></p>
+
+<p>view中的写法如下。</p>
+
+<p>```erb
+&lt;%= search_form_for @q do |f| %></p>
+
+<p>  # Search if the name field contains...
+  &lt;%= f.label :name_cont %>
+  &lt;%= f.search_field :name_cont %></p>
+
+<p>  # Search if an associated articles.title starts with...
+  &lt;%= f.label :articles_title_start %>
+  &lt;%= f.search_field :articles_title_start %></p>
+
+<p>  # Attributes may be chained. Search multiple attributes for one value...
+  &lt;%= f.label :name_or_description_or_email_or_articles_title_cont %>
+  &lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %></p>
+
+<p>  &lt;%= f.submit %>
+&lt;% end %>
+```</p>
+
+<h2>search的写法</h2>
+
+<p>eq表示等于</p>
+
+<p>```ruby
+Item.search(:name_eq => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> = 'test')"</h1>
+
+<p>```</p>
+
+<p>lt表示小于</p>
+
+<p>```ruby
+Item.search(:price_lt => 1000).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>price</code> &lt; 1000)"</h1>
+
+<p>```</p>
+
+<p>gt表示大于</p>
+
+<p>```ruby
+Item.search(:price_gt => 1000).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>price</code> > 1000)"</h1>
+
+<p>```</p>
+
+<p>in表示sql中的in
+```ruby
+Item.search(:category_id_in => [5,10,15,20]).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>category_id</code> IN (5,10,15,20))"</h1>
+
+<p>```</p>
+
+<p>cont表示包含，模糊查询</p>
+
+<p>```ruby
+Item.search(:name_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> LIKE '%test%')"</h1>
+
+<p>```</p>
+
+<p>start表示前端一致</p>
+
+<p>```ruby
+Item.search(:name_start => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE <code>items</code>.<code>name</code> LIKE 'test%')"</h1>
+
+<p>```</p>
+
+<p>组合用法</p>
+
+<p>```ruby
+Item.search(:name_and_description_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%test%') AND (<code>items</code>.<code>description</code> LIKE '%test%')))"</h1>
+
+<p>Item.search(:name_or_description_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%test%') OR (<code>items</code>.<code>description</code> LIKE '%test%')))"</h1>
+
+<p>```</p>
+
+<p>条件组合
+末尾加<em>all是AND关系，末尾加</em>any是OR关系</p>
+
+<p>```ruby
+Item.search(:name_cont_all => ['AAA', 'BBB']).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%AAA%') AND (<code>items</code>.<code>name</code> LIKE '%BBB%')))"</h1>
+
+<p>Item.search(:name_cont_any => ['AAA', 'BBB']).result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> WHERE (((<code>items</code>.<code>name</code> LIKE '%AAA%') OR (<code>items</code>.<code>name</code> LIKE '%BBB%')))"</h1>
+
+<p>```</p>
+
+<p>相关模型检索</p>
+
+<p>```ruby
+Item.search(:comments_body_cont => 'test').result.to_sql</p>
+
+<h1>=> "SELECT <code>items</code>.* FROM <code>items</code> LEFT OUTER JOIN <code>item_comments</code> ON <code>item_comments</code>.<code>item_id</code> = <code>items</code>.<code>id</code> WHERE <code>item_comments</code>.<code>body</code> LIKE '%test%'"</h1>
+
+<p>```</p>
+
+<h2>表头排序</h2>
+
+<p><code>ruby
+&lt;%= sort_link(@q, :name) %&gt;
+</code></p>
+
+<p>加别名，加默认排序</p>
+
+<p><code>ruby
+&lt;%= sort_link(@q, :name, 'Last Name', default_order: :desc) %&gt;
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之kaminari]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/07/kaminari/"/>
+    <updated>2015-02-07T23:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/07/kaminari</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>kaminari是rails项目中常用的分页gem</p>
+
+<p>github地址：<a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></p>
+
+<h2>安装</h2>
+
+<p><code>ruby
+gem 'kaminari'
+</code></p>
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>基本使用</h2>
+
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。
+<code>ruby
+def index
+  @items = Item.page(params[:page])
+end
+</code></p>
+
+<p>view中加一行就会生成翻页部分了。so easy.
+<code>ruby index.html.erb
+&lt;%= paginate @items %&gt;
+</code></p>
+
+<h2>更改翻页样式</h2>
+
+<p><code>ruby
+rails g kaminari:views default
+</code></p>
+
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+<a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+
+<h2>ajax翻页</h2>
+
+<p>```ruby posts_controller.rb
+  respond_to :html, :js</p>
+
+<p>  def index</p>
+
+<pre><code>@posts = Post.page(params[:page]).per(10)
+respond_with(@posts)
+</code></pre>
+
+<p>  end
+```</p>
+
+<p>列表部分放到partial中
+<code>ruby _posts.html.erb
+&lt;% @posts.each do |post| %&gt;
+省略
+</code></p>
+
+<p><code>ruby index.js.erb
+$("#posts").html("&lt;%= j(render :partial =&gt; 'posts') %&gt;");
+</code></p>
+
+<p>```ruby index.html.erb
+ <div id="posts">
+  &lt;%= render :partial => "posts" %>
+</div></p>
+
+<p>&lt;%= paginate @posts %>
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ffaker]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/06/ffaker/"/>
+    <updated>2015-02-06T23:17:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/06/ffaker</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。</p>
+
+<p>fmaker的github地址:
+<a href="https://github.com/emmanueloga/ffaker">https://github.com/emmanueloga/ffaker</a></p>
+
+<h2>和faker的关系</h2>
+
+<ol>
+<li>ffaker是faker的重写版。</li>
+<li>ffaker要比faker执行快。</li>
+</ol>
+
+
+<h2>和faker的速度比较</h2>
+
+<p><code>ruby
+def bench1000
+  start = Time.now  
+  1000.times{yield}
+  finish = Time.now  
+  puts "Time: #{(finish - start).to_f}"  
+end
+</code></p>
+
+<p>faker的执行时间
+```ruby
+require 'faker'
+bench1000{Faker::Name.name}</p>
+
+<h1>=> Time: 0.186539</h1>
+
+<p>```</p>
+
+<p>ffaker的执行时间
+```ruby
+require 'ffaker'
+bench1000{Faker::Name.name}</p>
+
+<h1>=> Time: 0.009986</h1>
+
+<p>```</p>
+
+<p>快了不止一点点啊。。。。</p>
+
+<h2>使用方法</h2>
+
+<p>安装</p>
+
+<p><code>sh
+gem install ffaker
+</code></p>
+
+<p>在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。</p>
+
+<p>```ruby
+10.times do</p>
+
+<pre><code>User.create(name: Faker::Name.name, profile: Faker::Lorem.sentence(10))
+</code></pre>
+
+<p>end
+```</p>
+
+<h2>常用API</h2>
+
+<p>```ruby
+Faker::Name.name      #=> "Christophe Bartell"</p>
+
+<p>Faker::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"</p>
+
+<p>Faker::PhoneNumber.cell_phone #=> "(186)285-7925"</p>
+
+<p>Faker::Lorem.sentence #=> "Dolore illum animi et neque accusantium."</p>
+
+<p>Faker::Lorem.paragraph #=> "Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente."</p>
+
+<p>Faker::Number.number(10) #=> "1968353479"</p>
+
+<p>Faker::Internet.password(8) #=> "yfgjik0hgzdqs0"</p>
+
+<p>Faker::Business.credit_card_number #=> "1228-1221-1221-1431"</p>
+
+<p>```</p>
+
+<p>其他详细用法请详见这里 <a href="http://www.rubydoc.info/gems/faker/1.4.3">http://www.rubydoc.info/gems/faker/1.4.3</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之settingslogic]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/04/settingslogic/"/>
+    <updated>2015-02-04T21:37:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/04/settingslogic</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>可以从配置文件简单读取配置的gem</p>
+
+<p>github地址：https://github.com/binarylogic/settingslogic</p>
+
+<p>安装</p>
+
+<p><code>ruby
+gem install settingslogic
+</code></p>
+
+<p>定义class   app/models/settings.rb</p>
+
+<p><code>ruby
+class Settings &lt; Settingslogic
+  source "#{Rails.root}/config/application.yml"
+  namespace Rails.env
+end
+</code></p>
+
+<p>创建配置文件  config/application.yml</p>
+
+<p>```ruby
+defaults: &amp;defaults
+  cool:</p>
+
+<pre><code>saweet: nested settings
+</code></pre>
+
+<p>  neat_setting: 24
+  awesome_setting: &lt;%= "Did you know 5 + 5 = #{5 + 5}?" %></p>
+
+<p>development:
+  &lt;&lt;: *defaults
+  neat_setting: 800</p>
+
+<p>test:
+  &lt;&lt;: *defaults</p>
+
+<p>production:
+  &lt;&lt;: *defaults
+```</p>
+
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+
+<p>```ruby</p>
+
+<blockquote><blockquote><p>Rails.env
+=> "development"</p>
+
+<p>Settings.cool
+=> "#&lt;Settingslogic::Settings ... >"</p>
+
+<p>Settings.cool.saweet
+=> "nested settings"</p>
+
+<p>Settings.neat_setting
+=> 800</p>
+
+<p>Settings.awesome_setting
+=> "Did you know 5 + 5 = 10?"
+```</p></blockquote></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

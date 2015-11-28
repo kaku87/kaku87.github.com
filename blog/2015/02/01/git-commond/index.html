@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>zsh下git命令Cheat-sheet - kaku's Blog</title>
+  <meta name="author" content="kaku">
+
+  
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+g - git &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/git-commond">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39101353-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">kaku's Blog</a></h1>
+  
+    <h2>有各种爱的IT从业人员</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kaku87.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">zsh下git命令Cheat-sheet</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>g - git
+</span><span class='line'>gst - git status
+</span><span class='line'>gl - git pull
+</span><span class='line'>gup - git pull --rebase
+</span><span class='line'>gp - git push
+</span><span class='line'>gd - git diff
+</span><span class='line'>gdc - git diff --cached
+</span><span class='line'>gdv - git diff -w "$@" | view -
+</span><span class='line'>gc - git commit -v
+</span><span class='line'>gc! - git commit -v --amend
+</span><span class='line'>gca - git commit -v -a
+</span><span class='line'>gca! - git commit -v -a --amend
+</span><span class='line'>gcmsg - git commit -m
+</span><span class='line'>gco - git checkout
+</span><span class='line'>gcm - git checkout master
+</span><span class='line'>gr - git remote
+</span><span class='line'>grv - git remote -v
+</span><span class='line'>grmv - git remote rename
+</span><span class='line'>grrm - git remote remove
+</span><span class='line'>gsetr - git remote set-url
+</span><span class='line'>grup - git remote update
+</span><span class='line'>grbi - git rebase -i
+</span><span class='line'>grbc - git rebase --continue
+</span><span class='line'>grba - git rebase --abort
+</span><span class='line'>gb - git branch
+</span><span class='line'>gba - git branch -a
+</span><span class='line'>gcount - git shortlog -sn
+</span><span class='line'>gcl - git config --list
+</span><span class='line'>gcp - git cherry-pick
+</span><span class='line'>glg - git log --stat --max-count=10
+</span><span class='line'>glgg - git log --graph --max-count=10
+</span><span class='line'>glgga - git log --graph --decorate --all
+</span><span class='line'>glo - git log --oneline --decorate --color
+</span><span class='line'>glog - git log --oneline --decorate --color --graph
+</span><span class='line'>gss - git status -s
+</span><span class='line'>ga - git add
+</span><span class='line'>gm - git merge
+</span><span class='line'>grh - git reset HEAD
+</span><span class='line'>grhh - git reset HEAD --hard
+</span><span class='line'>gclean - git reset --hard && git clean -dfx
+</span><span class='line'>gwc - git whatchanged -p --abbrev-commit --pretty=medium
+</span><span class='line'>gsts - git stash show --text
+</span><span class='line'>gsta - git stash
+</span><span class='line'>gstp - git stash pop
+</span><span class='line'>gstd - git stash drop
+</span><span class='line'>ggpull - git pull origin $(current_branch)
+</span><span class='line'>ggpur - git pull --rebase origin $(current_branch)
+</span><span class='line'>ggpush - git push origin $(current_branch)
+</span><span class='line'>ggpnp - git pull origin $(current_branch) && git push origin $(current_branch)
+</span><span class='line'>glp - _git_log_prettily</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:20:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/zsh/'>zsh</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/git-commond/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/git-commond/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/01/26/devise/" title="Previous Post: rails gem系列之devise">&laquo; rails gem系列之devise</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" title="Next Post: 安装auto-fu.zsh让命令输入自动补全">安装auto-fu.zsh让命令输入自动补全 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+	<span>
+		<img src="http://s.gravatar.com/avatar/45b4a702314975b51fa30175cfd20ad9?s=80" alt="Gravatar of kaku " title="Gravatar of kaku" />
+	</span>
+</section>
+<section>
+  <h1>关于我</h1>
+  <p>喜欢ruby，喜欢摄影</p>
+  <p>微博： <a href="http://weibo.com/kaku87">天平小胖</a></p>
+  <p>相册： <a href="http://kaku87.pp.163.com/">网易摄影</a></p>
+</section>
+<section>
+  <h1>标签</h1>
+    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 151.42857142857144%'>gem(6)</a> <a href='/blog/categories/git' style='font-size: 108.57142857142857%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 108.57142857142857%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 108.57142857142857%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(7)</a> <a href='/blog/categories/ruby' style='font-size: 117.14285714285714%'>ruby(2)</a> <a href='/blog/categories/zsh' style='font-size: 108.57142857142857%'>zsh(1)</a> </span>
+</section>
+<section>
+  <h1>最近发表</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/02/11/carrierwave/">Rails gem系列之CarrierWave</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/08/ransack/">Rails Gem系列之ransack</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/07/kaminari/">Rails Gem系列之kaminari</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/06/ffaker/">Rails Gem系列之ffaker</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/04/settingslogic/">Rails Gem系列之settingslogic</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        最近推文
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/ghjcumt2008"  data-widget-id="554204630339436545"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @ghjcumt2008</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - <a href="http://www.lijinma.com" target="_blank">kaku</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'kaku87blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/git-commond/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

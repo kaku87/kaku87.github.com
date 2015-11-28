@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>安装auto-fu.zsh让命令输入自动补全 - kaku's Blog</title>
+  <meta name="author" content="kaku">
+
+  
+  <meta name="description" content="下载auto-fu.zsh 1
+2
+cd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu 执行zcompile 1
+A=~/.oh-my-zsh/custom/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="kaku's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39101353-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">kaku's Blog</a></h1>
+  
+    <h2>有各种爱的IT从业人员</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kaku87.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">安装auto-fu.zsh让命令输入自动补全</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://kaku87.github.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif" alt="" /></p>
+
+<ul>
+<li>下载auto-fu.zsh</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.oh-my-zsh/custom/plugins
+</span><span class='line'>git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>执行zcompile</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">A</span><span class="o">=</span>~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; <span class="o">(</span>zsh -c <span class="s2">&quot;source $A ; auto-fu-zcompile $A ~/.zsh&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>添加下面的设置到zshrc中</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">## auto-fu.zsh stuff.</span>
+</span><span class='line'><span class="c"># source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh</span>
+</span><span class='line'><span class="o">{</span> . ~/.zsh/auto-fu; auto-fu-install; <span class="o">}</span>
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> input bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> completion <span class="nb">fg</span><span class="o">=</span>black,bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:var&#39;</span> postdisplay <span class="s1">$&#39;\n-azfu-&#39;</span>
+</span><span class='line'>zle-line-init <span class="o">()</span> <span class="o">{</span>auto-fu-init;<span class="o">}</span>; zle -N zle-line-init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>重新编译zshrc</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.zshrc
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">kaku</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T14:44:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" data-via="ghjcumt2008" data-counturl="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/01/git-commond/" title="Previous Post: zsh下git命令Cheat-sheet ">&laquo; zsh下git命令Cheat-sheet </a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/02/04/settingslogic/" title="Next Post: rails gem系列之settingslogic">rails gem系列之settingslogic &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+	<span>
+		<img src="http://s.gravatar.com/avatar/45b4a702314975b51fa30175cfd20ad9?s=80" alt="Gravatar of kaku " title="Gravatar of kaku" />
+	</span>
+</section>
+<section>
+  <h1>关于我</h1>
+  <p>喜欢ruby，喜欢摄影</p>
+  <p>微博： <a href="http://weibo.com/kaku87">天平小胖</a></p>
+  <p>相册： <a href="http://kaku87.pp.163.com/">网易摄影</a></p>
+</section>
+<section>
+  <h1>标签</h1>
+    <span id="tag-cloud"><a href='/blog/categories/gem' style='font-size: 151.42857142857144%'>gem(6)</a> <a href='/blog/categories/git' style='font-size: 108.57142857142857%'>git(1)</a> <a href='/blog/categories/gulp' style='font-size: 108.57142857142857%'>gulp(1)</a> <a href='/blog/categories/linux' style='font-size: 108.57142857142857%'>linux(1)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>rails(7)</a> <a href='/blog/categories/ruby' style='font-size: 117.14285714285714%'>ruby(2)</a> <a href='/blog/categories/zsh' style='font-size: 108.57142857142857%'>zsh(1)</a> </span>
+</section>
+<section>
+  <h1>最近发表</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/02/11/carrierwave/">Rails gem系列之CarrierWave</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/08/ransack/">Rails Gem系列之ransack</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/07/kaminari/">Rails Gem系列之kaminari</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/06/ffaker/">Rails Gem系列之ffaker</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/04/settingslogic/">Rails Gem系列之settingslogic</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        最近推文
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/ghjcumt2008"  data-widget-id="554204630339436545"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @ghjcumt2008</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - <a href="http://www.lijinma.com" target="_blank">kaku</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'kaku87blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
+        var disqus_url = 'http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
