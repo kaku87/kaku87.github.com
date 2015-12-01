@@ -11,11 +11,15 @@
   <link href="http://kaku87.github.com/atom.xml" rel="self"/>
   <link href="http://kaku87.github.com/"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <updated>2014-01-15T08:52:53+00:00</updated>
 >>>>>>> c29065b9580a3426e26b26645cde394ebb7e7b7c
 =======
   <updated>2015-01-11T14:33:31+09:00</updated>
 >>>>>>> f79fac3c680c9d9ace61eed5f42ca93cf55d6902
+=======
+  <updated>2015-11-28T00:01:19+09:00</updated>
+>>>>>>> 77d5f4e3e9bd3cc2b9ae3b202322602c249c72f6
   <id>http://kaku87.github.com/</id>
   <author>
     <name><![CDATA[kaku]]></name>
@@ -27,6 +31,7 @@
   <entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <title type="html"><![CDATA[hello]]></title>
     <link href="http://kaku87.github.com/blog/2013/02/19/hello/"/>
     <updated>2013-02-19T21:31:00+09:00</updated>
@@ -35,6 +40,1064 @@
 =======
 =======
     <title type="html"><![CDATA[gulp入门]]></title>
+=======
+    <title type="html"><![CDATA[Vim Cheat Sheet]]></title>
+    <link href="http://kaku87.github.com/blog/2015/11/27/vi-cheat-sheet/"/>
+    <updated>2015-11-27T23:46:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/11/27/vi-cheat-sheet</id>
+    <content type="html"><![CDATA[<p>发现了一张特别牛逼的图。
+用了vim以后会上瘾的。</p>
+
+<p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheat sheet" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如何重新搭建一个已经存在的Octopress博客]]></title>
+    <link href="http://kaku87.github.com/blog/2015/11/27/about-linux/"/>
+    <updated>2015-11-27T22:46:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/11/27/about-linux</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git clone git@github.com:username/username.github.com.git
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>username.github.com
+</span><span class='line'>username.github.com<span class="nv">$ </span>git checkout <span class="nb">source</span>
+</span><span class='line'>username.github.com<span class="nv">$ </span>mkdir _deploy
+</span><span class='line'>username.github.com<span class="nv">$ </span><span class="nb">cd </span>_deploy
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git init
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git remote add origin git@github.com:username/username.github.com.git
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span>git pull origin master
+</span><span class='line'>username.github.com/_deploy<span class="nv">$ </span><span class="nb">cd</span> ..
+</span><span class='line'>username.github.com<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails gem系列之CarrierWave]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/11/carrierwave/"/>
+    <updated>2015-02-11T22:50:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/11/carrierwave</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+
+<h2>和PaperClip的区别</h2>
+
+<p>1.PaperClip简单易用</p>
+
+<p>2.CarrierWave的功能较多，应用广泛</p>
+
+<h2>用法</h2>
+
+<p>先来做一个测试用的project吧</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="kp">new</span> <span class="nb">test</span>
+</span><span class='line'><span class="n">cd</span> <span class="nb">test</span>
+</span><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">scaffold</span> <span class="no">Product</span> <span class="nb">name</span><span class="ss">:string</span>
+</span><span class='line'><span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span><span class='line'><span class="n">rails</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入CarrierWave的gem</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;carrierwave&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">bundle</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成carrierwave的配置文件</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">uploader</span> <span class="no">Image</span>
+</span><span class='line'>      <span class="n">create</span>  <span class="n">app</span><span class="o">/</span><span class="n">uploaders</span><span class="o">/</span><span class="n">image_uploader</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入image列</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">migration</span> <span class="n">add_image_to_product</span> <span class="ss">image</span><span class="p">:</span><span class="n">string</span>
+</span><span class='line'><span class="n">rake</span>  <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>向model中加入mount_uploader方法</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/product.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">mount_uploader</span> <span class="ss">:image</span><span class="p">,</span> <span class="no">ImageUploader</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+
+<figure class='code'><figcaption><span>_form.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;!-- 开始 --&gt;</span>
+</span><span class='line'><span class="x">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;div class=&quot;thumbnail&quot;&gt;</span>
+</span><span class='line'><span class="x">        </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;/div&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x">&lt;br&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:image</span> <span class="cp">%&gt;</span><span class="x">&lt;br&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">file_field</span> <span class="ss">:image</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">hidden_field</span> <span class="ss">:image_cache</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'><span class="x">    &lt;!-- 既存product且存在图片--&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">persisted?</span> <span class="o">&amp;&amp;</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;label&gt;</span>
+</span><span class='line'><span class="x">        </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">check_box</span> <span class="ss">:remove_image</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">        删除</span>
+</span><span class='line'><span class="x">      &lt;/label&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  &lt;!-- 结束 --&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>别忘了要在controller中加一下StrongParameter</p>
+
+<figure class='code'><figcaption><span>products_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">product_params</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:product</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:price</span><span class="p">,</span> <span class="ss">:image</span><span class="p">,</span> <span class="ss">:image_cache</span><span class="p">,</span> <span class="ss">:remove_image</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加显示部分的image_tag代码</p>
+
+<figure class='code'><figcaption><span>show.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;p&gt;</span>
+</span><span class='line'><span class="x">  &lt;strong&gt;Image:&lt;/strong&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image?</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;div class=&quot;thumbnail&quot;&gt;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="vi">@product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;/div&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/p&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就这些，大功告成，很简单。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ransack]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/08/ransack/"/>
+    <updated>2015-02-08T20:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/08/ransack</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ransack是一个用来实现检索功能的gem。</p>
+
+<p>github地址: <a href="https://github.com/activerecord-hackery/ransack">https://github.com/activerecord-hackery/ransack</a></p>
+
+<p>示例网站：<a href="http://ransack-demo.herokuapp.com">http://ransack-demo.herokuapp.com</a></p>
+
+<h2>安装</h2>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;ransack&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>使用方法</h2>
+
+<p>在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>  <span class="vi">@q</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">ransack</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:q</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@people</span> <span class="o">=</span> <span class="vi">@q</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="ss">distinct</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>view中的写法如下。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="cp">&lt;%=</span> <span class="n">search_form_for</span> <span class="vi">@q</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  # Search if the name field contains...</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:name_cont</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">search_field</span> <span class="ss">:name_cont</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  # Search if an associated articles.title starts with...</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:articles_title_start</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">search_field</span> <span class="ss">:articles_title_start</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  # Attributes may be chained. Search multiple attributes for one value...</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:name_or_description_or_email_or_articles_title_cont</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">search_field</span> <span class="ss">:name_or_description_or_email_or_articles_title_cont</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span><span class='line'><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>search的写法</h2>
+
+<p>eq表示等于</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_eq</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` = &#39;test&#39;)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>lt表示小于</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:price_lt</span> <span class="o">=&gt;</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`price` &lt; 1000)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>gt表示大于</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:price_gt</span> <span class="o">=&gt;</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`price` &gt; 1000)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>in表示sql中的in</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:category_id_in</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`category_id` IN (5,10,15,20))&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>cont表示包含，模糊查询</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_cont</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE &#39;%test%&#39;)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>start表示前端一致</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_start</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE &#39;test%&#39;)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>组合用法</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_and_description_cont</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%test%&#39;) AND (`items`.`description` LIKE &#39;%test%&#39;)))&quot;</span>
+</span><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_or_description_cont</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%test%&#39;) OR (`items`.`description` LIKE &#39;%test%&#39;)))&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>条件组合
+末尾加<em>all是AND关系，末尾加</em>any是OR关系</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_cont_all</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;AAA&#39;</span><span class="p">,</span> <span class="s1">&#39;BBB&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%AAA%&#39;) AND (`items`.`name` LIKE &#39;%BBB%&#39;)))&quot;</span>
+</span><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:name_cont_any</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;AAA&#39;</span><span class="p">,</span> <span class="s1">&#39;BBB&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%AAA%&#39;) OR (`items`.`name` LIKE &#39;%BBB%&#39;)))&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>相关模型检索</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Item</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="ss">:comments_body_cont</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">to_sql</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;SELECT `items`.* FROM `items` LEFT OUTER JOIN `item_comments` ON `item_comments`.`item_id` = `items`.`id` WHERE `item_comments`.`body` LIKE &#39;%test%&#39;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>表头排序</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">sort_link</span><span class="p">(</span><span class="vi">@q</span><span class="p">,</span> <span class="ss">:name</span><span class="p">)</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加别名，加默认排序</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">sort_link</span><span class="p">(</span><span class="vi">@q</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="n">default_order</span><span class="p">:</span> <span class="ss">:desc</span><span class="p">)</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之kaminari]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/07/kaminari/"/>
+    <updated>2015-02-07T23:02:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/07/kaminari</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>kaminari是rails项目中常用的分页gem</p>
+
+<p>github地址：<a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></p>
+
+<h2>安装</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;kaminari&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后执行bundle就可以了。</p>
+
+<h2>基本使用</h2>
+
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>  <span class="vi">@items</span> <span class="o">=</span> <span class="no">Item</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>view中加一行就会生成翻页部分了。so easy.</p>
+
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@items</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>更改翻页样式</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="ss">kaminari</span><span class="p">:</span><span class="n">views</span> <span class="n">default</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。
+<a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+
+<h2>ajax翻页</h2>
+
+<figure class='code'><figcaption><span>posts_controller.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">respond_to</span> <span class="ss">:html</span><span class="p">,</span> <span class="ss">:js</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">per</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">respond_with</span><span class="p">(</span><span class="vi">@posts</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>列表部分放到partial中</p>
+
+<figure class='code'><figcaption><span>_posts.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% @posts.each </span><span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span> <span class="o">%&gt;</span>
+</span><span class='line'><span class="err">省略</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.js.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#posts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="s2">&quot;&lt;%= j(render :partial =&gt; &#39;posts&#39;) %&gt;&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.html.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;posts&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render :partial =</span><span class="o">&gt;</span> <span class="s2">&quot;posts&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;%=</span> <span class="n">paginate</span> <span class="vi">@posts</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之ffaker]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/06/ffaker/"/>
+    <updated>2015-02-06T23:17:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/06/ffaker</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行
+rake db:seed 就可以生成大量的测试数据。</p>
+
+<p>fmaker的github地址:
+<a href="https://github.com/emmanueloga/ffaker">https://github.com/emmanueloga/ffaker</a></p>
+
+<h2>和faker的关系</h2>
+
+<ol>
+<li>ffaker是faker的重写版。</li>
+<li>ffaker要比faker执行快。</li>
+</ol>
+
+
+<h2>和faker的速度比较</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">bench1000</span>
+</span><span class='line'>  <span class="n">start</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="mi">1000</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="k">yield</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">finish</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Time: </span><span class="si">#{</span><span class="p">(</span><span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">to_f</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>faker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;faker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.186539</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ffaker的执行时间</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;ffaker&#39;</span>
+</span><span class='line'><span class="n">bench1000</span><span class="p">{</span><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># =&gt; Time: 0.009986</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>快了不止一点点啊。。。。</p>
+
+<h2>使用方法</h2>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem install ffaker
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="ss">profile</span><span class="p">:</span> <span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>常用API</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Name</span><span class="o">.</span><span class="n">name</span>      <span class="c1">#=&gt; &quot;Christophe Bartell&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">email</span> <span class="c1">#=&gt; &quot;kirsten.greenholt@corkeryfisher.info&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:PhoneNumber</span><span class="o">.</span><span class="n">cell_phone</span> <span class="c1">#=&gt; &quot;(186)285-7925&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">sentence</span> <span class="c1">#=&gt; &quot;Dolore illum animi et neque accusantium.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Lorem</span><span class="o">.</span><span class="n">paragraph</span> <span class="c1">#=&gt; &quot;Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Number</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#=&gt; &quot;1968353479&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Internet</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#=&gt; &quot;yfgjik0hgzdqs0&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Faker</span><span class="p">:</span><span class="ss">:Business</span><span class="o">.</span><span class="n">credit_card_number</span> <span class="c1">#=&gt; &quot;1228-1221-1221-1431&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其他详细用法请详见这里 <a href="http://www.rubydoc.info/gems/faker/1.4.3">http://www.rubydoc.info/gems/faker/1.4.3</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之settingslogic]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/04/settingslogic/"/>
+    <updated>2015-02-04T21:37:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/04/settingslogic</id>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>可以从配置文件简单读取配置的gem</p>
+
+<p>github地址：https://github.com/binarylogic/settingslogic</p>
+
+<p>安装</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">settingslogic</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>定义class   app/models/settings.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Settings</span> <span class="o">&lt;</span> <span class="no">Settingslogic</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/config/application.yml&quot;</span>
+</span><span class='line'>  <span class="n">namespace</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>创建配置文件  config/application.yml</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">defaults</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="ss">cool</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">saweet</span><span class="p">:</span> <span class="n">nested</span> <span class="n">settings</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">24</span>
+</span><span class='line'>  <span class="n">awesome_setting</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= &quot;Did you know 5 + 5 =</span> <span class="c1">#{5 + 5}?&quot; %&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">development</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>  <span class="n">neat_setting</span><span class="p">:</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">test</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">production</span><span class="p">:</span>
+</span><span class='line'>  <span class="o">&lt;&lt;</span><span class="p">:</span> <span class="o">*</span><span class="n">defaults</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;development&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;#&lt;Settingslogic::Settings ... &gt;&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">cool</span><span class="o">.</span><span class="n">saweet</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;nested settings&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">neat_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">800</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;&gt;</span> <span class="no">Settings</span><span class="o">.</span><span class="n">awesome_setting</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;Did you know 5 + 5 = 10?&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[安装auto-fu.zsh让命令输入自动补全]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/"/>
+    <updated>2015-02-01T14:44:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/01/an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan</id>
+    <content type="html"><![CDATA[<p><img src="https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif" alt="" /></p>
+
+<ul>
+<li>下载auto-fu.zsh</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.oh-my-zsh/custom/plugins
+</span><span class='line'>git clone https://github.com/hchbaw/auto-fu.zsh.git auto-fu
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>执行zcompile</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">A</span><span class="o">=</span>~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; <span class="o">(</span>zsh -c <span class="s2">&quot;source $A ; auto-fu-zcompile $A ~/.zsh&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>添加下面的设置到zshrc中</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">## auto-fu.zsh stuff.</span>
+</span><span class='line'><span class="c"># source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh</span>
+</span><span class='line'><span class="o">{</span> . ~/.zsh/auto-fu; auto-fu-install; <span class="o">}</span>
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> input bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:highlight&#39;</span> completion <span class="nb">fg</span><span class="o">=</span>black,bold
+</span><span class='line'>zstyle <span class="s1">&#39;:auto-fu:var&#39;</span> postdisplay <span class="s1">$&#39;\n-azfu-&#39;</span>
+</span><span class='line'>zle-line-init <span class="o">()</span> <span class="o">{</span>auto-fu-init;<span class="o">}</span>; zle -N zle-line-init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>重新编译zshrc</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.zshrc
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[zsh下git命令Cheat-sheet]]></title>
+    <link href="http://kaku87.github.com/blog/2015/02/01/git-commond/"/>
+    <updated>2015-02-01T14:20:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/02/01/git-commond</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>g - git
+</span><span class='line'>gst - git status
+</span><span class='line'>gl - git pull
+</span><span class='line'>gup - git pull --rebase
+</span><span class='line'>gp - git push
+</span><span class='line'>gd - git diff
+</span><span class='line'>gdc - git diff --cached
+</span><span class='line'>gdv - git diff -w "$@" | view -
+</span><span class='line'>gc - git commit -v
+</span><span class='line'>gc! - git commit -v --amend
+</span><span class='line'>gca - git commit -v -a
+</span><span class='line'>gca! - git commit -v -a --amend
+</span><span class='line'>gcmsg - git commit -m
+</span><span class='line'>gco - git checkout
+</span><span class='line'>gcm - git checkout master
+</span><span class='line'>gr - git remote
+</span><span class='line'>grv - git remote -v
+</span><span class='line'>grmv - git remote rename
+</span><span class='line'>grrm - git remote remove
+</span><span class='line'>gsetr - git remote set-url
+</span><span class='line'>grup - git remote update
+</span><span class='line'>grbi - git rebase -i
+</span><span class='line'>grbc - git rebase --continue
+</span><span class='line'>grba - git rebase --abort
+</span><span class='line'>gb - git branch
+</span><span class='line'>gba - git branch -a
+</span><span class='line'>gcount - git shortlog -sn
+</span><span class='line'>gcl - git config --list
+</span><span class='line'>gcp - git cherry-pick
+</span><span class='line'>glg - git log --stat --max-count=10
+</span><span class='line'>glgg - git log --graph --max-count=10
+</span><span class='line'>glgga - git log --graph --decorate --all
+</span><span class='line'>glo - git log --oneline --decorate --color
+</span><span class='line'>glog - git log --oneline --decorate --color --graph
+</span><span class='line'>gss - git status -s
+</span><span class='line'>ga - git add
+</span><span class='line'>gm - git merge
+</span><span class='line'>grh - git reset HEAD
+</span><span class='line'>grhh - git reset HEAD --hard
+</span><span class='line'>gclean - git reset --hard && git clean -dfx
+</span><span class='line'>gwc - git whatchanged -p --abbrev-commit --pretty=medium
+</span><span class='line'>gsts - git stash show --text
+</span><span class='line'>gsta - git stash
+</span><span class='line'>gstp - git stash pop
+</span><span class='line'>gstd - git stash drop
+</span><span class='line'>ggpull - git pull origin $(current_branch)
+</span><span class='line'>ggpur - git pull --rebase origin $(current_branch)
+</span><span class='line'>ggpush - git push origin $(current_branch)
+</span><span class='line'>ggpnp - git pull origin $(current_branch) && git push origin $(current_branch)
+</span><span class='line'>glp - _git_log_prettily</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Gem系列之devise]]></title>
+    <link href="http://kaku87.github.com/blog/2015/01/26/devise/"/>
+    <updated>2015-01-26T22:48:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/01/26/devise</id>
+    <content type="html"><![CDATA[<h1>Devise</h1>
+
+<h2>概要</h2>
+
+<p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
+
+<h2>基本使用方法</h2>
+
+<p>创建project</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails new blog
+</span><span class='line'>cd blog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gemfile中加入devise gem</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Gemfile
+</span><span class='line'>gem 'devise'
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>运行bundle install</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装devise</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise:install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>指定发送邮件时的host名</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#config/environments/development.rb
+</span><span class='line'>Rails.application.configure do
+</span><span class='line'>  ...
+</span><span class='line'>  # deviseの設定
+</span><span class='line'>  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>指定root_url</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># config/routes.rb
+</span><span class='line'>  root to: "home#index"
+</span><span class='line'>  ... </span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入错误消息显示部分代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;%= yield %&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成devise model</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails g devise user</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行migrate</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加登陆，退出，注册，设置链接</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># app/views/layouts/application.html.erb
+</span><span class='line'>...
+</span><span class='line'>&lt;body&gt;
+</span><span class='line'>&lt;header&gt;
+</span><span class='line'>  &lt;nav&gt;
+</span><span class='line'>    &lt;!-- user_signed_in? devise的Helper方法，验证是否已登陆 --&gt;
+</span><span class='line'>    &lt;% if user_signed_in? %&gt; 
+</span><span class='line'>      &lt;!-- current_user 当前登陆User对象 --&gt;
+</span><span class='line'>      &lt;!-- *_path devise自动生成的路由，执行rake routes可以确认 --&gt;
+</span><span class='line'>      Logged in as &lt;strong&gt;&lt;%= current_user.email %&gt;&lt;/strong&gt;.
+</span><span class='line'>      &lt;%= link_to '设置', edit_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "退出", destroy_user_session_path, method: :delete %&gt;
+</span><span class='line'>    &lt;% else %&gt;
+</span><span class='line'>      &lt;%= link_to "注册", new_user_registration_path %&gt; |
+</span><span class='line'>      &lt;%= link_to "登陆", new_user_session_path %&gt;
+</span><span class='line'>    &lt;% end %&gt;
+</span><span class='line'>  &lt;/nav&gt;
+</span><span class='line'>&lt;/header&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+</span><span class='line'>&lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;%= yield %&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>启动服务，就可以看到画面啦。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails s</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gulp入门]]></title>
+>>>>>>> 77d5f4e3e9bd3cc2b9ae3b202322602c249c72f6
     <link href="http://kaku87.github.com/blog/2015/01/11/about-gulp/"/>
     <updated>2015-01-11T01:05:00+09:00</updated>
     <id>http://kaku87.github.com/blog/2015/01/11/about-gulp</id>

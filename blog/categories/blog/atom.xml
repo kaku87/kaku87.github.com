@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Blog | kaku's Blog]]></title>
+  <link href="http://kaku87.github.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://kaku87.github.com/"/>
+  <updated>2015-11-28T00:01:22+09:00</updated>
+  <id>http://kaku87.github.com/</id>
+  <author>
+    <name><![CDATA[kaku]]></name>
+    <email><![CDATA[ghjcumt2008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何重新搭建一个已经存在的Octopress博客]]></title>
+    <link href="http://kaku87.github.com/blog/2015/11/27/about-linux/"/>
+    <updated>2015-11-27T22:46:00+09:00</updated>
+    <id>http://kaku87.github.com/blog/2015/11/27/about-linux</id>
+    <content type="html"><![CDATA[<p><code>bash
+$ git clone git@github.com:username/username.github.com.git
+$ cd username.github.com
+username.github.com$ git checkout source
+username.github.com$ mkdir _deploy
+username.github.com$ cd _deploy
+username.github.com/_deploy$ git init
+username.github.com/_deploy$ git remote add origin git@github.com:username/username.github.com.git
+username.github.com/_deploy$ git pull origin master
+username.github.com/_deploy$ cd ..
+username.github.com$
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
