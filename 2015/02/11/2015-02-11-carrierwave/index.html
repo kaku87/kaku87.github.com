@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rails gem系列之CarrierWave | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##概要CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。
+##和PaperClip的区别1.PaperClip简单易用
+2.CarrierWave的功能较多，应用广泛
+##用法
+先来做一个测试用的project吧
+12345rails new testcd testrails g scaffold Product name:string rake db">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rails gem系列之CarrierWave">
+<meta property="og:url" content="http://yoursite.com/2015/02/11/2015-02-11-carrierwave/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##概要CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。
+##和PaperClip的区别1.PaperClip简单易用
+2.CarrierWave的功能较多，应用广泛
+##用法
+先来做一个测试用的project吧
+12345rails new testcd testrails g scaffold Product name:string rake db">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rails gem系列之CarrierWave">
+<meta name="twitter:description" content="##概要CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。
+##和PaperClip的区别1.PaperClip简单易用
+2.CarrierWave的功能较多，应用广泛
+##用法
+先来做一个测试用的project吧
+12345rails new testcd testrails g scaffold Product name:string rake db">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-02-11-carrierwave" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/11/2015-02-11-carrierwave/" class="article-date">
+  <time datetime="2015-02-11T13:50:00.000Z" itemprop="datePublished">2015-02-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails-gem-ruby/">rails gem ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rails gem系列之CarrierWave
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##概要<br>CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。</p>
+<p>##和PaperClip的区别<br>1.PaperClip简单易用</p>
+<p>2.CarrierWave的功能较多，应用广泛</p>
+<p>##用法</p>
+<p>先来做一个测试用的project吧</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rails new test</span><br><span class="line">cd test</span><br><span class="line">rails g scaffold Product <span class="symbol">name:</span>string </span><br><span class="line">rake <span class="symbol">db:</span>migrate</span><br><span class="line">rails s</span><br></pre></td></tr></table></figure>
+<p>加入CarrierWave的gem</p>
+<figure class="highlight ruby"><figcaption><span>Gemfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="string">'carrierwave'</span></span><br></pre></td></tr></table></figure>
+<p>安装</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>生成carrierwave的配置文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rails g uploader Image</span><br><span class="line">      create  app/uploaders/image_uploader.rb</span><br></pre></td></tr></table></figure>
+<p>加入image列</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rails g migration add_image_to_product <span class="symbol">image:</span>string</span><br><span class="line">rake  <span class="symbol">db:</span>migrate</span><br></pre></td></tr></table></figure>
+<p>向model中加入mount_uploader方法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># app/models/product.rb</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Product</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  mount_uploader <span class="symbol">:image</span>, ImageUploader</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。</p>
+<figure class="highlight erb"><figcaption><span>_form.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开始 --&gt;</span><br><span class="line">  &lt;div class="field"&gt;</span><br><span class="line">    &lt;%<span class="ruby"> <span class="keyword">if</span> @product.image? </span>%&gt;</span><br><span class="line">      &lt;div class="thumbnail"&gt;</span><br><span class="line">        &lt;%=<span class="ruby"> image_tag @product.image.url </span>%&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;&lt;br&gt;</span><br><span class="line">    &lt;%=<span class="ruby"> f.label <span class="symbol">:image</span> </span>%&gt;&lt;br&gt;</span><br><span class="line">    &lt;%=<span class="ruby"> f.file_field <span class="symbol">:image</span> </span>%&gt;</span><br><span class="line">    &lt;%=<span class="ruby"> f.hidden_field <span class="symbol">:image_cache</span> </span>%&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class="field"&gt;</span><br><span class="line">    &lt;!-- 既存product且存在图片--&gt;</span><br><span class="line">    &lt;%<span class="ruby"> <span class="keyword">if</span> @product.persisted? &amp;&amp; @product.image? </span>%&gt;</span><br><span class="line">      &lt;label&gt;</span><br><span class="line">        &lt;%=<span class="ruby"> f.check_box <span class="symbol">:remove_image</span> </span>%&gt;</span><br><span class="line">        删除</span><br><span class="line">      &lt;/label&gt;</span><br><span class="line">    &lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;!-- 结束 --&gt;</span><br></pre></td></tr></table></figure>
+<p>别忘了要在controller中加一下StrongParameter</p>
+<figure class="highlight ruby"><figcaption><span>products_controller.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">product_params</span></span></span><br><span class="line">  params.<span class="keyword">require</span>(<span class="symbol">:product</span>).permit(<span class="symbol">:name</span>, <span class="symbol">:price</span>, <span class="symbol">:image</span>, <span class="symbol">:image_cache</span>, <span class="symbol">:remove_image</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>添加显示部分的image_tag代码</p>
+<figure class="highlight erb"><figcaption><span>show.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;</span><br><span class="line">  &lt;strong&gt;Image:&lt;/strong&gt;</span><br><span class="line">  &lt;%<span class="ruby"> <span class="keyword">if</span> @product.image? </span>%&gt;</span><br><span class="line">    &lt;div class="thumbnail"&gt;</span><br><span class="line">      &lt;%=<span class="ruby"> image_tag @product.image.url </span>%&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>就这些，大功告成，很简单。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/11/2015-02-11-carrierwave/" data-id="cilcapfjk000nxetq7ed5k7de" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/27/2015-11-27-about-linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何重新搭建一个已经存在的Octopress博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/08/2015-02-08-ransack/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rails gem系列之ransack</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

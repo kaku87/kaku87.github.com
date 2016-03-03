@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rails gem系列之settingslogic | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##概要
+可以从配置文件简单读取配置的gem
+github地址：https://github.com/binarylogic/settingslogic
+安装
+1gem install settingslogic
+定义class   app/models/settings.rb
+1234class Settings &amp;lt; Settingslogic  source &quot;#&amp;#123;Rails.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rails gem系列之settingslogic">
+<meta property="og:url" content="http://yoursite.com/2015/02/04/2015-02-04-settingslogic/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##概要
+可以从配置文件简单读取配置的gem
+github地址：https://github.com/binarylogic/settingslogic
+安装
+1gem install settingslogic
+定义class   app/models/settings.rb
+1234class Settings &amp;lt; Settingslogic  source &quot;#&amp;#123;Rails.">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rails gem系列之settingslogic">
+<meta name="twitter:description" content="##概要
+可以从配置文件简单读取配置的gem
+github地址：https://github.com/binarylogic/settingslogic
+安装
+1gem install settingslogic
+定义class   app/models/settings.rb
+1234class Settings &amp;lt; Settingslogic  source &quot;#&amp;#123;Rails.">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-02-04-settingslogic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/04/2015-02-04-settingslogic/" class="article-date">
+  <time datetime="2015-02-04T12:37:00.000Z" itemprop="datePublished">2015-02-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails-gem/">rails gem</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rails gem系列之settingslogic
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##概要</p>
+<p>可以从配置文件简单读取配置的gem</p>
+<p>github地址：<a href="https://github.com/binarylogic/settingslogic" target="_blank" rel="external">https://github.com/binarylogic/settingslogic</a></p>
+<p>安装</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install settingslogic</span><br></pre></td></tr></table></figure>
+<p>定义class   app/models/settings.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Settings</span> &lt; Settingslogic</span></span><br><span class="line">  source <span class="string">"<span class="subst">#&#123;Rails.root&#125;</span>/config/application.yml"</span></span><br><span class="line">  namespace Rails.env</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>创建配置文件  config/application.yml</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">defaults:</span> &amp;defaults</span><br><span class="line">  <span class="symbol">cool:</span></span><br><span class="line">    <span class="symbol">saweet:</span> nested settings</span><br><span class="line">  <span class="symbol">neat_setting:</span> <span class="number">24</span></span><br><span class="line">  <span class="symbol">awesome_setting:</span> &lt;%= <span class="string">"Did you know 5 + 5 = <span class="subst">#&#123;<span class="number">5</span> + <span class="number">5</span>&#125;</span>?"</span> %&gt;</span><br><span class="line"></span><br><span class="line"><span class="symbol">development:</span></span><br><span class="line">  &lt;&lt;<span class="symbol">:</span> *defaults</span><br><span class="line">  <span class="symbol">neat_setting:</span> <span class="number">800</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">test:</span></span><br><span class="line">  &lt;&lt;<span class="symbol">:</span> *defaults</span><br><span class="line"></span><br><span class="line"><span class="symbol">production:</span></span><br><span class="line">  &lt;&lt;<span class="symbol">:</span> *defaults</span><br></pre></td></tr></table></figure>
+<p>之后在rails console里面测试一下，就可以拿到配置文件里的值了</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span> Rails.env</span><br><span class="line">=&gt; <span class="string">"development"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> Settings.cool</span><br><span class="line">=&gt; <span class="string">"#&lt;Settingslogic::Settings ... &gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> Settings.cool.saweet</span><br><span class="line">=&gt; <span class="string">"nested settings"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> Settings.neat_setting</span><br><span class="line">=&gt; <span class="number">800</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> Settings.awesome_setting</span><br><span class="line">=&gt; <span class="string">"Did you know 5 + 5 = 10?"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/04/2015-02-04-settingslogic/" data-id="cilcapfj5000fxetqr8ca6w2n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/06/2015-02-06-ffaker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          rails gem系列之ffaker
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/01/2015-02-01-an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">安装auto-fu.zsh让命令输入自动补全</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

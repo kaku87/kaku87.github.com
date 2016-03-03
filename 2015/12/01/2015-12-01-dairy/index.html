@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LPIC学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今日のLPIC勉強メモ
+1.自分の所属グループを表示するにはgroupsコマンドを使う。
+2.ファイル作成時にアプリケーションが指定するパーミッションが666
+3.ディレクトリ作成時指定するパーミッションが777
+4.umaskコマンドでの変更は子プロセスでのみ有効に成る
+5.SUIDはパーミションに4000もしくは所有者にsを付与する 　SUIDの使用例としては/usr/bin/passwdがあ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LPIC学习笔记">
+<meta property="og:url" content="http://yoursite.com/2015/12/01/2015-12-01-dairy/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今日のLPIC勉強メモ
+1.自分の所属グループを表示するにはgroupsコマンドを使う。
+2.ファイル作成時にアプリケーションが指定するパーミッションが666
+3.ディレクトリ作成時指定するパーミッションが777
+4.umaskコマンドでの変更は子プロセスでのみ有効に成る
+5.SUIDはパーミションに4000もしくは所有者にsを付与する 　SUIDの使用例としては/usr/bin/passwdがあ">
+<meta property="og:updated_time" content="2015-12-01T15:03:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LPIC学习笔记">
+<meta name="twitter:description" content="今日のLPIC勉強メモ
+1.自分の所属グループを表示するにはgroupsコマンドを使う。
+2.ファイル作成時にアプリケーションが指定するパーミッションが666
+3.ディレクトリ作成時指定するパーミッションが777
+4.umaskコマンドでの変更は子プロセスでのみ有効に成る
+5.SUIDはパーミションに4000もしくは所有者にsを付与する 　SUIDの使用例としては/usr/bin/passwdがあ">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-12-01-dairy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/01/2015-12-01-dairy/" class="article-date">
+  <time datetime="2015-12-01T13:49:00.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LPIC学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今日のLPIC勉強メモ</p>
+<p>1.自分の所属グループを表示するにはgroupsコマンドを使う。</p>
+<p>2.ファイル作成時にアプリケーションが指定するパーミッションが666</p>
+<p>3.ディレクトリ作成時指定するパーミッションが777</p>
+<p>4.umaskコマンドでの変更は子プロセスでのみ有効に成る</p>
+<p>5.SUIDはパーミションに4000もしくは所有者にsを付与する 　SUIDの使用例としては/usr/bin/passwdがある 　　<br>  passwdコマンドで/etc/shadowファイルの書き換えを実行時どのユーザが実行した場合でもroot権限で実行されるようになっています。</p>
+<p>6.スティッキービットが特定のディレクトリに対してアクセス権が許可されていてもファイルの削除はおこえないよう保護する設定です。 　<br>　chmod 1000　ファイルもしくはchmod o+t 　　</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/01/2015-12-01-dairy/" data-id="cilcapfjt000sxetqy8wxizqw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vim cheat sheet</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

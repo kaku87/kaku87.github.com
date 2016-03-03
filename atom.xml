@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2015-12-01T15:03:17.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LPIC学习笔记</title>
+    <link href="http://yoursite.com/2015/12/01/2015-12-01-dairy/"/>
+    <id>http://yoursite.com/2015/12/01/2015-12-01-dairy/</id>
+    <published>2015-12-01T13:49:00.000Z</published>
+    <updated>2015-12-01T15:03:17.000Z</updated>
+    
+    <content type="html">&lt;p&gt;今日のLPIC勉強メモ&lt;/p&gt;
+&lt;p&gt;1.自分の所属グループを表示するにはgroupsコマンドを使う。&lt;/p&gt;
+&lt;p&gt;2.ファイル作成時にアプリケーションが指定するパーミッションが666&lt;/p&gt;
+&lt;p&gt;3.ディレクトリ作成時指定するパーミッションが777&lt;/p&gt;
+&lt;p&gt;4.umaskコマンドでの変更は子プロセスでのみ有効に成る&lt;/p&gt;
+&lt;p&gt;5.SUIDはパーミションに4000もしくは所有者にsを付与する 　SUIDの使用例としては/usr/bin/passwdがある 　　&lt;br&gt;  passwdコマンドで/etc/shadowファイルの書き換えを実行時どのユーザが実行した場合でもroot権限で実行されるようになっています。&lt;/p&gt;
+&lt;p&gt;6.スティッキービットが特定のディレクトリに対してアクセス権が許可されていてもファイルの削除はおこえないよう保護する設定です。 　&lt;br&gt;　chmod 1000　ファイルもしくはchmod o+t 　　&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今日のLPIC勉強メモ&lt;/p&gt;
+&lt;p&gt;1.自分の所属グループを表示するにはgroupsコマンドを使う。&lt;/p&gt;
+&lt;p&gt;2.ファイル作成時にアプリケーションが指定するパーミッションが666&lt;/p&gt;
+&lt;p&gt;3.ディレクトリ作成時指定するパーミッションが777&lt;/p&gt;
+&lt;p&gt;4.
+    
+    </summary>
+    
+      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vim cheat sheet</title>
+    <link href="http://yoursite.com/2015/11/27/2015-11-27-vi-cheat-sheet/"/>
+    <id>http://yoursite.com/2015/11/27/2015-11-27-vi-cheat-sheet/</id>
+    <published>2015-11-27T14:46:00.000Z</published>
+    <updated>2015-11-27T15:00:48.000Z</updated>
+    
+    <content type="html">&lt;p&gt;发现了一张特别牛逼的图。&lt;br&gt;用了vim以后会上瘾的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.viemu.com/vi-vim-cheat-sheet.gif&quot; alt=&quot;vim cheat sheet&quot;&gt; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发现了一张特别牛逼的图。&lt;br&gt;用了vim以后会上瘾的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.viemu.com/vi-vim-cheat-sheet.gif&quot; alt=&quot;vim cheat sheet&quot;&gt; &lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何重新搭建一个已经存在的Octopress博客</title>
+    <link href="http://yoursite.com/2015/11/27/2015-11-27-about-linux/"/>
+    <id>http://yoursite.com/2015/11/27/2015-11-27-about-linux/</id>
+    <published>2015-11-27T13:46:00.000Z</published>
+    <updated>2015-11-27T13:58:25.000Z</updated>
+    
+    <content type="html">&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; git@github.com:username/username.github.com.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; username.github.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com$ git checkout &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com$ mkdir _deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; _deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com/_deploy$ git init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com/_deploy$ git remote add origin git@github.com:username/username.github.com.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com/_deploy$ git pull origin master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com/_deploy$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ..&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;username.github.com$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+    
+    </summary>
+    
+      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之CarrierWave</title>
+    <link href="http://yoursite.com/2015/02/11/2015-02-11-carrierwave/"/>
+    <id>http://yoursite.com/2015/02/11/2015-02-11-carrierwave/</id>
+    <published>2015-02-11T13:50:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;br&gt;CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。&lt;/p&gt;
+&lt;p&gt;##和PaperClip的区别&lt;br&gt;1.PaperClip简单易用&lt;/p&gt;
+&lt;p&gt;2.CarrierWave的功能较多，应用广泛&lt;/p&gt;
+&lt;p&gt;##用法&lt;/p&gt;
+&lt;p&gt;先来做一个测试用的project吧&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails new test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rails g scaffold Product &lt;span class=&quot;symbol&quot;&gt;name:&lt;/span&gt;string &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake &lt;span class=&quot;symbol&quot;&gt;db:&lt;/span&gt;migrate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rails s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;加入CarrierWave的gem&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem &lt;span class=&quot;string&quot;&gt;&#39;carrierwave&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bundle install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;生成carrierwave的配置文件&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails g uploader Image&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      create  app/uploaders/image_uploader.rb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;加入image列&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails g migration add_image_to_product &lt;span class=&quot;symbol&quot;&gt;image:&lt;/span&gt;string&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake  &lt;span class=&quot;symbol&quot;&gt;db:&lt;/span&gt;migrate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;向model中加入mount_uploader方法&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# app/models/product.rb&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Product&lt;/span&gt; &amp;lt; ActiveRecord::Base&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  mount_uploader &lt;span class=&quot;symbol&quot;&gt;:image&lt;/span&gt;, ImageUploader&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;向form中加入上传组件，其中指定hidden属性image_cache的作用就是当提交form时发生error上传的文件或者图片可以保存起来，不用再上传一次。&lt;/p&gt;
+&lt;figure class=&quot;highlight erb&quot;&gt;&lt;figcaption&gt;&lt;span&gt;_form.html.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- 开始 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;div class=&quot;field&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; @product.image? &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;div class=&quot;thumbnail&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; image_tag @product.image.url &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt; &lt;/span&gt;%&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.label &lt;span class=&quot;symbol&quot;&gt;:image&lt;/span&gt; &lt;/span&gt;%&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.file_field &lt;span class=&quot;symbol&quot;&gt;:image&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.hidden_field &lt;span class=&quot;symbol&quot;&gt;:image_cache&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;div class=&quot;field&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- 既存product且存在图片--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; @product.persisted? &amp;amp;&amp;amp; @product.image? &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;label&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.check_box &lt;span class=&quot;symbol&quot;&gt;:remove_image&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        删除&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/label&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;!-- 结束 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;别忘了要在controller中加一下StrongParameter&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;products_controller.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;product_params&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  params.&lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;symbol&quot;&gt;:product&lt;/span&gt;).permit(&lt;span class=&quot;symbol&quot;&gt;:name&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;:price&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;:image&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;:image_cache&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;:remove_image&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加显示部分的image_tag代码&lt;/p&gt;
+&lt;figure class=&quot;highlight erb&quot;&gt;&lt;figcaption&gt;&lt;span&gt;show.html.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;strong&amp;gt;Image:&amp;lt;/strong&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; @product.image? &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&quot;thumbnail&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; image_tag @product.image.url &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;就这些，大功告成，很简单。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;br&gt;CarrierWave是rails中用来上传文件的gem。类似的gem还有PaperClip。&lt;/p&gt;
+&lt;p&gt;##和PaperClip的区别&lt;br&gt;1.PaperClip简单易用&lt;/p&gt;
+&lt;p&gt;2.CarrierWave的功能较多，应用广泛&lt;/p&gt;
+&lt;p&gt;#
+    
+    </summary>
+    
+      <category term="rails gem ruby" scheme="http://yoursite.com/categories/rails-gem-ruby/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之ransack</title>
+    <link href="http://yoursite.com/2015/02/08/2015-02-08-ransack/"/>
+    <id>http://yoursite.com/2015/02/08/2015-02-08-ransack/</id>
+    <published>2015-02-08T11:02:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;ransack是一个用来实现检索功能的gem。&lt;/p&gt;
+&lt;p&gt;github地址: &lt;a href=&quot;https://github.com/activerecord-hackery/ransack&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/activerecord-hackery/ransack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;示例网站：&lt;a href=&quot;http://ransack-demo.herokuapp.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://ransack-demo.herokuapp.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##安装&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem &lt;span class=&quot;string&quot;&gt;&#39;ransack&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后执行bundle就可以了。&lt;/p&gt;
+&lt;p&gt;##使用方法&lt;/p&gt;
+&lt;p&gt;在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @q = Person.ransack(params[&lt;span class=&quot;symbol&quot;&gt;:q&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @people = @q.result(&lt;span class=&quot;symbol&quot;&gt;distinct:&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;view中的写法如下。&lt;/p&gt;
+&lt;figure class=&quot;highlight erb&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; search_form_for @q &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; |f| &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # Search if the name field contains...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.label &lt;span class=&quot;symbol&quot;&gt;:name_cont&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.search_field &lt;span class=&quot;symbol&quot;&gt;:name_cont&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # Search if an associated articles.title starts with...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.label &lt;span class=&quot;symbol&quot;&gt;:articles_title_start&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.search_field &lt;span class=&quot;symbol&quot;&gt;:articles_title_start&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # Attributes may be chained. Search multiple attributes for one value...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.label &lt;span class=&quot;symbol&quot;&gt;:name_or_description_or_email_or_articles_title_cont&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.search_field &lt;span class=&quot;symbol&quot;&gt;:name_or_description_or_email_or_articles_title_cont&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%=&lt;span class=&quot;ruby&quot;&gt; f.submit &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%&lt;span class=&quot;ruby&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt; &lt;/span&gt;%&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;##search的写法&lt;/p&gt;
+&lt;p&gt;eq表示等于&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_eq&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` = &#39;test&#39;)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;lt表示小于&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:price_lt&lt;/span&gt; =&amp;gt; &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`price` &amp;lt; 1000)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;gt表示大于&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:price_gt&lt;/span&gt; =&amp;gt; &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`price` &amp;gt; 1000)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;in表示sql中的in&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:category_id_in&lt;/span&gt; =&amp;gt; [&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;]).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`category_id` IN (5,10,15,20))&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;cont表示包含，模糊查询&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_cont&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE &#39;%test%&#39;)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;start表示前端一致&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_start&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE &#39;test%&#39;)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;组合用法&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_and_description_cont&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%test%&#39;) AND (`items`.`description` LIKE &#39;%test%&#39;)))&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_or_description_cont&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%test%&#39;) OR (`items`.`description` LIKE &#39;%test%&#39;)))&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;条件组合&lt;br&gt;末尾加_all是AND关系，末尾加_any是OR关系&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_cont_all&lt;/span&gt; =&amp;gt; [&lt;span class=&quot;string&quot;&gt;&#39;AAA&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;BBB&#39;&lt;/span&gt;]).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%AAA%&#39;) AND (`items`.`name` LIKE &#39;%BBB%&#39;)))&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:name_cont_any&lt;/span&gt; =&amp;gt; [&lt;span class=&quot;string&quot;&gt;&#39;AAA&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;BBB&#39;&lt;/span&gt;]).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE &#39;%AAA%&#39;) OR (`items`.`name` LIKE &#39;%BBB%&#39;)))&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;相关模型检索&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Item.search(&lt;span class=&quot;symbol&quot;&gt;:comments_body_cont&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;).result.to_sql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; &quot;SELECT `items`.* FROM `items` LEFT OUTER JOIN `item_comments` ON `item_comments`.`item_id` = `items`.`id` WHERE `item_comments`.`body` LIKE &#39;%test%&#39;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;##表头排序&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= sort_link(@q, &lt;span class=&quot;symbol&quot;&gt;:name&lt;/span&gt;) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;加别名，加默认排序&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= sort_link(@q, &lt;span class=&quot;symbol&quot;&gt;:name&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Last Name&#39;&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;default_order:&lt;/span&gt; &lt;span class=&quot;symbol&quot;&gt;:desc&lt;/span&gt;) %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;ransack是一个用来实现检索功能的gem。&lt;/p&gt;
+&lt;p&gt;github地址: &lt;a href=&quot;https://github.com/activerecord-hackery/ransack&quot; target=&quot;_blank&quot; rel=&quot;exter
+    
+    </summary>
+    
+      <category term="rails gem" scheme="http://yoursite.com/categories/rails-gem/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之kaminari</title>
+    <link href="http://yoursite.com/2015/02/07/2015-02-07-kaminari/"/>
+    <id>http://yoursite.com/2015/02/07/2015-02-07-kaminari/</id>
+    <published>2015-02-07T14:02:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;br&gt;kaminari是rails项目中常用的分页gem&lt;/p&gt;
+&lt;p&gt;github地址：&lt;a href=&quot;https://github.com/amatsuda/kaminari&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amatsuda/kaminari&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##安装&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem &lt;span class=&quot;string&quot;&gt;&#39;kaminari&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后执行bundle就可以了。&lt;/p&gt;
+&lt;p&gt;##基本使用&lt;/p&gt;
+&lt;p&gt;分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @items = Item.page(params[&lt;span class=&quot;symbol&quot;&gt;:page&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;view中加一行就会生成翻页部分了。so easy.&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;index.html.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= paginate @items %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;##更改翻页样式&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails g &lt;span class=&quot;symbol&quot;&gt;kaminari:&lt;/span&gt;views default&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。&lt;/p&gt;
+&lt;p&gt;当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。&lt;br&gt;&lt;a href=&quot;https://github.com/gabetax/twitter-bootstrap-kaminari-views&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/gabetax/twitter-bootstrap-kaminari-views&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##ajax翻页&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;posts_controller.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;respond_to &lt;span class=&quot;symbol&quot;&gt;:html&lt;/span&gt;, &lt;span class=&quot;symbol&quot;&gt;:js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @posts = Post.page(params[&lt;span class=&quot;symbol&quot;&gt;:page&lt;/span&gt;]).per(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  respond_with(@posts)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;列表部分放到partial中&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;_posts.html.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;% @posts.each &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; |post| %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;省略&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;figcaption&gt;&lt;span&gt;index.js.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#posts&quot;&lt;/span&gt;).html(&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;%= j(render :partial =&amp;gt; &#39;posts&#39;) %&amp;gt;&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;figcaption&gt;&lt;span&gt;index.html.erb&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &amp;lt;div id=&quot;posts&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;%= render :partial =&amp;gt; &quot;posts&quot; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= paginate @posts %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;br&gt;kaminari是rails项目中常用的分页gem&lt;/p&gt;
+&lt;p&gt;github地址：&lt;a href=&quot;https://github.com/amatsuda/kaminari&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://g
+    
+    </summary>
+    
+      <category term="rails gem" scheme="http://yoursite.com/categories/rails-gem/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之ffaker</title>
+    <link href="http://yoursite.com/2015/02/06/2015-02-06-ffaker/"/>
+    <id>http://yoursite.com/2015/02/06/2015-02-06-ffaker/</id>
+    <published>2015-02-06T14:17:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行&lt;br&gt;rake db:seed 就可以生成大量的测试数据。&lt;/p&gt;
+&lt;p&gt;fmaker的github地址:&lt;br&gt;&lt;a href=&quot;https://github.com/emmanueloga/ffaker&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/emmanueloga/ffaker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##和faker的关系&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ffaker是faker的重写版。&lt;/li&gt;
+&lt;li&gt;ffaker要比faker执行快。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;##和faker的速度比较&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bench1000&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  start = Time.now  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;.times&amp;#123;&lt;span class=&quot;keyword&quot;&gt;yield&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  finish = Time.now  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  puts &lt;span class=&quot;string&quot;&gt;&quot;Time: &lt;span class=&quot;subst&quot;&gt;#&amp;#123;(finish - start).to_f&amp;#125;&lt;/span&gt;&quot;&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;faker的执行时间&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;faker&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bench100&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;#123;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Name&lt;/span&gt;.name&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; Time: 0.186539&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;ffaker的执行时间&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;ffaker&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bench100&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;#123;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Name&lt;/span&gt;.name&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# =&amp;gt; Time: 0.009986&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;快了不止一点点啊。。。。&lt;/p&gt;
+&lt;p&gt;##使用方法&lt;/p&gt;
+&lt;p&gt;安装&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem install ffaker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在seed.rb中添加类似这样的生成代码，然后执行rake db:seed就可以生成测试数据了。&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;.times &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	User.create(&lt;span class=&quot;symbol&quot;&gt;name:&lt;/span&gt; &lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Name&lt;/span&gt;.name, &lt;span class=&quot;symbol&quot;&gt;profile:&lt;/span&gt; &lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Lorem&lt;/span&gt;.sentence(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;##常用API&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Name&lt;/span&gt;.name      &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;Christophe Bartell&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Internet&lt;/span&gt;.email &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;kirsten.greenholt&lt;span class=&quot;doctag&quot;&gt;@corkeryfisher&lt;/span&gt;.info&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:PhoneNumber&lt;/span&gt;.cell_phone &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;(186)285-7925&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Lorem&lt;/span&gt;.sentence &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;Dolore illum animi et neque accusantium.&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Lorem&lt;/span&gt;.paragraph &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente.&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Number&lt;/span&gt;.number(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;1968353479&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Internet&lt;/span&gt;.password(&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;yfgjik0hgzdqs0&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;Faker:&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:Business&lt;/span&gt;.credit_card_number &lt;span class=&quot;comment&quot;&gt;#=&amp;gt; &quot;1228-1221-1221-1431&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;其他详细用法请详见这里 &lt;a href=&quot;http://www.rubydoc.info/gems/faker/1.4.3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.rubydoc.info/gems/faker/1.4.3&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;ffaker可以用来生成测试数据，在rails的seed.rb文件中写少量的代码然后执行&lt;br&gt;rake db:seed 就可以生成大量的测试数据。&lt;/p&gt;
+&lt;p&gt;fmaker的github地址:&lt;br&gt;&lt;a href=&quot;https://github
+    
+    </summary>
+    
+      <category term="rails gem" scheme="http://yoursite.com/categories/rails-gem/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之settingslogic</title>
+    <link href="http://yoursite.com/2015/02/04/2015-02-04-settingslogic/"/>
+    <id>http://yoursite.com/2015/02/04/2015-02-04-settingslogic/</id>
+    <published>2015-02-04T12:37:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;可以从配置文件简单读取配置的gem&lt;/p&gt;
+&lt;p&gt;github地址：&lt;a href=&quot;https://github.com/binarylogic/settingslogic&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/binarylogic/settingslogic&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem install settingslogic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;定义class   app/models/settings.rb&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Settings&lt;/span&gt; &amp;lt; Settingslogic&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  source &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;subst&quot;&gt;#&amp;#123;Rails.root&amp;#125;&lt;/span&gt;/config/application.yml&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  namespace Rails.env&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;创建配置文件  config/application.yml&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;defaults:&lt;/span&gt; &amp;amp;defaults&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;symbol&quot;&gt;cool:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;symbol&quot;&gt;saweet:&lt;/span&gt; nested settings&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;symbol&quot;&gt;neat_setting:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;24&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;symbol&quot;&gt;awesome_setting:&lt;/span&gt; &amp;lt;%= &lt;span class=&quot;string&quot;&gt;&quot;Did you know 5 + 5 = &lt;span class=&quot;subst&quot;&gt;#&amp;#123;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&amp;#125;&lt;/span&gt;?&quot;&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;development:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;&amp;lt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt; *defaults&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;symbol&quot;&gt;neat_setting:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;800&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;test:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;&amp;lt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt; *defaults&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;production:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;&amp;lt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt; *defaults&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;之后在rails console里面测试一下，就可以拿到配置文件里的值了&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; Rails.env&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;development&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; Settings.cool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;#&amp;lt;Settingslogic::Settings ... &amp;gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; Settings.cool.saweet&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;nested settings&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; Settings.neat_setting&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&amp;gt; &lt;span class=&quot;number&quot;&gt;800&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; Settings.awesome_setting&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;Did you know 5 + 5 = 10?&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;/p&gt;
+&lt;p&gt;可以从配置文件简单读取配置的gem&lt;/p&gt;
+&lt;p&gt;github地址：&lt;a href=&quot;https://github.com/binarylogic/settingslogic&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https
+    
+    </summary>
+    
+      <category term="rails gem" scheme="http://yoursite.com/categories/rails-gem/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>安装auto-fu.zsh让命令输入自动补全</title>
+    <link href="http://yoursite.com/2015/02/01/2015-02-01-an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/"/>
+    <id>http://yoursite.com/2015/02/01/2015-02-01-an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/</id>
+    <published>2015-02-01T05:44:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载auto-fu.zsh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ~/.oh-my-zsh/custom/plugins&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/hchbaw/auto-fu.zsh.git auto-fu&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;执行zcompile&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;A=~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh; (zsh -c &lt;span class=&quot;string&quot;&gt;&quot;source &lt;span class=&quot;variable&quot;&gt;$A&lt;/span&gt; ; auto-fu-zcompile &lt;span class=&quot;variable&quot;&gt;$A&lt;/span&gt; ~/.zsh&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;添加下面的设置到zshrc中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## auto-fu.zsh stuff.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# source ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.zsh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; . ~/.zsh/auto-fu; auto-fu-install; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;zstyle&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;:auto-fu:highlight&#39;&lt;/span&gt; input bold&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;zstyle&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;:auto-fu:highlight&#39;&lt;/span&gt; completion &lt;span class=&quot;built_in&quot;&gt;fg&lt;/span&gt;=black,bold&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;zstyle&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;:auto-fu:var&#39;&lt;/span&gt; postdisplay $&lt;span class=&quot;string&quot;&gt;&#39;\n-azfu-&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;zle&lt;/span&gt;-line-&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;&lt;/span&gt; () &amp;#123;auto-fu-init;&amp;#125;; &lt;span class=&quot;built_in&quot;&gt;zle&lt;/span&gt; -N &lt;span class=&quot;built_in&quot;&gt;zle&lt;/span&gt;-line-init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;重新编译zshrc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.zshrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://github.com/hchbaw/auto-fu.zsh/raw/readme/auto-fu.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载auto-fu.zsh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;high
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>zsh下git命令Cheat-sheet </title>
+    <link href="http://yoursite.com/2015/02/01/2015-02-01-git-commond/"/>
+    <id>http://yoursite.com/2015/02/01/2015-02-01-git-commond/</id>
+    <published>2015-02-01T05:20:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;g - git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gst - git status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gl - git pull&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gup - git pull --rebase&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gp - git push&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gd - git diff&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gdc - git diff --cached&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gdv - git diff -w &amp;quot;$@&amp;quot; | view -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gc - git commit -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gc! - git commit -v --amend&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gca - git commit -v -a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gca! - git commit -v -a --amend&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcmsg - git commit -m&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gco - git checkout&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcm - git checkout master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gr - git remote&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grv - git remote -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grmv - git remote rename&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grrm - git remote remove&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gsetr - git remote set-url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grup - git remote update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grbi - git rebase -i&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grbc - git rebase --continue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grba - git rebase --abort&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gb - git branch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gba - git branch -a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcount - git shortlog -sn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcl - git config --list&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcp - git cherry-pick&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glg - git log --stat --max-count=10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glgg - git log --graph --max-count=10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glgga - git log --graph --decorate --all&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glo - git log --oneline --decorate --color&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glog - git log --oneline --decorate --color --graph&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gss - git status -s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ga - git add&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gm - git merge&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grh - git reset HEAD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grhh - git reset HEAD --hard&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gclean - git reset --hard &amp;amp;&amp;amp; git clean -dfx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gwc - git whatchanged -p --abbrev-commit --pretty=medium&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gsts - git stash show --text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gsta - git stash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gstp - git stash pop&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gstd - git stash drop&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ggpull - git pull origin $(current_branch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ggpur - git pull --rebase origin $(current_branch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ggpush - git push origin $(current_branch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ggpnp - git pull origin $(current_branch) &amp;amp;&amp;amp; git push origin $(current_branch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glp - _git_log_prettily&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+    
+    </summary>
+    
+      <category term="git zsh" scheme="http://yoursite.com/categories/git-zsh/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rails gem系列之devise</title>
+    <link href="http://yoursite.com/2015/01/26/2015-01-26-devise/"/>
+    <id>http://yoursite.com/2015/01/26/2015-01-26-devise/</id>
+    <published>2015-01-26T13:48:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Devise&quot;&gt;&lt;a href=&quot;#Devise&quot; class=&quot;headerlink&quot; title=&quot;Devise&quot;&gt;&lt;/a&gt;Devise&lt;/h1&gt;&lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。&lt;/p&gt;
+&lt;h2 id=&quot;基本使用方法&quot;&gt;&lt;a href=&quot;#基本使用方法&quot; class=&quot;headerlink&quot; title=&quot;基本使用方法&quot;&gt;&lt;/a&gt;基本使用方法&lt;/h2&gt;&lt;p&gt;创建project&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails new blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd blog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Gemfile中加入devise gem&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Gemfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gem &amp;apos;devise&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行bundle install&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bundle install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装devise&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails g devise:install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;指定发送邮件时的host名&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#config/environments/development.rb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Rails.application.configure do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # deviseの設定&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  config.action_mailer.default_url_options = &amp;#123; host: &amp;apos;localhost:3000&amp;apos; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;指定root_url&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# config/routes.rb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  root to: &amp;quot;home#index&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;加入错误消息显示部分代码&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/views/layouts/application.html.erb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;p class=&amp;quot;notice&amp;quot;&amp;gt;&amp;lt;%= notice %&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;p class=&amp;quot;alert&amp;quot;&amp;gt;&amp;lt;%= alert %&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= yield %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;生成devise model&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails g devise user&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行migrate&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake db:migrate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加登陆，退出，注册，设置链接&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/views/layouts/application.html.erb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;header&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;nav&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- user_signed_in? devise的Helper方法，验证是否已登陆 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;% if user_signed_in? %&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;!-- current_user 当前登陆User对象 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;!-- *_path devise自动生成的路由，执行rake routes可以确认 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      Logged in as &amp;lt;strong&amp;gt;&amp;lt;%= current_user.email %&amp;gt;&amp;lt;/strong&amp;gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;%= link_to &amp;apos;设置&amp;apos;, edit_user_registration_path %&amp;gt; |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;%= link_to &amp;quot;退出&amp;quot;, destroy_user_session_path, method: :delete %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;% else %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;%= link_to &amp;quot;注册&amp;quot;, new_user_registration_path %&amp;gt; |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;%= link_to &amp;quot;登陆&amp;quot;, new_user_session_path %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;% end %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;/nav&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;p class=&amp;quot;notice&amp;quot;&amp;gt;&amp;lt;%= notice %&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;p class=&amp;quot;alert&amp;quot;&amp;gt;&amp;lt;%= alert %&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%= yield %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;启动服务，就可以看到画面啦。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Devise&quot;&gt;&lt;a href=&quot;#Devise&quot; class=&quot;headerlink&quot; title=&quot;Devise&quot;&gt;&lt;/a&gt;Devise&lt;/h1&gt;&lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="gem" scheme="http://yoursite.com/categories/gem/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>gulp入门</title>
+    <link href="http://yoursite.com/2015/01/11/2015-01-11-about-gulp/"/>
+    <id>http://yoursite.com/2015/01/11/2015-01-11-about-gulp/</id>
+    <published>2015-01-10T16:05:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;##概要&lt;br&gt;前端任务自动化工具&lt;/p&gt;
+&lt;p&gt;##官方网站&lt;br&gt;&lt;a href=&quot;gulpjs.com&quot;&gt;gulpjs.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##相关知识&lt;br&gt;GoogleのWenStarterKit是用gulp来做的。&lt;/p&gt;
+&lt;p&gt;##环境&lt;br&gt;vagrant centos&lt;/p&gt;
+&lt;p&gt;##安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. sudo yum -y install epel-release
+
+2. sodu yum -y install nodejs npm
+
+    `node -v`确认node的版本号
+
+    `npm -v`确认npm的版本号
+
+3. sudo npm install gulp -g
+
+     `gulp -v`确认gulp的版本号
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##gulp和grunt的区别&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;gulp&lt;/th&gt;
+&lt;th&gt;grunt &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; 插件少&lt;/td&gt;
+&lt;td&gt;插件多&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8,398sta&lt;/td&gt;
+&lt;td&gt;8,439starM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2013/6/30&lt;/td&gt;
+&lt;td&gt;2011/9/18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gulpfie.js&lt;/td&gt;
+&lt;td&gt;Gruntfile.js&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;类似Node&lt;/td&gt;
+&lt;td&gt;类似JavaScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node的插件&lt;/td&gt;
+&lt;td&gt;Grunt的插件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;##和Grunt相比较的优点&lt;/p&gt;
+&lt;p&gt;1.配置文件比Grunt要少&lt;/p&gt;
+&lt;p&gt;2.比Grunt要快&lt;/p&gt;
+&lt;p&gt;##和Grunt相比的缺点&lt;/p&gt;
+&lt;p&gt;1.写法和Node接近，所以相对比较复杂&lt;/p&gt;
+&lt;p&gt;2.文档较少&lt;/p&gt;
+&lt;p&gt;##创建package.json&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mkdir mysite&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd mysite &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev gulp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm -i -D gulp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf node_modules&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;##初识gulp.task()&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var gulp = require(&amp;apos;gulp&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	gulp.task(&amp;apos;hello&amp;apos;, function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		console.log(&amp;apos;hello world!&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gulp.task(&amp;apos;default&amp;apos;, [&amp;apos;hello&amp;apos;]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;##文件拷贝&lt;/p&gt;
+&lt;p&gt;把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var gulp = require(&amp;apos;gulp&amp;apos;);
+
+gulp.task(&amp;apos;copy&amp;apos;, function() {
+    gulp.src(&amp;apos;./package.json&amp;apos;)
+      .pipe(gulp.dest(&amp;apos;./dist&amp;apos;));
+});
+
+gulp.task(&amp;apos;default&amp;apos;,[&amp;apos;copy&amp;apos;]);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##gulp的常用5种API&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义task&lt;pre&gt;&lt;code&gt;gulp.task(&amp;apos;name&amp;apos;,[&amp;apos;tasks&amp;apos;], function() {
+ // content
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;输入路径指定&lt;pre&gt;&lt;code&gt;gulp.src(&amp;apos;files&amp;apos;)
+.pipe(name(&amp;apos;&amp;apos;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;执行task&lt;pre&gt;&lt;code&gt;gulp.task(&amp;apos;foo&amp;apos;, function() {
+ gulp.run(&amp;apos;bar&amp;apos;);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;输出路径指定&lt;pre&gt;&lt;code&gt;.pipe(gulp.dest(&amp;apos;folder&amp;apos;));
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;监视文件&lt;pre&gt;&lt;code&gt;gulp.watch(&amp;apos;files&amp;apos;, function (event) {
+ console.log(&amp;apos;js file changed!!&amp;apos;);
+});
+&lt;/code&gt;&lt;/pre&gt;详细API信息请参照这里   &lt;a href=&quot;https://github.com/gulpjs/gulp/blob/master/docs/API.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github API&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;##gulp task执行顺序&lt;/p&gt;
+&lt;p&gt;gulp的task默认为并行触发，若要顺序执行，要做如下处理。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;前面的task要写return&lt;/li&gt;
+&lt;li&gt;后面的task要加第二参数，值为前面的task&lt;br&gt;```&lt;br&gt;var gulp = require(‘gulp’);&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;gulp.task(‘first’, function() {&lt;br&gt;    return gulp.src(‘./package.json’)&lt;br&gt;      .pipe(gulp.dest(‘./dist’));&lt;br&gt;});&lt;/p&gt;
+&lt;p&gt;gulp.task(‘second’,[‘first’], function() {&lt;br&gt;    console.log(‘first task done!!’);&lt;br&gt;});&lt;/p&gt;
+&lt;p&gt;gulp.task(‘default’,[‘second’]);&lt;br&gt;```    &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##概要&lt;br&gt;前端任务自动化工具&lt;/p&gt;
+&lt;p&gt;##官方网站&lt;br&gt;&lt;a href=&quot;gulpjs.com&quot;&gt;gulpjs.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##相关知识&lt;br&gt;GoogleのWenStarterKit是用gulp来做的。&lt;/p&gt;
+&lt;p&gt;##环境&lt;br&gt;vag
+    
+    </summary>
+    
+      <category term="gulp" scheme="http://yoursite.com/categories/gulp/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Rails3.0でモデルのER図を簡単に出力する方法</title>
+    <link href="http://yoursite.com/2013/05/10/2013-05-10-20130515/"/>
+    <id>http://yoursite.com/2013/05/10/2013-05-10-20130515/</id>
+    <published>2013-05-10T00:38:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;* graphvizをインストール
+* Gemfileのdevelopment環境の設定に「gem &amp;quot;rails-erd&amp;quot;」を追加
+* 「rake erd」を実行
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;* graphvizをインストール
+* Gemfileのdevelopment環境の設定に「gem &amp;quot;rails-erd&amp;quot;」を追加
+* 「rake erd」を実行
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="ruby" scheme="http://yoursite.com/categories/ruby/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于rails控制器的功能测试</title>
+    <link href="http://yoursite.com/2013/03/15/2013-03-15-about-rails-functional-test/"/>
+    <id>http://yoursite.com/2013/03/15/2013-03-15-about-rails-functional-test/</id>
+    <published>2013-03-15T06:16:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;控制器的功能测试&quot;&gt;&lt;a href=&quot;#控制器的功能测试&quot; class=&quot;headerlink&quot; title=&quot;控制器的功能测试&quot;&gt;&lt;/a&gt;控制器的功能测试&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;require File.dirname(__FILE__) + &amp;apos;/../test_helper&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关键在于setup方法，有三个东西&lt;br&gt;    1.controller&lt;br&gt;    2.request&lt;br&gt;    3.response&lt;/p&gt;
+&lt;p&gt;get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，&lt;br&gt;然后用assert_response来检查是否应答正确&lt;/p&gt;
+&lt;p&gt;-n可以指定运行某一个特定的测试方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ruby test/functional/logni_controller_test.rb -n test_index
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;assert_redirected_to :action=&amp;gt;”login”&lt;/p&gt;
+&lt;h1 id=&quot;Dynamic-Fixtures&quot;&gt;&lt;a href=&quot;#Dynamic-Fixtures&quot; class=&quot;headerlink&quot; title=&quot;Dynamic Fixtures&quot;&gt;&lt;/a&gt;Dynamic Fixtures&lt;/h1&gt;&lt;p&gt;在夹具中也可以使用ruby代码动态加入&lt;/p&gt;
+&lt;p&gt;assert_template “index” 对模版进行断言&lt;/p&gt;
+&lt;h1 id=&quot;测试登录&quot;&gt;&lt;a href=&quot;#测试登录&quot; class=&quot;headerlink&quot; title=&quot;测试登录&quot;&gt;&lt;/a&gt;测试登录&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;def test_login
+  dave = users(:dave)
+  post :login, :nmae=&amp;gt;dave.name, :password=&amp;gt;&amp;apos;secret&amp;apos;
+  assert_redirected_to :action=&amp;gt;&amp;quot;index&amp;quot;
+  assert_equal dave.id, session[:user_id]
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;HTTP请求方法&quot;&gt;&lt;a href=&quot;#HTTP请求方法&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求方法&quot;&gt;&lt;/a&gt;HTTP请求方法&lt;/h1&gt;&lt;p&gt;get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;例: get(action,parameteres=nil,session=nil,flash=nil)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;post() 提交表单&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;例: post :edit, :user =&amp;gt; {:name =&amp;gt; &amp;quot;dave&amp;quot;, :age =&amp;gt; &amp;quot;24&amp;quot;}
+
+ 模拟XMLHttp请求
+ xhr(method,action,parameters,session,flash)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;put(),delete(),head()&lt;/p&gt;
+&lt;h1 id=&quot;功能测试的断言&quot;&gt;&lt;a href=&quot;#功能测试的断言&quot; class=&quot;headerlink&quot; title=&quot;功能测试的断言&quot;&gt;&lt;/a&gt;功能测试的断言&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;assert_dom_equal(expected_html,actual_html,message)
+例:assert_dom_equal(expected,@response.body)
+
+assert_response(type,message)
+type的种类
+1.:success
+2.:redirect
+3.:missing
+4.:error
+例:assert_response :success
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;assigns(key=nil)
+     assert_not_nil assigns[&amp;quot;items&amp;quot;]
+session
+     assert_equal 2, session[:cart].items.size
+flash
+     assert_equal &amp;quot;Danger!&amp;quot;, flash[:notice]
+cookies
+     assert_equal &amp;quot;Danger!&amp;quot;, cookies[:name]
+redirect_to_url
+     assert_equal &amp;quot;http://test.host/login&amp;quot;, redirect_to_url
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;辅助方法&quot;&gt;&lt;a href=&quot;#辅助方法&quot; class=&quot;headerlink&quot; title=&quot;辅助方法&quot;&gt;&lt;/a&gt;辅助方法&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;find_tag(conditions)
+find_all_tag(conditions)
+follow_redirect
+fixture_file_upload(path,mime_type)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;测试response的content&quot;&gt;&lt;a href=&quot;#测试response的content&quot; class=&quot;headerlink&quot; title=&quot;测试response的content&quot;&gt;&lt;/a&gt;测试response的content&lt;/h1&gt;&lt;p&gt;   使用强大的assert_select&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;assert_select &amp;quot;title&amp;quot;,  &amp;quot;TEST&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;控制器的功能测试&quot;&gt;&lt;a href=&quot;#控制器的功能测试&quot; class=&quot;headerlink&quot; title=&quot;控制器的功能测试&quot;&gt;&lt;/a&gt;控制器的功能测试&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;require File.dirname(__FILE__) + &amp;apos
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>对于vim命令的一些总结</title>
+    <link href="http://yoursite.com/2013/03/05/2013-03-05-about-vim/"/>
+    <id>http://yoursite.com/2013/03/05/2013-03-05-about-vim/</id>
+    <published>2013-03-05T03:00:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;#宏命令(Macros)&lt;/p&gt;
+&lt;p&gt;高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:qx    开始记录宏，并将结果存入寄存器x
+
+q    退出记录模式
+
+@x    播放记录在x寄存器中的宏命令
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模式，然后输入@x对刚才记录 下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。&lt;/p&gt;
+&lt;p&gt;#同时编辑多个文件&lt;/p&gt;
+&lt;p&gt;在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。&lt;/p&gt;
+&lt;p&gt;#标签命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:tabe fn    在一个新的标签页中编辑文件fn
+
+gt    切换到下一个标签页
+
+gT    切换到上一个标签页
+
+:tabr    切换到第一个标签页
+
+:tabl    切换到最后一个标签页
+
+:tabm [N]    把当前tab移动到第N个tab之后
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！&lt;/p&gt;
+&lt;p&gt;#窗口命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ctrl+w s    水平分割窗口
+
+ctrl+w w    切换窗口
+
+ctrl+w q    退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)
+
+ctrl+w v    垂直分割窗口
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其他&lt;/p&gt;
+&lt;p&gt;vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:e file    把file加载到新的缓冲区中
+
+:bn    跳转到下一个缓冲区
+
+:bd    删除缓冲区(关闭文件)
+
+:sp fn    分割窗口，并将fn加载到新的窗口中
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#退出编辑器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:w    将缓冲区写入文件，即保存修改
+
+:wq    保存修改并退出
+
+:x    保存修改并退出
+
+:q    退出，如果对缓冲区进行过修改，则会提示
+
+:q!    强制退出，放弃修改
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#查找替换&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/pattern    向后搜索字符串pattern
+
+?pattern    向前搜索字符串pattern
+
+n    下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+
+N    上一个匹配(同上)
+
+:%s/old/new/g    搜索整个文件，将所有的old替换为new
+
+:%s/old/new/gc    搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+
+复制粘贴
+
+dd    删除光标所在行
+
+dw    删除一个字(word)
+
+x    删除当前字符
+
+X    删除前一个字符
+
+D    删除到行末
+
+yy    复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行
+
+yw    复制一个字
+
+y$    复制到行末
+
+p    粘贴粘贴板的内容到当前行的下面
+
+P    粘贴粘贴板的内容到当前行的上面
+
+]p    有缩进的粘贴，vim会自动调节代码的缩进
+
+&amp;quot;a    将内容放入/存入a寄存器，可以支持多粘贴板
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。&lt;/p&gt;
+&lt;p&gt;#移动光标&lt;/p&gt;
+&lt;p&gt;在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;h,j,k,l    上，下，左，右
+
+ctrl-f    上翻一页
+
+ctrl-b    下翻一页
+
+%    跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处
+
+w    跳到下一个字首，按标点或单词分割
+
+W    跳到下一个字首，长跳，如end-of-line被认为是一个字
+
+e    跳到下一个字尾
+
+E    跳到下一个字尾，长跳
+
+b    跳到上一个字
+
+B    跳到上一个字，长跳
+
+0    跳至行首，不管有无缩进，就是跳到第0个字符
+
+^    跳至行首的第一个字符
+
+$    跳至行尾
+
+gg    跳至文件的第一行
+
+gd    跳至当前光标所在的变量的声明处
+
+[N]G    跳到第N行，如0G，就等价于gg，100G就是第100行
+
+fx    在当前行中找x字符，找到了就跳转至
+
+;    重复上一个f命令，而不用重复的输入fx
+
+tx    与fx类似，但是只是跳转到x的前一个字符处
+
+Fx    跟fx的方向相反
+
+),(    跳转到上/下一个语句
+
+*    查找光标所在处的单词，向下查找
+
+#    查找光标所在处的单词，向上查找
+
+`.    跳转至上次编辑位置
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#在屏幕上移动&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;H    移动光标到当前屏幕上最上边的一行
+
+M    移动光标到当前屏幕上中间的一行
+
+L    移动光标到当前屏幕上最下边的一行
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#书签&lt;/p&gt;
+&lt;p&gt;ma    把当前位置存成标签a&lt;/p&gt;
+&lt;p&gt;`a    跳转到标签a处&lt;/p&gt;
+&lt;p&gt; 编辑&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;r    替换一个字符
+
+J    将下一行和当前行连接为一行
+
+cc    删除当前行并进入编辑模式
+
+cw    删除当前字，并进入编辑模式
+
+c$    擦除从当前位置至行末的内容，并进入编辑模式
+
+s    删除当前字符并进入编辑模式
+
+S    删除光标所在行并进入编辑模式
+
+xp    交换当前字符和下一个字符
+
+u    撤销
+
+ctrl+r    重做
+
+.    重复上一个编辑命令
+
+~    切换大小写，当前字符
+
+g~iw    切换当前字的大小写
+
+gUiw    将当前字变成大写
+
+guiw    将当前字变成小写
+
+&amp;gt;&amp;gt;    将当前行右移一个单位
+
+&amp;lt;&amp;lt;    将当前行左移一个单位(一个tab符)
+
+==    自动缩进当前行
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#插入模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;i    从当前光标处进入插入模式
+
+I    进入插入模式，并置光标于行首
+
+a    追加模式，置光标于当前光标之后
+
+A    追加模式，置光标于行末
+
+o    在当前行之下新加一行，并进入插入模式
+
+O    在当前行之上新加一行，并进入插入模式
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Esc    退出插入模式&lt;/p&gt;
+&lt;p&gt;#可视模式&lt;/p&gt;
+&lt;p&gt;标记文本&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;v    进入可视模式，单字符模式
+
+V    进入可视模式，行模式
+
+ctrl+v    进入可视模式，列模式，类似于UE的列模式
+
+o    跳转光标到选中块的另一个端点
+
+U    将选中块中的内容转成大写
+
+O    跳转光标到块的另一个端点
+
+aw    选中一个字
+
+ab    选中括号中的所有内容，包括括号本身
+
+aB    选中{}括号中的所有内容
+
+ib    选中括号中的内容，不含括号
+
+iB    选中{}中的内容，不含{}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对标记进行动作&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;    块右移
+
+&amp;lt;    块左移
+
+y    复制块
+
+d    删除块
+
+~    切换块中内容的大小写
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#宏命令(Macros)&lt;/p&gt;
+&lt;p&gt;高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:qx    开始记录宏，并将结果存入寄存器x
+
+q    退出记录模式
+
+@x    播放记录在x寄存器中的宏命令
+    
+    </summary>
+    
+      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>about vm</title>
+    <link href="http://yoursite.com/2013/03/04/2013-03-04-about-vm/"/>
+    <id>http://yoursite.com/2013/03/04/2013-03-04-about-vm/</id>
+    <published>2013-03-04T08:21:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;VM设定时遇到的网络问题&quot;&gt;&lt;a href=&quot;#VM设定时遇到的网络问题&quot; class=&quot;headerlink&quot; title=&quot;VM设定时遇到的网络问题&quot;&gt;&lt;/a&gt;VM设定时遇到的网络问题&lt;/h2&gt;&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;虚拟机不能上网  桥接方式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;window下的putty不能连接到虚拟机上，网址也不能访问&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;网址不能访问是linux下的防火墙没有关闭
+
+service iptables stop 注意要用root权限关闭，不然不起作用
+
+putty连不上的原因，是因为没有安装openssh
+
+yum -y install openssh-client openssh-server
+
+安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+service sshd start
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;VM设定时遇到的网络问题&quot;&gt;&lt;a href=&quot;#VM设定时遇到的网络问题&quot; class=&quot;headerlink&quot; title=&quot;VM设定时遇到的网络问题&quot;&gt;&lt;/a&gt;VM设定时遇到的网络问题&lt;/h2&gt;&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;虚拟机不能上网  桥接方式&lt;/p
+    
+    </summary>
+    
+      <category term="rails" scheme="http://yoursite.com/categories/rails/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>centos下搭rails开发环境时的一些记录</title>
+    <link href="http://yoursite.com/2013/03/04/2013-03-04-new-post/"/>
+    <id>http://yoursite.com/2013/03/04/2013-03-04-new-post/</id>
+    <published>2013-03-04T07:42:00.000Z</published>
+    <updated>2015-05-09T10:58:22.000Z</updated>
+    
+    <content type="html">&lt;p&gt;安装mysql&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yum -y install mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;配置文件-设置编码为utf8&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动mysql服务&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/etc/rc.d/init.d/msyqld start
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;设置mysql随机启动&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chkconfig mysqld on 
+chkconfig --liset mysqld
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建数据库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;msyqladmin -u root create depot_development
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;修改root用户的密码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;update user set password = password(&amp;apos;root&amp;apos;) where user = &amp;apos;root&amp;apos;
+
+/etc/init.d/mysqld restart
+
+mysql -uroot -p
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建rails项目&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rails new depot --database=mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;出现错误&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql.h is missing.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决办法:&lt;br&gt;    yum -y install mysql-devel&lt;/p&gt;
+&lt;p&gt;mysql 查看表结构&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;desc 表名
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安装mysql&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yum -y install mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;配置文件-设置编码为utf8&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim /etc/my.cnf
+
+[mysql]
+default-character-set 
+    
+    </summary>
+    
+      <category term="rails" scheme="http://yoursite.com/categories/rails/"/>
+    
+    
+  </entry>
+  
+</feed>

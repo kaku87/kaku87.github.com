@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>centos下搭rails开发环境时的一些记录 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装mysql
+yum -y install mysql
+配置文件-设置编码为utf8
+vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+启动mysql服务
+/etc/rc.d/init.d/msyqld start
+设置mysql随机启动
+chkconfig mysqld on 
+chkconfig --liset mysqld
+创建数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos下搭rails开发环境时的一些记录">
+<meta property="og:url" content="http://yoursite.com/2013/03/04/2013-03-04-new-post/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装mysql
+yum -y install mysql
+配置文件-设置编码为utf8
+vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+启动mysql服务
+/etc/rc.d/init.d/msyqld start
+设置mysql随机启动
+chkconfig mysqld on 
+chkconfig --liset mysqld
+创建数据">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos下搭rails开发环境时的一些记录">
+<meta name="twitter:description" content="安装mysql
+yum -y install mysql
+配置文件-设置编码为utf8
+vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+启动mysql服务
+/etc/rc.d/init.d/msyqld start
+设置mysql随机启动
+chkconfig mysqld on 
+chkconfig --liset mysqld
+创建数据">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2013-03-04-new-post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/04/2013-03-04-new-post/" class="article-date">
+  <time datetime="2013-03-04T07:42:00.000Z" itemprop="datePublished">2013-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails/">rails</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      centos下搭rails开发环境时的一些记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装mysql</p>
+<pre><code>yum -y install mysql
+</code></pre><p>配置文件-设置编码为utf8</p>
+<pre><code>vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+</code></pre><p>启动mysql服务</p>
+<pre><code>/etc/rc.d/init.d/msyqld start
+</code></pre><p>设置mysql随机启动</p>
+<pre><code>chkconfig mysqld on 
+chkconfig --liset mysqld
+</code></pre><p>创建数据库</p>
+<pre><code>msyqladmin -u root create depot_development
+</code></pre><p>修改root用户的密码</p>
+<pre><code>update user set password = password(&apos;root&apos;) where user = &apos;root&apos;
+
+/etc/init.d/mysqld restart
+
+mysql -uroot -p
+</code></pre><p>创建rails项目</p>
+<pre><code>rails new depot --database=mysql
+</code></pre><p>出现错误</p>
+<pre><code>mysql.h is missing.
+</code></pre><p>解决办法:<br>    yum -y install mysql-devel</p>
+<p>mysql 查看表结构</p>
+<pre><code>desc 表名
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/03/04/2013-03-04-new-post/" data-id="cilcapfhx0000xetqyqvos00v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/03/04/2013-03-04-about-vm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          about vm
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2015-01-26-devise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/26/2015-01-26-devise/" class="article-date">
+  <time datetime="2015-01-26T13:48:00.000Z" itemprop="datePublished">2015-01-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gem/">gem</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/26/2015-01-26-devise/">rails gem系列之devise</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Devise"><a href="#Devise" class="headerlink" title="Devise"></a>Devise</h1><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>最有人气的登陆验证gem。ORM支持ActiveRecord和Mongodb。</p>
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><p>创建project</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rails new blog</span><br><span class="line">cd blog</span><br></pre></td></tr></table></figure>
+<p>Gemfile中加入devise gem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Gemfile</span><br><span class="line">gem &apos;devise&apos;</span><br></pre></td></tr></table></figure>
+<p>运行bundle install</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>安装devise</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails g devise:install</span><br></pre></td></tr></table></figure>
+<p>指定发送邮件时的host名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#config/environments/development.rb</span><br><span class="line">Rails.application.configure do</span><br><span class="line">  ...</span><br><span class="line">  # deviseの設定</span><br><span class="line">  config.action_mailer.default_url_options = &#123; host: &apos;localhost:3000&apos; &#125;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>指定root_url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># config/routes.rb</span><br><span class="line">  root to: &quot;home#index&quot;</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>加入错误消息显示部分代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># app/views/layouts/application.html.erb</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p class=&quot;notice&quot;&gt;&lt;%= notice %&gt;&lt;/p&gt;</span><br><span class="line">&lt;p class=&quot;alert&quot;&gt;&lt;%= alert %&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;%= yield %&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>生成devise model</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails g devise user</span><br></pre></td></tr></table></figure>
+<p>执行migrate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake db:migrate</span><br></pre></td></tr></table></figure>
+<p>添加登陆，退出，注册，设置链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># app/views/layouts/application.html.erb</span><br><span class="line">...</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;header&gt;</span><br><span class="line">  &lt;nav&gt;</span><br><span class="line">    &lt;!-- user_signed_in? devise的Helper方法，验证是否已登陆 --&gt;</span><br><span class="line">    &lt;% if user_signed_in? %&gt; </span><br><span class="line">      &lt;!-- current_user 当前登陆User对象 --&gt;</span><br><span class="line">      &lt;!-- *_path devise自动生成的路由，执行rake routes可以确认 --&gt;</span><br><span class="line">      Logged in as &lt;strong&gt;&lt;%= current_user.email %&gt;&lt;/strong&gt;.</span><br><span class="line">      &lt;%= link_to &apos;设置&apos;, edit_user_registration_path %&gt; |</span><br><span class="line">      &lt;%= link_to &quot;退出&quot;, destroy_user_session_path, method: :delete %&gt;</span><br><span class="line">    &lt;% else %&gt;</span><br><span class="line">      &lt;%= link_to &quot;注册&quot;, new_user_registration_path %&gt; |</span><br><span class="line">      &lt;%= link_to &quot;登陆&quot;, new_user_session_path %&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">  &lt;/nav&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line"></span><br><span class="line">&lt;p class=&quot;notice&quot;&gt;&lt;%= notice %&gt;&lt;/p&gt;</span><br><span class="line">&lt;p class=&quot;alert&quot;&gt;&lt;%= alert %&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;%= yield %&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>启动服务，就可以看到画面啦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails s</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/26/2015-01-26-devise/" data-id="cilcapfiw0009xetqqe23ibfi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-01-11-about-gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/11/2015-01-11-about-gulp/" class="article-date">
+  <time datetime="2015-01-10T16:05:00.000Z" itemprop="datePublished">2015-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gulp/">gulp</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/11/2015-01-11-about-gulp/">gulp入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##概要<br>前端任务自动化工具</p>
+<p>##官方网站<br><a href="gulpjs.com">gulpjs.com</a></p>
+<p>##相关知识<br>GoogleのWenStarterKit是用gulp来做的。</p>
+<p>##环境<br>vagrant centos</p>
+<p>##安装</p>
+<pre><code>1. sudo yum -y install epel-release
+
+2. sodu yum -y install nodejs npm
+
+    `node -v`确认node的版本号
+
+    `npm -v`确认npm的版本号
+
+3. sudo npm install gulp -g
+
+     `gulp -v`确认gulp的版本号
+</code></pre><p>##gulp和grunt的区别</p>
+<table>
+<thead>
+<tr>
+<th>gulp</th>
+<th>grunt </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 插件少</td>
+<td>插件多</td>
+</tr>
+<tr>
+<td>8,398sta</td>
+<td>8,439starM</td>
+</tr>
+<tr>
+<td>2013/6/30</td>
+<td>2011/9/18</td>
+</tr>
+<tr>
+<td>gulpfie.js</td>
+<td>Gruntfile.js</td>
+</tr>
+<tr>
+<td>类似Node</td>
+<td>类似JavaScript</td>
+</tr>
+<tr>
+<td>Node的插件</td>
+<td>Grunt的插件</td>
+</tr>
+</tbody>
+</table>
+<p>##和Grunt相比较的优点</p>
+<p>1.配置文件比Grunt要少</p>
+<p>2.比Grunt要快</p>
+<p>##和Grunt相比的缺点</p>
+<p>1.写法和Node接近，所以相对比较复杂</p>
+<p>2.文档较少</p>
+<p>##创建package.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysite</span><br><span class="line">cd mysite </span><br><span class="line">npm init</span><br><span class="line">npm install --save-dev gulp</span><br><span class="line">npm -i -D gulp</span><br><span class="line">rm -rf node_modules</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>##初识gulp.task()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">	gulp.task(&apos;hello&apos;, function()&#123;</span><br><span class="line">		console.log(&apos;hello world!&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;hello&apos;]);</span><br></pre></td></tr></table></figure></p>
+<p>##文件拷贝</p>
+<p>把当前目录里的package.json文件拷贝到当前目录中的dist文件夹中。</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+
+gulp.task(&apos;copy&apos;, function() {
+    gulp.src(&apos;./package.json&apos;)
+      .pipe(gulp.dest(&apos;./dist&apos;));
+});
+
+gulp.task(&apos;default&apos;,[&apos;copy&apos;]);
+</code></pre><p>##gulp的常用5种API</p>
+<ol>
+<li>定义task<pre><code>gulp.task(&apos;name&apos;,[&apos;tasks&apos;], function() {
+ // content
+});
+</code></pre></li>
+<li>输入路径指定<pre><code>gulp.src(&apos;files&apos;)
+.pipe(name(&apos;&apos;))
+</code></pre></li>
+<li>执行task<pre><code>gulp.task(&apos;foo&apos;, function() {
+ gulp.run(&apos;bar&apos;);
+});
+</code></pre></li>
+<li>输出路径指定<pre><code>.pipe(gulp.dest(&apos;folder&apos;));
+</code></pre></li>
+<li>监视文件<pre><code>gulp.watch(&apos;files&apos;, function (event) {
+ console.log(&apos;js file changed!!&apos;);
+});
+</code></pre>详细API信息请参照这里   <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank" rel="external">github API</a></li>
+</ol>
+<p>##gulp task执行顺序</p>
+<p>gulp的task默认为并行触发，若要顺序执行，要做如下处理。</p>
+<ol>
+<li>前面的task要写return</li>
+<li>后面的task要加第二参数，值为前面的task<br>```<br>var gulp = require(‘gulp’);</li>
+</ol>
+<p>gulp.task(‘first’, function() {<br>    return gulp.src(‘./package.json’)<br>      .pipe(gulp.dest(‘./dist’));<br>});</p>
+<p>gulp.task(‘second’,[‘first’], function() {<br>    console.log(‘first task done!!’);<br>});</p>
+<p>gulp.task(‘default’,[‘second’]);<br>```    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/11/2015-01-11-about-gulp/" data-id="cilcapfit0007xetqs87953i2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2013-05-10-20130515" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/05/10/2013-05-10-20130515/" class="article-date">
+  <time datetime="2013-05-10T00:38:00.000Z" itemprop="datePublished">2013-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/05/10/2013-05-10-20130515/">Rails3.0でモデルのER図を簡単に出力する方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>* graphvizをインストール
+* Gemfileのdevelopment環境の設定に「gem &quot;rails-erd&quot;」を追加
+* 「rake erd」を実行
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/05/10/2013-05-10-20130515/" data-id="cilcapfim0005xetqzrl4hvnp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2013-03-15-about-rails-functional-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/15/2013-03-15-about-rails-functional-test/" class="article-date">
+  <time datetime="2013-03-15T06:16:00.000Z" itemprop="datePublished">2013-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/15/2013-03-15-about-rails-functional-test/">关于rails控制器的功能测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="控制器的功能测试"><a href="#控制器的功能测试" class="headerlink" title="控制器的功能测试"></a>控制器的功能测试</h1><pre><code>require File.dirname(__FILE__) + &apos;/../test_helper&apos;
+</code></pre><p>关键在于setup方法，有三个东西<br>    1.controller<br>    2.request<br>    3.response</p>
+<p>get()方法时由测试辅助类提供的，它会模拟controller的web请求，并获取控制器的响应，<br>然后用assert_response来检查是否应答正确</p>
+<p>-n可以指定运行某一个特定的测试方法</p>
+<pre><code>ruby test/functional/logni_controller_test.rb -n test_index
+</code></pre><p>assert_redirected_to :action=&gt;”login”</p>
+<h1 id="Dynamic-Fixtures"><a href="#Dynamic-Fixtures" class="headerlink" title="Dynamic Fixtures"></a>Dynamic Fixtures</h1><p>在夹具中也可以使用ruby代码动态加入</p>
+<p>assert_template “index” 对模版进行断言</p>
+<h1 id="测试登录"><a href="#测试登录" class="headerlink" title="测试登录"></a>测试登录</h1><pre><code>def test_login
+  dave = users(:dave)
+  post :login, :nmae=&gt;dave.name, :password=&gt;&apos;secret&apos;
+  assert_redirected_to :action=&gt;&quot;index&quot;
+  assert_equal dave.id, session[:user_id]
+end
+</code></pre><h1 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h1><p>get()  对指定的action执行一次HTTP GET请求，并将结果放入HTTP RESPONSE</p>
+<pre><code>例: get(action,parameteres=nil,session=nil,flash=nil)
+</code></pre><p>post() 提交表单</p>
+<pre><code>例: post :edit, :user =&gt; {:name =&gt; &quot;dave&quot;, :age =&gt; &quot;24&quot;}
+
+ 模拟XMLHttp请求
+ xhr(method,action,parameters,session,flash)
+</code></pre><p>put(),delete(),head()</p>
+<h1 id="功能测试的断言"><a href="#功能测试的断言" class="headerlink" title="功能测试的断言"></a>功能测试的断言</h1><pre><code>assert_dom_equal(expected_html,actual_html,message)
+例:assert_dom_equal(expected,@response.body)
+
+assert_response(type,message)
+type的种类
+1.:success
+2.:redirect
+3.:missing
+4.:error
+例:assert_response :success
+</code></pre><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><pre><code>assigns(key=nil)
+     assert_not_nil assigns[&quot;items&quot;]
+session
+     assert_equal 2, session[:cart].items.size
+flash
+     assert_equal &quot;Danger!&quot;, flash[:notice]
+cookies
+     assert_equal &quot;Danger!&quot;, cookies[:name]
+redirect_to_url
+     assert_equal &quot;http://test.host/login&quot;, redirect_to_url
+</code></pre><h1 id="辅助方法"><a href="#辅助方法" class="headerlink" title="辅助方法"></a>辅助方法</h1><pre><code>find_tag(conditions)
+find_all_tag(conditions)
+follow_redirect
+fixture_file_upload(path,mime_type)
+</code></pre><h1 id="测试response的content"><a href="#测试response的content" class="headerlink" title="测试response的content"></a>测试response的content</h1><p>   使用强大的assert_select</p>
+<pre><code>assert_select &quot;title&quot;,  &quot;TEST&quot;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/03/15/2013-03-15-about-rails-functional-test/" data-id="cilcapfif0003xetq2geehv2k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2013-03-05-about-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/05/2013-03-05-about-vim/" class="article-date">
+  <time datetime="2013-03-05T03:00:00.000Z" itemprop="datePublished">2013-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/05/2013-03-05-about-vim/">对于vim命令的一些总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#宏命令(Macros)</p>
+<p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<pre><code>:qx    开始记录宏，并将结果存入寄存器x
+
+q    退出记录模式
+
+@x    播放记录在x寄存器中的宏命令
+</code></pre><p>稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模式，然后输入@x对刚才记录 下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。</p>
+<p>#同时编辑多个文件</p>
+<p>在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。</p>
+<p>#标签命令</p>
+<pre><code>:tabe fn    在一个新的标签页中编辑文件fn
+
+gt    切换到下一个标签页
+
+gT    切换到上一个标签页
+
+:tabr    切换到第一个标签页
+
+:tabl    切换到最后一个标签页
+
+:tabm [N]    把当前tab移动到第N个tab之后
+</code></pre><p>对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！</p>
+<p>#窗口命令</p>
+<pre><code>ctrl+w s    水平分割窗口
+
+ctrl+w w    切换窗口
+
+ctrl+w q    退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)
+
+ctrl+w v    垂直分割窗口
+</code></pre><p>其他</p>
+<p>vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。</p>
+<pre><code>:e file    把file加载到新的缓冲区中
+
+:bn    跳转到下一个缓冲区
+
+:bd    删除缓冲区(关闭文件)
+
+:sp fn    分割窗口，并将fn加载到新的窗口中
+</code></pre><p>#退出编辑器</p>
+<pre><code>:w    将缓冲区写入文件，即保存修改
+
+:wq    保存修改并退出
+
+:x    保存修改并退出
+
+:q    退出，如果对缓冲区进行过修改，则会提示
+
+:q!    强制退出，放弃修改
+</code></pre><p>#查找替换</p>
+<pre><code>/pattern    向后搜索字符串pattern
+
+?pattern    向前搜索字符串pattern
+
+n    下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+
+N    上一个匹配(同上)
+
+:%s/old/new/g    搜索整个文件，将所有的old替换为new
+
+:%s/old/new/gc    搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+
+复制粘贴
+
+dd    删除光标所在行
+
+dw    删除一个字(word)
+
+x    删除当前字符
+
+X    删除前一个字符
+
+D    删除到行末
+
+yy    复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行
+
+yw    复制一个字
+
+y$    复制到行末
+
+p    粘贴粘贴板的内容到当前行的下面
+
+P    粘贴粘贴板的内容到当前行的上面
+
+]p    有缩进的粘贴，vim会自动调节代码的缩进
+
+&quot;a    将内容放入/存入a寄存器，可以支持多粘贴板
+</code></pre><p>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<p>#移动光标</p>
+<p>在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。</p>
+<pre><code>h,j,k,l    上，下，左，右
+
+ctrl-f    上翻一页
+
+ctrl-b    下翻一页
+
+%    跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处
+
+w    跳到下一个字首，按标点或单词分割
+
+W    跳到下一个字首，长跳，如end-of-line被认为是一个字
+
+e    跳到下一个字尾
+
+E    跳到下一个字尾，长跳
+
+b    跳到上一个字
+
+B    跳到上一个字，长跳
+
+0    跳至行首，不管有无缩进，就是跳到第0个字符
+
+^    跳至行首的第一个字符
+
+$    跳至行尾
+
+gg    跳至文件的第一行
+
+gd    跳至当前光标所在的变量的声明处
+
+[N]G    跳到第N行，如0G，就等价于gg，100G就是第100行
+
+fx    在当前行中找x字符，找到了就跳转至
+
+;    重复上一个f命令，而不用重复的输入fx
+
+tx    与fx类似，但是只是跳转到x的前一个字符处
+
+Fx    跟fx的方向相反
+
+),(    跳转到上/下一个语句
+
+*    查找光标所在处的单词，向下查找
+
+#    查找光标所在处的单词，向上查找
+
+`.    跳转至上次编辑位置
+</code></pre><p>#在屏幕上移动</p>
+<pre><code>H    移动光标到当前屏幕上最上边的一行
+
+M    移动光标到当前屏幕上中间的一行
+
+L    移动光标到当前屏幕上最下边的一行
+</code></pre><p>#书签</p>
+<p>ma    把当前位置存成标签a</p>
+<p>`a    跳转到标签a处</p>
+<p> 编辑</p>
+<pre><code>r    替换一个字符
+
+J    将下一行和当前行连接为一行
+
+cc    删除当前行并进入编辑模式
+
+cw    删除当前字，并进入编辑模式
+
+c$    擦除从当前位置至行末的内容，并进入编辑模式
+
+s    删除当前字符并进入编辑模式
+
+S    删除光标所在行并进入编辑模式
+
+xp    交换当前字符和下一个字符
+
+u    撤销
+
+ctrl+r    重做
+
+.    重复上一个编辑命令
+
+~    切换大小写，当前字符
+
+g~iw    切换当前字的大小写
+
+gUiw    将当前字变成大写
+
+guiw    将当前字变成小写
+
+&gt;&gt;    将当前行右移一个单位
+
+&lt;&lt;    将当前行左移一个单位(一个tab符)
+
+==    自动缩进当前行
+</code></pre><p>#插入模式</p>
+<pre><code>i    从当前光标处进入插入模式
+
+I    进入插入模式，并置光标于行首
+
+a    追加模式，置光标于当前光标之后
+
+A    追加模式，置光标于行末
+
+o    在当前行之下新加一行，并进入插入模式
+
+O    在当前行之上新加一行，并进入插入模式
+</code></pre><p>Esc    退出插入模式</p>
+<p>#可视模式</p>
+<p>标记文本</p>
+<pre><code>v    进入可视模式，单字符模式
+
+V    进入可视模式，行模式
+
+ctrl+v    进入可视模式，列模式，类似于UE的列模式
+
+o    跳转光标到选中块的另一个端点
+
+U    将选中块中的内容转成大写
+
+O    跳转光标到块的另一个端点
+
+aw    选中一个字
+
+ab    选中括号中的所有内容，包括括号本身
+
+aB    选中{}括号中的所有内容
+
+ib    选中括号中的内容，不含括号
+
+iB    选中{}中的内容，不含{}
+</code></pre><p>对标记进行动作</p>
+<pre><code>&gt;    块右移
+
+&lt;    块左移
+
+y    复制块
+
+d    删除块
+
+~    切换块中内容的大小写
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/03/05/2013-03-05-about-vim/" data-id="cilcapfii0004xetqt9ptzl3e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2013-03-04-about-vm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/04/2013-03-04-about-vm/" class="article-date">
+  <time datetime="2013-03-04T08:21:00.000Z" itemprop="datePublished">2013-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails/">rails</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/04/2013-03-04-about-vm/">about vm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="VM设定时遇到的网络问题"><a href="#VM设定时遇到的网络问题" class="headerlink" title="VM设定时遇到的网络问题"></a>VM设定时遇到的网络问题</h2><hr>
+<ol>
+<li><p>虚拟机不能上网  桥接方式</p>
+<pre><code>桥接方式解决。注意设置windows下的网络链接，要将桥接的checkbox选上
+</code></pre></li>
+<li><p>window下的putty不能连接到虚拟机上，网址也不能访问</p>
+<pre><code>网址不能访问是linux下的防火墙没有关闭
+
+service iptables stop 注意要用root权限关闭，不然不起作用
+
+putty连不上的原因，是因为没有安装openssh
+
+yum -y install openssh-client openssh-server
+
+安装完毕后发现还是不能连接，原因是ssh服务还需要手动启动
+
+service sshd start
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/03/04/2013-03-04-about-vm/" data-id="cilcapfi60001xetqr9ij2x5s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2013-03-04-new-post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/04/2013-03-04-new-post/" class="article-date">
+  <time datetime="2013-03-04T07:42:00.000Z" itemprop="datePublished">2013-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails/">rails</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/04/2013-03-04-new-post/">centos下搭rails开发环境时的一些记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装mysql</p>
+<pre><code>yum -y install mysql
+</code></pre><p>配置文件-设置编码为utf8</p>
+<pre><code>vim /etc/my.cnf
+
+[mysql]
+default-character-set = utf8
+</code></pre><p>启动mysql服务</p>
+<pre><code>/etc/rc.d/init.d/msyqld start
+</code></pre><p>设置mysql随机启动</p>
+<pre><code>chkconfig mysqld on 
+chkconfig --liset mysqld
+</code></pre><p>创建数据库</p>
+<pre><code>msyqladmin -u root create depot_development
+</code></pre><p>修改root用户的密码</p>
+<pre><code>update user set password = password(&apos;root&apos;) where user = &apos;root&apos;
+
+/etc/init.d/mysqld restart
+
+mysql -uroot -p
+</code></pre><p>创建rails项目</p>
+<pre><code>rails new depot --database=mysql
+</code></pre><p>出现错误</p>
+<pre><code>mysql.h is missing.
+</code></pre><p>解决办法:<br>    yum -y install mysql-devel</p>
+<p>mysql 查看表结构</p>
+<pre><code>desc 表名
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/03/04/2013-03-04-new-post/" data-id="cilcapfhx0000xetqyqvos00v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

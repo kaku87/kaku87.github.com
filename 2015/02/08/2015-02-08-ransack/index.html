@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rails gem系列之ransack | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##概要
+ransack是一个用来实现检索功能的gem。
+github地址: https://github.com/activerecord-hackery/ransack
+示例网站：http://ransack-demo.herokuapp.com
+##安装
+Gemfile1gem &apos;ransack&apos;
+然后执行bundle就可以了。
+##使用方法
+在controller中如下使用,注意参数:q为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rails gem系列之ransack">
+<meta property="og:url" content="http://yoursite.com/2015/02/08/2015-02-08-ransack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##概要
+ransack是一个用来实现检索功能的gem。
+github地址: https://github.com/activerecord-hackery/ransack
+示例网站：http://ransack-demo.herokuapp.com
+##安装
+Gemfile1gem &apos;ransack&apos;
+然后执行bundle就可以了。
+##使用方法
+在controller中如下使用,注意参数:q为">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rails gem系列之ransack">
+<meta name="twitter:description" content="##概要
+ransack是一个用来实现检索功能的gem。
+github地址: https://github.com/activerecord-hackery/ransack
+示例网站：http://ransack-demo.herokuapp.com
+##安装
+Gemfile1gem &apos;ransack&apos;
+然后执行bundle就可以了。
+##使用方法
+在controller中如下使用,注意参数:q为">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-02-08-ransack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/08/2015-02-08-ransack/" class="article-date">
+  <time datetime="2015-02-08T11:02:00.000Z" itemprop="datePublished">2015-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails-gem/">rails gem</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rails gem系列之ransack
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##概要</p>
+<p>ransack是一个用来实现检索功能的gem。</p>
+<p>github地址: <a href="https://github.com/activerecord-hackery/ransack" target="_blank" rel="external">https://github.com/activerecord-hackery/ransack</a></p>
+<p>示例网站：<a href="http://ransack-demo.herokuapp.com" target="_blank" rel="external">http://ransack-demo.herokuapp.com</a></p>
+<p>##安装</p>
+<figure class="highlight ruby"><figcaption><span>Gemfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="string">'ransack'</span></span><br></pre></td></tr></table></figure>
+<p>然后执行bundle就可以了。</p>
+<p>##使用方法</p>
+<p>在controller中如下使用,注意参数:q为ransack的固定写法。里面放了view传过来的检索项的值。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  @q = Person.ransack(params[<span class="symbol">:q</span>])</span><br><span class="line">  @people = @q.result(<span class="symbol">distinct:</span> <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>view中的写法如下。</p>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=<span class="ruby"> search_form_for @q <span class="keyword">do</span> |f| </span>%&gt;</span><br><span class="line"></span><br><span class="line">  # Search if the name field contains...</span><br><span class="line">  &lt;%=<span class="ruby"> f.label <span class="symbol">:name_cont</span> </span>%&gt;</span><br><span class="line">  &lt;%=<span class="ruby"> f.search_field <span class="symbol">:name_cont</span> </span>%&gt;</span><br><span class="line"></span><br><span class="line">  # Search if an associated articles.title starts with...</span><br><span class="line">  &lt;%=<span class="ruby"> f.label <span class="symbol">:articles_title_start</span> </span>%&gt;</span><br><span class="line">  &lt;%=<span class="ruby"> f.search_field <span class="symbol">:articles_title_start</span> </span>%&gt;</span><br><span class="line"></span><br><span class="line">  # Attributes may be chained. Search multiple attributes for one value...</span><br><span class="line">  &lt;%=<span class="ruby"> f.label <span class="symbol">:name_or_description_or_email_or_articles_title_cont</span> </span>%&gt;</span><br><span class="line">  &lt;%=<span class="ruby"> f.search_field <span class="symbol">:name_or_description_or_email_or_articles_title_cont</span> </span>%&gt;</span><br><span class="line"></span><br><span class="line">  &lt;%=<span class="ruby"> f.submit </span>%&gt;</span><br><span class="line">&lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br></pre></td></tr></table></figure>
+<p>##search的写法</p>
+<p>eq表示等于</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:name_eq</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`name` = 'test')"</span></span><br></pre></td></tr></table></figure>
+<p>lt表示小于</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:price_lt</span> =&gt; <span class="number">1000</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`price` &lt; 1000)"</span></span><br></pre></td></tr></table></figure>
+<p>gt表示大于</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:price_gt</span> =&gt; <span class="number">1000</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`price` &gt; 1000)"</span></span><br></pre></td></tr></table></figure>
+<p>in表示sql中的in<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:category_id_in</span> =&gt; [<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">20</span>]).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`category_id` IN (5,10,15,20))"</span></span><br></pre></td></tr></table></figure></p>
+<p>cont表示包含，模糊查询</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:name_cont</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE '%test%')"</span></span><br></pre></td></tr></table></figure>
+<p>start表示前端一致</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:name_start</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE `items`.`name` LIKE 'test%')"</span></span><br></pre></td></tr></table></figure>
+<p>组合用法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:name_and_description_cont</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%test%') AND (`items`.`description` LIKE '%test%')))"</span></span><br><span class="line">Item.search(<span class="symbol">:name_or_description_cont</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%test%') OR (`items`.`description` LIKE '%test%')))"</span></span><br></pre></td></tr></table></figure>
+<p>条件组合<br>末尾加_all是AND关系，末尾加_any是OR关系</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:name_cont_all</span> =&gt; [<span class="string">'AAA'</span>, <span class="string">'BBB'</span>]).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%AAA%') AND (`items`.`name` LIKE '%BBB%')))"</span></span><br><span class="line">Item.search(<span class="symbol">:name_cont_any</span> =&gt; [<span class="string">'AAA'</span>, <span class="string">'BBB'</span>]).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` WHERE (((`items`.`name` LIKE '%AAA%') OR (`items`.`name` LIKE '%BBB%')))"</span></span><br></pre></td></tr></table></figure>
+<p>相关模型检索</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Item.search(<span class="symbol">:comments_body_cont</span> =&gt; <span class="string">'test'</span>).result.to_sql</span><br><span class="line"><span class="comment"># =&gt; "SELECT `items`.* FROM `items` LEFT OUTER JOIN `item_comments` ON `item_comments`.`item_id` = `items`.`id` WHERE `item_comments`.`body` LIKE '%test%'"</span></span><br></pre></td></tr></table></figure>
+<p>##表头排序</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= sort_link(@q, <span class="symbol">:name</span>) %&gt;</span><br></pre></td></tr></table></figure>
+<p>加别名，加默认排序</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= sort_link(@q, <span class="symbol">:name</span>, <span class="string">'Last Name'</span>, <span class="symbol">default_order:</span> <span class="symbol">:desc</span>) %&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/08/2015-02-08-ransack/" data-id="cilcapfjh000kxetqkm6id2k9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/11/2015-02-11-carrierwave/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          rails gem系列之CarrierWave
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/07/2015-02-07-kaminari/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rails gem系列之kaminari</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

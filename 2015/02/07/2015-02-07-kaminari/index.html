@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rails gem系列之kaminari | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##概要kaminari是rails项目中常用的分页gem
+github地址：https://github.com/amatsuda/kaminari
+##安装
+1gem &apos;kaminari&apos;
+然后执行bundle就可以了。
+##基本使用
+分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。123def index  @items = Item.page(params[:pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rails gem系列之kaminari">
+<meta property="og:url" content="http://yoursite.com/2015/02/07/2015-02-07-kaminari/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##概要kaminari是rails项目中常用的分页gem
+github地址：https://github.com/amatsuda/kaminari
+##安装
+1gem &apos;kaminari&apos;
+然后执行bundle就可以了。
+##基本使用
+分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。123def index  @items = Item.page(params[:pa">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rails gem系列之kaminari">
+<meta name="twitter:description" content="##概要kaminari是rails项目中常用的分页gem
+github地址：https://github.com/amatsuda/kaminari
+##安装
+1gem &apos;kaminari&apos;
+然后执行bundle就可以了。
+##基本使用
+分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。123def index  @items = Item.page(params[:pa">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-02-07-kaminari" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/07/2015-02-07-kaminari/" class="article-date">
+  <time datetime="2015-02-07T14:02:00.000Z" itemprop="datePublished">2015-02-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails-gem/">rails gem</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rails gem系列之kaminari
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##概要<br>kaminari是rails项目中常用的分页gem</p>
+<p>github地址：<a href="https://github.com/amatsuda/kaminari" target="_blank" rel="external">https://github.com/amatsuda/kaminari</a></p>
+<p>##安装</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="string">'kaminari'</span></span><br></pre></td></tr></table></figure>
+<p>然后执行bundle就可以了。</p>
+<p>##基本使用</p>
+<p>分页的写法如下，默认为25行一页。改行数在后面加.per(行数)就可以了。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  @items = Item.page(params[<span class="symbol">:page</span>])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>view中加一行就会生成翻页部分了。so easy.<br><figure class="highlight ruby"><figcaption><span>index.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= paginate @items %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>##更改翻页样式</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails g <span class="symbol">kaminari:</span>views default</span><br></pre></td></tr></table></figure>
+<p>这样就会在app/views/kaminari下生成翻页部分的代码，可以按自己的喜好修改。</p>
+<p>当然我们还可以选择bootstrap样式的翻页。直接clone下来就可以用了。当然前提是要先装好bootstrap。<br><a href="https://github.com/gabetax/twitter-bootstrap-kaminari-views" target="_blank" rel="external">https://github.com/gabetax/twitter-bootstrap-kaminari-views</a></p>
+<p>##ajax翻页</p>
+<figure class="highlight ruby"><figcaption><span>posts_controller.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">respond_to <span class="symbol">:html</span>, <span class="symbol">:js</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  @posts = Post.page(params[<span class="symbol">:page</span>]).per(<span class="number">10</span>)</span><br><span class="line">  respond_with(@posts)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>列表部分放到partial中<br><figure class="highlight ruby"><figcaption><span>_posts.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% @posts.each <span class="keyword">do</span> |post| %&gt;</span><br><span class="line">省略</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight ruby"><figcaption><span>index.js.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#posts"</span>).html(<span class="string">"&lt;%= j(render :partial =&gt; 'posts') %&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>index.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id="posts"&gt;</span><br><span class="line">  &lt;%= render :partial =&gt; "posts" %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;%= paginate @posts %&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/07/2015-02-07-kaminari/" data-id="cilcapfjb000jxetqhmnwdeye" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/08/2015-02-08-ransack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          rails gem系列之ransack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/06/2015-02-06-ffaker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rails gem系列之ffaker</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

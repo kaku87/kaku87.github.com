@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>zsh下git命令Cheat-sheet  | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950g - gitgst - git statusgl - git pullgup - git pull --rebasegp - git pushgd - git diffgdc - git diff --cachedg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zsh下git命令Cheat-sheet ">
+<meta property="og:url" content="http://yoursite.com/2015/02/01/2015-02-01-git-commond/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950g - gitgst - git statusgl - git pullgup - git pull --rebasegp - git pushgd - git diffgdc - git diff --cachedg">
+<meta property="og:updated_time" content="2015-05-09T10:58:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zsh下git命令Cheat-sheet ">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950g - gitgst - git statusgl - git pullgup - git pull --rebasegp - git pushgd - git diffgdc - git diff --cachedg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-02-01-git-commond" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/01/2015-02-01-git-commond/" class="article-date">
+  <time datetime="2015-02-01T05:20:00.000Z" itemprop="datePublished">2015-02-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git-zsh/">git zsh</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      zsh下git命令Cheat-sheet 
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">g - git</span><br><span class="line">gst - git status</span><br><span class="line">gl - git pull</span><br><span class="line">gup - git pull --rebase</span><br><span class="line">gp - git push</span><br><span class="line">gd - git diff</span><br><span class="line">gdc - git diff --cached</span><br><span class="line">gdv - git diff -w &quot;$@&quot; | view -</span><br><span class="line">gc - git commit -v</span><br><span class="line">gc! - git commit -v --amend</span><br><span class="line">gca - git commit -v -a</span><br><span class="line">gca! - git commit -v -a --amend</span><br><span class="line">gcmsg - git commit -m</span><br><span class="line">gco - git checkout</span><br><span class="line">gcm - git checkout master</span><br><span class="line">gr - git remote</span><br><span class="line">grv - git remote -v</span><br><span class="line">grmv - git remote rename</span><br><span class="line">grrm - git remote remove</span><br><span class="line">gsetr - git remote set-url</span><br><span class="line">grup - git remote update</span><br><span class="line">grbi - git rebase -i</span><br><span class="line">grbc - git rebase --continue</span><br><span class="line">grba - git rebase --abort</span><br><span class="line">gb - git branch</span><br><span class="line">gba - git branch -a</span><br><span class="line">gcount - git shortlog -sn</span><br><span class="line">gcl - git config --list</span><br><span class="line">gcp - git cherry-pick</span><br><span class="line">glg - git log --stat --max-count=10</span><br><span class="line">glgg - git log --graph --max-count=10</span><br><span class="line">glgga - git log --graph --decorate --all</span><br><span class="line">glo - git log --oneline --decorate --color</span><br><span class="line">glog - git log --oneline --decorate --color --graph</span><br><span class="line">gss - git status -s</span><br><span class="line">ga - git add</span><br><span class="line">gm - git merge</span><br><span class="line">grh - git reset HEAD</span><br><span class="line">grhh - git reset HEAD --hard</span><br><span class="line">gclean - git reset --hard &amp;&amp; git clean -dfx</span><br><span class="line">gwc - git whatchanged -p --abbrev-commit --pretty=medium</span><br><span class="line">gsts - git stash show --text</span><br><span class="line">gsta - git stash</span><br><span class="line">gstp - git stash pop</span><br><span class="line">gstd - git stash drop</span><br><span class="line">ggpull - git pull origin $(current_branch)</span><br><span class="line">ggpur - git pull --rebase origin $(current_branch)</span><br><span class="line">ggpush - git push origin $(current_branch)</span><br><span class="line">ggpnp - git pull origin $(current_branch) &amp;&amp; git push origin $(current_branch)</span><br><span class="line">glp - _git_log_prettily</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/02/01/2015-02-01-git-commond/" data-id="cilcapfiy000bxetqojc4nymy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/01/2015-02-01-an-zhuang-auto-fu-dot-zshrang-ming-ling-shu-ru-zi-dong-bu-quan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          安装auto-fu.zsh让命令输入自动补全
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/26/2015-01-26-devise/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rails gem系列之devise</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gem/">gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git-zsh/">git zsh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem/">rails gem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails-gem-ruby/">rails gem ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ruby/">ruby</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-dairy/">LPIC学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-vi-cheat-sheet/">vim cheat sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/2015-11-27-about-linux/">如何重新搭建一个已经存在的Octopress博客</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/11/2015-02-11-carrierwave/">rails gem系列之CarrierWave</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/08/2015-02-08-ransack/">rails gem系列之ransack</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
